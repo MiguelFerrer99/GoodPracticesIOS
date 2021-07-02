@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Date Picker View Controller-->
+        <scene sceneID="x4U-8h-iRH">
+            <objects>
+                <viewController storyboardIdentifier="DatePickerViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hOh-Wf-RG5" customClass="DatePickerViewController" customModule="Mobile_Seekers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OuB-7z-h85">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddy-Jg-REC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zpw-bY-X2m">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="backgroundButtonPressed:" destination="hOh-Wf-RG5" eventType="touchUpInside" id="Bas-qJ-KD0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bua-rf-Aqu" customClass="CustomButton" customModule="Mobile_Seekers" customModuleProvider="target">
+                                        <rect key="frame" x="24" y="716" width="327" height="56"/>
+                                        <color key="backgroundColor" name="AccentLight"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="Vt3-yg-zxy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
+                                        <state key="normal" title="Aceptar">
+                                            <color key="titleColor" name="BackgroundWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="fullRound" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="acceptButtonPressed:" destination="hOh-Wf-RG5" eventType="touchUpInside" id="9DE-e6-v9w"/>
+                                        </connections>
+                                    </button>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Du1-SI-XCX" customClass="CustomView" customModule="Mobile_Seekers" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="361" width="335" height="335"/>
+                                        <subviews>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="PSk-pg-SIO">
+                                                <rect key="frame" x="10" y="10" width="315" height="315"/>
+                                                <color key="backgroundColor" name="BackgroundWhite"/>
+                                                <color key="tintColor" name="AccentLight"/>
+                                            </datePicker>
+                                        </subviews>
+                                        <color key="backgroundColor" name="BackgroundWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Du1-SI-XCX" secondAttribute="height" id="BGV-4q-Ngs"/>
+                                            <constraint firstItem="PSk-pg-SIO" firstAttribute="top" secondItem="Du1-SI-XCX" secondAttribute="top" constant="10" id="Dv1-0U-DRQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="PSk-pg-SIO" secondAttribute="trailing" constant="10" id="LO4-3u-QeU"/>
+                                            <constraint firstAttribute="bottom" secondItem="PSk-pg-SIO" secondAttribute="bottom" constant="10" id="MSj-bG-CoR"/>
+                                            <constraint firstItem="PSk-pg-SIO" firstAttribute="leading" secondItem="Du1-SI-XCX" secondAttribute="leading" constant="10" id="wdV-Ms-RqQ"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha de nacimiento" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Myp-F1-bAW">
+                                        <rect key="frame" x="24" y="313" width="327" height="28"/>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="Dark Grey Translucid"/>
+                                <constraints>
+                                    <constraint firstItem="Bua-rf-Aqu" firstAttribute="top" secondItem="Du1-SI-XCX" secondAttribute="bottom" constant="20" id="4DI-LL-dJd"/>
+                                    <constraint firstItem="Bua-rf-Aqu" firstAttribute="leading" secondItem="ddy-Jg-REC" secondAttribute="leading" constant="24" id="Aef-uS-5K0"/>
+                                    <constraint firstAttribute="trailing" secondItem="Myp-F1-bAW" secondAttribute="trailing" constant="24" id="DHf-ul-A9K"/>
+                                    <constraint firstItem="Myp-F1-bAW" firstAttribute="centerX" secondItem="ddy-Jg-REC" secondAttribute="centerX" id="My2-QO-TeK"/>
+                                    <constraint firstItem="Zpw-bY-X2m" firstAttribute="leading" secondItem="ddy-Jg-REC" secondAttribute="leading" id="P7o-CN-u4S"/>
+                                    <constraint firstItem="Du1-SI-XCX" firstAttribute="top" secondItem="Myp-F1-bAW" secondAttribute="bottom" constant="20" id="Sgs-HL-ImI"/>
+                                    <constraint firstAttribute="trailing" secondItem="Du1-SI-XCX" secondAttribute="trailing" constant="20" id="SnC-p8-aVJ"/>
+                                    <constraint firstItem="Du1-SI-XCX" firstAttribute="leading" secondItem="ddy-Jg-REC" secondAttribute="leading" constant="20" id="Y6y-zN-uAe"/>
+                                    <constraint firstItem="Myp-F1-bAW" firstAttribute="leading" secondItem="ddy-Jg-REC" secondAttribute="leading" constant="24" id="Zbt-S7-UVH"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zpw-bY-X2m" secondAttribute="bottom" id="aGX-MV-Vj0"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zpw-bY-X2m" secondAttribute="trailing" id="eWQ-Ad-c3c"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bua-rf-Aqu" secondAttribute="bottom" constant="40" id="kqi-8m-JAS"/>
+                                    <constraint firstItem="Zpw-bY-X2m" firstAttribute="top" secondItem="ddy-Jg-REC" secondAttribute="top" id="l0Z-v5-rAG"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bua-rf-Aqu" secondAttribute="trailing" constant="24" id="uWT-KY-Rer"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gpc-sZ-x8X"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ddy-Jg-REC" firstAttribute="top" secondItem="OuB-7z-h85" secondAttribute="top" id="7Np-qT-UGQ"/>
+                            <constraint firstAttribute="bottom" secondItem="ddy-Jg-REC" secondAttribute="bottom" id="EiU-o7-wQv"/>
+                            <constraint firstItem="gpc-sZ-x8X" firstAttribute="trailing" secondItem="ddy-Jg-REC" secondAttribute="trailing" id="xSS-uc-GF9"/>
+                            <constraint firstItem="ddy-Jg-REC" firstAttribute="leading" secondItem="gpc-sZ-x8X" secondAttribute="leading" id="y8l-eJ-lnY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="PSk-pg-SIO" id="WWf-Ap-G9u"/>
+                        <outlet property="titleLabel" destination="Myp-F1-bAW" id="egB-70-HBj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OH1-MY-EpT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53.600000000000001" y="104.92610837438424"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="Bua-rf-Aqu">
+            <size key="intrinsicContentSize" width="63" height="33"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="AccentLight">
+            <color red="0.7686274509803922" green="0.0" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BackgroundWhite">
+            <color red="0.98431372549019602" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Dark Grey Translucid">
+            <color red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="0.69999998807907104" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

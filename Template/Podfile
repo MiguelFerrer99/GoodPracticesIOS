@@ -1,0 +1,17 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '12.0'
+
+target 'Template' do
+# Comment the next line if you don't want to use dynamic frameworks
+use_frameworks!
+
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
+# Pods for Template
+pod 'Alamofire'
+pod 'AlamofireImage'
+pod 'IQKeyboardManager'
+pod 'Fakery'
+
+end

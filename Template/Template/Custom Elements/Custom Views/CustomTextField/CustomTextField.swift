@@ -34,7 +34,7 @@ class CustomTextField: UIView {
     willSet { textField.placeholder = newValue.localized }
   }
 
-  @IBInspectable var borderColor: UIColor = UIColor(named: "color_Primary")! {
+    @IBInspectable var borderColor: UIColor = UIColor(named: "color_Primary") ?? .black {
     willSet { customView.layer.borderColor = newValue.cgColor }
   }
 

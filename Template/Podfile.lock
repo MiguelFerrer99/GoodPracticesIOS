@@ -1,0 +1,29 @@
+PODS:
+  - Alamofire (5.4.3)
+  - AlamofireImage (4.2.0):
+    - Alamofire (~> 5.4)
+  - Fakery (5.1.0)
+  - IQKeyboardManager (6.5.6)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlamofireImage
+  - Fakery
+  - IQKeyboardManager
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AlamofireImage
+    - Fakery
+    - IQKeyboardManager
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
+  Fakery: a90caff00ca5cacde6c161c3eafc72314a03d34d
+  IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
+
+PODFILE CHECKSUM: 7988e351dc3efb376dc113c7fbff2b8054bcbab6
+
+COCOAPODS: 1.10.0

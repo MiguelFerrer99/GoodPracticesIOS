@@ -8,11 +8,11 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: ViewController {
   // MARK: - IBOutlets
   @IBOutlet weak var emailTextField: CustomTextField!
   @IBOutlet weak var passwordTextField: CustomTextField!
-
+    
   // MARK: - Properties
 
   // MARK: - Life cycle
@@ -22,12 +22,16 @@ class LoginViewController: UIViewController {
     configureTextFields()
   }
 
+  override var navBarTitle: String {
+    return "Login"
+  }
+    
   // MARK: - Functions
   func fillUI() {
     if !isViewLoaded { return }
 
   }
-
+    
   func configureTextFields() {
     emailTextField.addErrorsToCheck([TextFieldErrorEmptyValue(),
                                      TextFieldErrorEmailFormat()])
@@ -53,15 +57,11 @@ class LoginViewController: UIViewController {
   // MARK: - Observers
   @IBAction func loginButtonPressed(_ sender: UIButton) {
     if textFieldsHaveErrors() { return }
-
   }
 
   @IBAction func recoverPasswordButtonPressed(_ sender: UIButton) {
     let recoverPasswordVC = UIViewController.instantiate(viewController: RecoverPasswordViewController.self)
-    present(viewController: recoverPasswordVC)
-  }
-
-  @IBAction func closeButtonPressed(_ sender: UIButton) {
-    dismiss(animated: true)
+    let nav = UINavigationController(rootViewController: recoverPasswordVC)
+    present(viewController: nav)
   }
 }

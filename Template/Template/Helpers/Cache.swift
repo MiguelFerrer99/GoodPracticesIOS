@@ -13,7 +13,8 @@ struct Cache {
     case refresh_token,
     access_token,
     logged,
-    userID
+    userID,
+    onboardDone
   }
 
   static func set(_ key: key, _ value: Any?) {

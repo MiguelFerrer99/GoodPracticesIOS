@@ -21,6 +21,10 @@ class ViewController: UIViewController {
     return false
   }
 
+    var navBarTitle: String {
+        return ""
+    }
+    
   var hideNavigationBar: Bool {
     return false
   }
@@ -57,6 +61,8 @@ class ViewController: UIViewController {
     navigationController?.navigationBar.topItem?.backBarButtonItem = backItem
 
     overrideUserInterfaceStyle = .light
+      
+      navigationItem.title = navBarTitle
 
     NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
   }

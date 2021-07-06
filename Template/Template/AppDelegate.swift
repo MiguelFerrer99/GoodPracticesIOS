@@ -14,7 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
+      
+      if Cache.get(boolFor: .onboardDone) {
+          window?.rootViewController = UIViewController.instantiate(viewController: StartupViewController.self)
+      } else {
+          window?.rootViewController = UIViewController.instantiate(viewController: OnboardCollectionViewController.self)
+          //window?.rootViewController = UIViewController.instantiate(viewController: OnboardScrollViewController.self)
+      }
+      
     return true
   }
 }

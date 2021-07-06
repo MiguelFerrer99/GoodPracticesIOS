@@ -34,12 +34,23 @@ class CustomTextField: UIView {
     willSet { textField.placeholder = newValue.localized }
   }
 
-    @IBInspectable var borderColor: UIColor = UIColor(named: "color_Primary") ?? .black {
+  @IBInspectable var borderColor: UIColor = UIColor(named: "color_Primary") ?? .black {
     willSet { customView.layer.borderColor = newValue.cgColor }
   }
 
   @IBInspectable var borderSize: CGFloat = 0 {
     willSet { customView.layer.borderWidth = newValue}
+  }
+    
+  @IBInspectable var singleBottomLine: Bool = false {
+    willSet {
+      let bottomLine = CALayer()
+      bottomLine.frame = CGRect(x: 0, y: textField.frame.height, width: textField.frame.width+iconImageView.frame.width, height: 1)
+      bottomLine.backgroundColor = UIColor.gray.cgColor
+      bottomLine.opacity = 0.5
+      textField.borderStyle = .none
+      textField.layer.addSublayer(bottomLine)
+    }
   }
 
   // MARK: - IBOutlets

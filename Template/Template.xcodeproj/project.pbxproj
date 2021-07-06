@@ -46,6 +46,18 @@
 		945B15BC25595DC9003A65E0 /* ViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945B15AA25595DC9003A65E0 /* ViewControllerHelper.swift */; };
 		945B15BD25595DC9003A65E0 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945B15AB25595DC9003A65E0 /* Cache.swift */; };
 		A01CC49125D2FB3700404685 /* LocalizedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CC49025D2FB3700404685 /* LocalizedKey.swift */; };
+		A20EE9CF269453F600128096 /* OnboardScroll.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20EE9CE269453F600128096 /* OnboardScroll.storyboard */; };
+		A20EE9D32694550D00128096 /* OnboardCollection-Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20EE9D22694550D00128096 /* OnboardCollection-Controller.swift */; };
+		A20EE9D52694553C00128096 /* OnboardCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20EE9D42694553C00128096 /* OnboardCollection.storyboard */; };
+		A20EE9D72694575A00128096 /* OnboardCollection-Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20EE9D62694575A00128096 /* OnboardCollection-Collection.swift */; };
+		A20EE9DC26945B2A00128096 /* OnboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20EE9DA26945B2A00128096 /* OnboardCell.swift */; };
+		A20EE9DD26945B2A00128096 /* OnboardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A20EE9DB26945B2A00128096 /* OnboardCell.xib */; };
+		A20EE9DF2694603300128096 /* OnboardCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20EE9DE2694603300128096 /* OnboardCellViewModel.swift */; };
+		A20EE9E1269461D900128096 /* OnboardCollection-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20EE9E0269461D900128096 /* OnboardCollection-ViewModel.swift */; };
+		A20EE9E32694696600128096 /* OnboardScroll-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20EE9E22694696600128096 /* OnboardScroll-ViewModel.swift */; };
+		A20EE9E526946AB100128096 /* OnboardScroll-Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20EE9E426946AB100128096 /* OnboardScroll-Scroll.swift */; };
+		A2778DAE26930EE400E87A00 /* OnboardScroll-Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2778DAD26930EE400E87A00 /* OnboardScroll-Controller.swift */; };
+		A2B4C74226943B6800DE6FAB /* OnboardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4C74126943B6800DE6FAB /* OnboardScreen.swift */; };
 		AA00012C25E3C4EA000168C9 /* DatePicker-Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00012925E3C4EA000168C9 /* DatePicker-Controller.swift */; };
 		AA00012D25E3C4EA000168C9 /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA00012A25E3C4EA000168C9 /* DatePicker.storyboard */; };
 		AA00012E25E3C4EA000168C9 /* DatePicker-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00012B25E3C4EA000168C9 /* DatePicker-ViewModel.swift */; };
@@ -98,6 +110,18 @@
 		945B15AA25595DC9003A65E0 /* ViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerHelper.swift; sourceTree = "<group>"; };
 		945B15AB25595DC9003A65E0 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		A01CC49025D2FB3700404685 /* LocalizedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedKey.swift; sourceTree = "<group>"; };
+		A20EE9CE269453F600128096 /* OnboardScroll.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardScroll.storyboard; sourceTree = "<group>"; };
+		A20EE9D22694550D00128096 /* OnboardCollection-Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardCollection-Controller.swift"; sourceTree = "<group>"; };
+		A20EE9D42694553C00128096 /* OnboardCollection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardCollection.storyboard; sourceTree = "<group>"; };
+		A20EE9D62694575A00128096 /* OnboardCollection-Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardCollection-Collection.swift"; sourceTree = "<group>"; };
+		A20EE9DA26945B2A00128096 /* OnboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardCell.swift; sourceTree = "<group>"; };
+		A20EE9DB26945B2A00128096 /* OnboardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardCell.xib; sourceTree = "<group>"; };
+		A20EE9DE2694603300128096 /* OnboardCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardCellViewModel.swift; sourceTree = "<group>"; };
+		A20EE9E0269461D900128096 /* OnboardCollection-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardCollection-ViewModel.swift"; sourceTree = "<group>"; };
+		A20EE9E22694696600128096 /* OnboardScroll-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardScroll-ViewModel.swift"; sourceTree = "<group>"; };
+		A20EE9E426946AB100128096 /* OnboardScroll-Scroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardScroll-Scroll.swift"; sourceTree = "<group>"; };
+		A2778DAD26930EE400E87A00 /* OnboardScroll-Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardScroll-Controller.swift"; sourceTree = "<group>"; };
+		A2B4C74126943B6800DE6FAB /* OnboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardScreen.swift; sourceTree = "<group>"; };
 		AA00012925E3C4EA000168C9 /* DatePicker-Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DatePicker-Controller.swift"; sourceTree = "<group>"; };
 		AA00012A25E3C4EA000168C9 /* DatePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
 		AA00012B25E3C4EA000168C9 /* DatePicker-ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DatePicker-ViewModel.swift"; sourceTree = "<group>"; };
@@ -176,6 +200,7 @@
 		3147D62D2419071700E741D3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A20EE9D0269454E500128096 /* Onboard */,
 				3147D62F2419075A00E741D3 /* Startup */,
 				31981E432419199600D25074 /* Register */,
 				310FC91724192DC2002EFCD4 /* Login */,
@@ -204,6 +229,7 @@
 		31981E3B24190ACA00D25074 /* Custom Elements */ = {
 			isa = PBXGroup;
 			children = (
+				A20EE9D826945AE300128096 /* CollectionCells */,
 				AA00012725E3C4B6000168C9 /* SuportingModules */,
 				943CE5F92546DFBC00CA93AA /* Designables */,
 				31981E46241919BD00D25074 /* Custom Views */,
@@ -299,6 +325,55 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		A20EE9D0269454E500128096 /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				A20EE9D1269454EE00128096 /* OnboardCollection */,
+				A2778DAC26930EA600E87A00 /* OnboardScroll */,
+			);
+			path = Onboard;
+			sourceTree = "<group>";
+		};
+		A20EE9D1269454EE00128096 /* OnboardCollection */ = {
+			isa = PBXGroup;
+			children = (
+				A20EE9D22694550D00128096 /* OnboardCollection-Controller.swift */,
+				A20EE9D62694575A00128096 /* OnboardCollection-Collection.swift */,
+				A20EE9E0269461D900128096 /* OnboardCollection-ViewModel.swift */,
+				A20EE9D42694553C00128096 /* OnboardCollection.storyboard */,
+			);
+			path = OnboardCollection;
+			sourceTree = "<group>";
+		};
+		A20EE9D826945AE300128096 /* CollectionCells */ = {
+			isa = PBXGroup;
+			children = (
+				A20EE9D926945AF500128096 /* OnboardCell */,
+			);
+			path = CollectionCells;
+			sourceTree = "<group>";
+		};
+		A20EE9D926945AF500128096 /* OnboardCell */ = {
+			isa = PBXGroup;
+			children = (
+				A20EE9DA26945B2A00128096 /* OnboardCell.swift */,
+				A20EE9DB26945B2A00128096 /* OnboardCell.xib */,
+				A20EE9DE2694603300128096 /* OnboardCellViewModel.swift */,
+			);
+			path = OnboardCell;
+			sourceTree = "<group>";
+		};
+		A2778DAC26930EA600E87A00 /* OnboardScroll */ = {
+			isa = PBXGroup;
+			children = (
+				A2778DAD26930EE400E87A00 /* OnboardScroll-Controller.swift */,
+				A20EE9E22694696600128096 /* OnboardScroll-ViewModel.swift */,
+				A20EE9E426946AB100128096 /* OnboardScroll-Scroll.swift */,
+				A20EE9CE269453F600128096 /* OnboardScroll.storyboard */,
+			);
+			path = OnboardScroll;
+			sourceTree = "<group>";
+		};
 		AA00012725E3C4B6000168C9 /* SuportingModules */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				E3D14DC9242D06DF00436D51 /* UpdateRequired.swift */,
+				A2B4C74126943B6800DE6FAB /* OnboardScreen.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -414,7 +490,10 @@
 			files = (
 				AA00012D25E3C4EA000168C9 /* DatePicker.storyboard in Resources */,
 				31981E49241919D300D25074 /* CustomTextField.xib in Resources */,
+				A20EE9CF269453F600128096 /* OnboardScroll.storyboard in Resources */,
 				310FC91E24193014002EFCD4 /* RecoverPassword.storyboard in Resources */,
+				A20EE9DD26945B2A00128096 /* OnboardCell.xib in Resources */,
+				A20EE9D52694553C00128096 /* OnboardCollection.storyboard in Resources */,
 				3147D626241906FD00E741D3 /* LaunchScreen.storyboard in Resources */,
 				310FC91924192DCE002EFCD4 /* Login.storyboard in Resources */,
 				3147D623241906FD00E741D3 /* Assets.xcassets in Resources */,
@@ -473,23 +552,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				945B15BA25595DC9003A65E0 /* Pagination.swift in Sources */,
+				A2778DAE26930EE400E87A00 /* OnboardScroll-Controller.swift in Sources */,
 				945B15B225595DC9003A65E0 /* Date.swift in Sources */,
 				943CE5FD2546DFBC00CA93AA /* CustomView.swift in Sources */,
 				945B15AC25595DC9003A65E0 /* TableParent.swift in Sources */,
 				945B15BD25595DC9003A65E0 /* Cache.swift in Sources */,
+				A20EE9E1269461D900128096 /* OnboardCollection-ViewModel.swift in Sources */,
 				945B15B625595DC9003A65E0 /* String.swift in Sources */,
 				945B15AD25595DC9003A65E0 /* Log.swift in Sources */,
 				31981E4B24191A4500D25074 /* CustomTextField.swift in Sources */,
 				943CE5CE2546DF7B00CA93AA /* Interceptor.swift in Sources */,
+				A20EE9DF2694603300128096 /* OnboardCellViewModel.swift in Sources */,
 				945B15B725595DC9003A65E0 /* URLRequestConvertible.swift in Sources */,
 				310FC91B24192EA3002EFCD4 /* Login-Controller.swift in Sources */,
+				A20EE9D72694575A00128096 /* OnboardCollection-Collection.swift in Sources */,
+				A20EE9E526946AB100128096 /* OnboardScroll-Scroll.swift in Sources */,
 				E3D14DC7242D06A400436D51 /* Generic-Service.swift in Sources */,
 				3147D61E241906FB00E741D3 /* Startup-Controller.swift in Sources */,
+				A20EE9DC26945B2A00128096 /* OnboardCell.swift in Sources */,
 				AA00012E25E3C4EA000168C9 /* DatePicker-ViewModel.swift in Sources */,
 				E3D14DCD242D081B00436D51 /* Globals.swift in Sources */,
 				943CE5FF2546DFBC00CA93AA /* CustomImageView.swift in Sources */,
 				AA00012C25E3C4EA000168C9 /* DatePicker-Controller.swift in Sources */,
 				945B15AF25595DC9003A65E0 /* RootViewController.swift in Sources */,
+				A2B4C74226943B6800DE6FAB /* OnboardScreen.swift in Sources */,
 				943CE5CB2546DF7600CA93AA /* API.swift in Sources */,
 				945B15B325595DC9003A65E0 /* UIColor.swift in Sources */,
 				945B15AE25595DC9003A65E0 /* Dynamic.swift in Sources */,
@@ -505,7 +591,9 @@
 				31981E4D24191C2F00D25074 /* CustomTextField-Models.swift in Sources */,
 				945B15B425595DC9003A65E0 /* Int.swift in Sources */,
 				E3D14DCA242D06DF00436D51 /* UpdateRequired.swift in Sources */,
+				A20EE9D32694550D00128096 /* OnboardCollection-Controller.swift in Sources */,
 				943CE5FE2546DFBC00CA93AA /* CustomButton.swift in Sources */,
+				A20EE9E32694696600128096 /* OnboardScroll-ViewModel.swift in Sources */,
 				945B15B525595DC9003A65E0 /* UITableViewCell.swift in Sources */,
 				945B15BB25595DC9003A65E0 /* Window.swift in Sources */,
 				945B15BC25595DC9003A65E0 /* ViewControllerHelper.swift in Sources */,
@@ -656,7 +744,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 599R24CU35;
 				INFOPLIST_FILE = Template/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -676,7 +764,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 599R24CU35;
 				INFOPLIST_FILE = Template/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

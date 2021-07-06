@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboard Scroll View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="OnboardScrollViewController" id="Y6W-OH-hqX" customClass="OnboardScrollViewController" customModule="Template" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G4b-ME-SV3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wnm-1W-Xgt">
+                                <rect key="frame" x="20" y="171" width="374" height="671"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cl-Kb-ohu">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="584"/>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="8oi-BM-pi6"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="Gdd-yj-TH5"/>
+                                    </scrollView>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Fo1-cq-C1f">
+                                        <rect key="frame" x="0.0" y="584" width="374" height="87"/>
+                                        <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="currentPageIndicatorTintColor" systemColor="systemBlueColor"/>
+                                    </pageControl>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Fo1-cq-C1f" firstAttribute="top" secondItem="5cl-Kb-ohu" secondAttribute="bottom" id="4Ju-nc-a1d"/>
+                                    <constraint firstAttribute="bottom" secondItem="5cl-Kb-ohu" secondAttribute="bottom" constant="87" id="pLk-qE-qFn"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CleanApp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGe-Mj-zao">
+                                <rect key="frame" x="132.5" y="69" width="149" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4V5-yq-NsM">
+                                <rect key="frame" x="326" y="73" width="68" height="34.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Saltar" titleAlignment="trailing"/>
+                                <connections>
+                                    <action selector="saltarPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Cop-yy-Ivm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IHi-Th-GoB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IHi-Th-GoB" firstAttribute="trailing" secondItem="Wnm-1W-Xgt" secondAttribute="trailing" constant="20" id="BBQ-Yf-x4v"/>
+                            <constraint firstItem="Wnm-1W-Xgt" firstAttribute="leading" secondItem="IHi-Th-GoB" secondAttribute="leading" constant="20" id="CVw-gy-YrJ"/>
+                            <constraint firstItem="IHi-Th-GoB" firstAttribute="bottom" secondItem="Wnm-1W-Xgt" secondAttribute="bottom" constant="20" id="FqR-PN-uB0"/>
+                            <constraint firstItem="Wnm-1W-Xgt" firstAttribute="leading" secondItem="IHi-Th-GoB" secondAttribute="leading" constant="20" id="ROa-XG-ljX"/>
+                            <constraint firstItem="qGe-Mj-zao" firstAttribute="centerX" secondItem="G4b-ME-SV3" secondAttribute="centerX" id="Z0k-EP-WqY"/>
+                            <constraint firstItem="4V5-yq-NsM" firstAttribute="centerY" secondItem="qGe-Mj-zao" secondAttribute="centerY" id="hXI-sO-b3u"/>
+                            <constraint firstItem="Wnm-1W-Xgt" firstAttribute="top" secondItem="qGe-Mj-zao" secondAttribute="bottom" constant="60" id="huk-7V-sAs"/>
+                            <constraint firstItem="IHi-Th-GoB" firstAttribute="trailing" secondItem="4V5-yq-NsM" secondAttribute="trailing" constant="20" id="l1C-wN-JUd"/>
+                            <constraint firstItem="IHi-Th-GoB" firstAttribute="trailing" secondItem="Wnm-1W-Xgt" secondAttribute="trailing" constant="20" id="lEi-WM-5BD"/>
+                            <constraint firstItem="qGe-Mj-zao" firstAttribute="top" secondItem="IHi-Th-GoB" secondAttribute="top" constant="25" id="nXF-ZK-naT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pageControl" destination="Fo1-cq-C1f" id="Qa1-qM-z2L"/>
+                        <outlet property="saltarButton" destination="4V5-yq-NsM" id="LzT-s7-gEI"/>
+                        <outlet property="scrollView" destination="5cl-Kb-ohu" id="NH6-T0-R5u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141" y="92"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -8,10 +8,10 @@
 
 import UIKit
 
-class RecoverPasswordViewController: UIViewController {
+class RecoverPasswordViewController: ViewController {
   // MARK: - IBOutlets
   @IBOutlet weak var emailTextField: CustomTextField!
-
+    
   // MARK: - Properties
 
   // MARK: - Life cycle
@@ -21,12 +21,15 @@ class RecoverPasswordViewController: UIViewController {
     configureTextFields()
   }
 
+  override var navBarTitle: String {
+    return "Restablecer contraseña"
+  }
+    
   // MARK: - Functions
   func fillUI() {
     if !isViewLoaded { return }
-
   }
-
+    
   func configureTextFields() {
     emailTextField.addErrorsToCheck([TextFieldErrorEmptyValue(),
                                      TextFieldErrorEmailFormat()])

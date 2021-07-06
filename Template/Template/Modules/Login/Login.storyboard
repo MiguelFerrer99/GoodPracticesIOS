@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IYm-bh-C1N">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Iniciar sesión-->
         <scene sceneID="PJV-Y3-Jfw">
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IYm-bh-C1N" customClass="LoginViewController" customModule="Template" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,78 +18,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="n9I-i3-gpK">
-                                <rect key="frame" x="20" y="64" width="374" height="293.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="n9I-i3-gpK">
+                                <rect key="frame" x="20" y="64" width="374" height="180"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="s6k-dT-0jA">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhD-a3-ZXB">
-                                                <rect key="frame" x="0.0" y="0.0" width="97.5" height="48"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="40"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMp-Xh-iOO">
-                                                <rect key="frame" x="356.5" y="0.0" width="17.5" height="48"/>
-                                                <state key="normal" image="xmark" catalog="system"/>
-                                                <connections>
-                                                    <action selector="closeButtonPressed:" destination="IYm-bh-C1N" eventType="touchUpInside" id="GFz-4o-iLK"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKb-Ue-Ty3" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="68" width="374" height="46"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="46"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Email"/>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="tray" catalog="system"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Mail"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="icon">
+                                                <imageReference key="value" image="tray" catalog="system"/>
+                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="hideContent" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="showLeftIcon" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="singleBottomLine" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SjM-7J-mPm" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="134" width="374" height="46"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="lock" catalog="system"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password"/>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="capitalizeFirstLetter" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="hideContent" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9hL-er-g8B">
-                                        <rect key="frame" x="0.0" y="200" width="374" height="20"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WgE-3M-nU7">
+                                        <rect key="frame" x="0.0" y="86" width="374" height="94"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jog-UF-lGm">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="20"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SjM-7J-mPm" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="46"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="icon">
+                                                        <imageReference key="value" image="lock" catalog="system"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Contraseña"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="capitalizeFirstLetter" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hideContent" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showLeftIcon" value="NO"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="singleBottomLine" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jog-UF-lGm">
+                                                <rect key="frame" x="0.0" y="46" width="374" height="48"/>
                                                 <state key="normal" title="¿Has olvidado la contraseña?"/>
                                                 <connections>
-                                                    <action selector="recoverPasswordButtonPressed:" destination="IYm-bh-C1N" eventType="touchUpInside" id="F5t-at-Ok5"/>
+                                                    <action selector="recoverPasswordButtonPressed:" destination="IYm-bh-C1N" eventType="touchUpInside" id="ZgF-cd-JVF"/>
                                                 </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="oHM-Ic-Y0N">
-                                                <rect key="frame" x="200" y="0.0" width="174" height="20"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                            </view>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="YNq-Tc-3KH"/>
-                                        </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohL-bw-V5t" customClass="CustomButton" customModule="Template" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="240" width="374" height="53.5"/>
-                                        <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="dSy-8W-sHZ"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bmm-23-bh6">
+                                <rect key="frame" x="20" y="797" width="374" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohL-bw-V5t" customClass="CustomButton" customModule="Template" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="ohL-bw-V5t" secondAttribute="height" multiplier="7" id="E51-DB-S4j"/>
+                                            <constraint firstAttribute="height" constant="45" id="THv-aG-wvB"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" title="Login">
-                                            <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="INICIAR SESIÓN">
+                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="fullRound" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -97,14 +98,18 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="nSd-4k-ybK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="nSd-4k-ybK" firstAttribute="trailing" secondItem="bmm-23-bh6" secondAttribute="trailing" constant="20" id="JzH-dU-EWF"/>
                             <constraint firstItem="n9I-i3-gpK" firstAttribute="top" secondItem="nSd-4k-ybK" secondAttribute="top" constant="20" id="L1M-8f-Mht"/>
                             <constraint firstItem="n9I-i3-gpK" firstAttribute="leading" secondItem="nSd-4k-ybK" secondAttribute="leading" constant="20" id="SnY-X8-Ggo"/>
                             <constraint firstItem="nSd-4k-ybK" firstAttribute="trailing" secondItem="n9I-i3-gpK" secondAttribute="trailing" constant="20" id="mQS-iI-zrV"/>
+                            <constraint firstItem="bmm-23-bh6" firstAttribute="leading" secondItem="nSd-4k-ybK" secondAttribute="leading" constant="20" id="nSx-VL-VC6"/>
+                            <constraint firstItem="bmm-23-bh6" firstAttribute="bottom" secondItem="nSd-4k-ybK" secondAttribute="bottom" constant="-20" id="uB7-1u-aMA"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="nSd-4k-ybK"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Iniciar sesión" id="MKi-DA-V78"/>
                     <connections>
                         <outlet property="emailTextField" destination="cKb-Ue-Ty3" id="ZzS-sR-bcX"/>
                         <outlet property="passwordTextField" destination="SjM-7J-mPm" id="JMc-9z-SbK"/>
@@ -112,12 +117,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nCh-IU-b0S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="348" y="-246"/>
+            <point key="canvasLocation" x="1010" y="-286"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="ohL-bw-V5t">
+            <size key="intrinsicContentSize" width="138" height="34"/>
+        </designable>
+    </designables>
     <resources>
-        <image name="lock" catalog="system" width="64" height="64"/>
-        <image name="tray" catalog="system" width="64" height="44"/>
-        <image name="xmark" catalog="system" width="64" height="56"/>
+        <image name="lock" catalog="system" width="128" height="128"/>
+        <image name="tray" catalog="system" width="128" height="88"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

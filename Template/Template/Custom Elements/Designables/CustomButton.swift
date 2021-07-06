@@ -40,6 +40,18 @@ import UIKit
   }
 
   @IBInspectable var indicatorColor: UIColor = .white
+    
+  @IBInspectable var shadowOffset: CGSize = CGSize(width: 0, height: 0) {
+    willSet {
+        setShadowOffset(newValue.width, newValue.height)
+    }
+  }
+
+  @IBInspectable var shadowOpacity: Float = 0.0 {
+    willSet {
+        setShadowOpacity(newValue)
+    }
+  }
 
   // MARK: - Properties
   var originalButtonText: String?
@@ -67,6 +79,14 @@ import UIKit
   func setTitedImage(_ image: UIImage?) {
     let tintedImage = image?.withRenderingMode(.alwaysTemplate)
     setImage(tintedImage, for: .normal)
+  }
+    
+  func setShadowOpacity(_ opacity: Float) {
+    layer.shadowOpacity = opacity
+  }
+
+  func setShadowOffset(_ w: CGFloat, _ h: CGFloat) {
+      layer.shadowOffset = CGSize(width: w, height: h)
   }
 
   func showLoading() {

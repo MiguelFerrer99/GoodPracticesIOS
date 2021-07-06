@@ -8,14 +8,19 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: ViewController {
   // MARK: - IBOutlets
   @IBOutlet weak var nameTextField: CustomTextField!
   @IBOutlet weak var lastnameTextField: CustomTextField!
   @IBOutlet weak var emailTextField: CustomTextField!
   @IBOutlet weak var passwordTextField: CustomTextField!
-  
+  @IBOutlet weak var businessName: CustomTextField!
+  @IBOutlet weak var personaParticularRadioButton: CustomButton!
+  @IBOutlet weak var empresaRadioButton: CustomButton!
+  @IBOutlet weak var imageButtonView: UIImageView!
+    
   // MARK: - Properties
+  private var policyReaded = false
 
   // MARK: - Life cycle
   override func viewDidLoad() {
@@ -29,7 +34,11 @@ class RegisterViewController: UIViewController {
     if !isViewLoaded { return }
 
   }
-
+    
+  override var navBarTitle: String {
+      return "Registro"
+  }
+    
   func configureTextFields() {
     nameTextField.addErrorsToCheck([TextFieldErrorEmptyValue()])
     nameTextField.textField.textContentType = .name
@@ -45,6 +54,9 @@ class RegisterViewController: UIViewController {
     passwordTextField.addErrorsToCheck([TextFieldErrorEmptyValue(),
                                         TextFieldErrorMinimumCharacters(8)])
     passwordTextField.textField.textContentType = .newPassword
+      
+    businessName.addErrorsToCheck([TextFieldErrorEmptyValue()])
+    businessName.textField.textContentType = .name
   }
 
   func textFieldsHaveErrors() -> Bool {
@@ -54,6 +66,7 @@ class RegisterViewController: UIViewController {
     if lastnameTextField.hasError { textFieldsHaveErrors = true }
     if emailTextField.hasError    { textFieldsHaveErrors = true }
     if passwordTextField.hasError { textFieldsHaveErrors = true }
+      if businessName.hasError    { textFieldsHaveErrors = true }
 
     return textFieldsHaveErrors
   }
@@ -61,10 +74,31 @@ class RegisterViewController: UIViewController {
   // MARK: - Observers
   @IBAction func registerButtonPressed(_ sender: UIButton) {
     if textFieldsHaveErrors() { return }
-
   }
-
-  @IBAction func closeButtonPressed(_ sender: UIButton) {
-    dismiss(animated: true)
+    
+  @IBAction func personaParticularRadioButtonPressed(_ sender: Any) {
+      UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseOut], animations: {
+          self.businessName.isHidden = true
+      }, completion: nil)
+      empresaRadioButton.backgroundColor = .lightGray
+      personaParticularRadioButton.backgroundColor = UIColor(named: "customBlue")
   }
+    
+  @IBAction func empresaRadioButtonPressed(_ sender: Any) {
+      UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseOut], animations: {
+          self.businessName.isHidden = false
+      }, completion: nil)
+      empresaRadioButton.backgroundColor = UIColor(named: "customBlue")
+      personaParticularRadioButton.backgroundColor = .lightGray
+  }
+    
+    @IBAction func politicaPrivacidadLeidaButtonPressed(_ sender: Any) {
+        if policyReaded {
+            imageButtonView.image = UIImage(systemName: "circle")
+            policyReaded = false
+        } else {
+            imageButtonView.image = UIImage(systemName: "checkmark.circle.fill")
+            policyReaded = true
+        }
+    }
 }

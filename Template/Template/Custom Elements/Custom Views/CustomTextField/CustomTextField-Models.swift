@@ -45,3 +45,28 @@ class TextFieldErrorEmptyValue: TextFieldError {
     }
   }
 }
+
+class TextFieldErrorContainsNumber: TextFieldError {
+  init() {
+    super.init(localizedDescription: "Utiliza mínimo 1 dígito") { (value) -> Bool in
+      return value.rangeOfCharacter(from: CharacterSet.decimalDigits) == nil
+    }
+  }
+}
+
+class TextFieldErrorContainsUpperCase: TextFieldError {
+  init() {
+    super.init(localizedDescription: "Utiliza mínimo 1 letra MAYÚSCULA") { (value) -> Bool in
+      let firstUppercased  = value.first { $0.isUppercase }
+      return firstUppercased == nil
+    }
+  }
+}
+
+class TextFieldErrorAreNotEqual: TextFieldError {
+  init(to secondTextField: CustomTextField) {
+    super.init(localizedDescription: "Los campos no coinciden") { (value) -> Bool in
+      return value != secondTextField.textField.text
+    }
+  }
+}

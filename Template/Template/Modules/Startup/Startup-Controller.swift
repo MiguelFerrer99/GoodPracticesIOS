@@ -25,15 +25,18 @@ class StartupViewController: ViewController {
 
   // MARK: - Observers
   @IBAction func registerButtonPressed(_ sender: UIButton) {
-    let registerVC = UIViewController.instantiate(viewController: RegisterViewController.self)
-    let nav = UINavigationController(rootViewController: registerVC)
-    present(viewController: nav)
+      let registerVC = UIViewController.instantiate(viewController: RegisterViewController.self)
+      push(viewController: registerVC)
   }
   
   @IBAction func loginButtonPressed(_ sender: UIButton) {
-    let loginVC = UIViewController.instantiate(viewController: LoginViewController.self)
-    let nav = UINavigationController(rootViewController: loginVC)
-    //nav.modalPresentationStyle = .overFullScreen --> Opcional
-    present(viewController: nav)
+      let loginVC = UIViewController.instantiate(viewController: LoginViewController.self)
+      push(viewController: loginVC) //Como Startup-Controller ya tiene un UINavigationController, solo hay que hacer el push del VC
+  }
+    
+  @IBAction func continuarComoInvitadoButtonPressed(_ sender: Any) {
+      let tabBarVC = UIViewController.instantiate(viewController: TabBarViewController.self)
+      let nav = UINavigationController(rootViewController: tabBarVC)
+      changeRoot(to: nav) //Le pasamos al TabBar un UINavigationController para que pueda usarlo para navegar entre sus ventanas
   }
 }

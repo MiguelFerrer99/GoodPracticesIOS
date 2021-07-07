@@ -19,236 +19,277 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="98c-CM-lNn">
-                                <rect key="frame" x="0.0" y="44" width="414" height="723"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98c-CM-lNn">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="r4m-w5-l4C">
-                                        <rect key="frame" x="20" y="20" width="374" height="519.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="okd-7D-6Fd">
+                                        <rect key="frame" x="20" y="0.0" width="374" height="818"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bjx-ix-yBn" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="46"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="capitalizeFirstLetter" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Nombre"/>
-                                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="person" catalog="system"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hideContent" value="NO"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showLeftIcon" value="NO"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="singleBottomLine" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tup-i8-xji" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="71" width="374" height="46"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="capitalizeFirstLetter" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Apellidos"/>
-                                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="person" catalog="system"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hideContent" value="NO"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showLeftIcon" value="NO"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="singleBottomLine" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x52-Kx-GAS" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="142" width="374" height="46"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="capitalizeFirstLetter" value="NO"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Mail"/>
-                                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="tray" catalog="system"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hideContent" value="NO"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showLeftIcon" value="NO"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="singleBottomLine" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hz1-aq-TvU" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="213" width="374" height="46"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="capitalizeFirstLetter" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Contraseña"/>
-                                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="lock" catalog="system"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hideContent" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showLeftIcon" value="NO"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="singleBottomLine" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Cómo te identificamos?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6e-Af-RxX">
-                                                <rect key="frame" x="0.0" y="284" width="374" height="19.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="19.5" id="LSr-DU-t20"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ikN-wg-sSn">
-                                                <rect key="frame" x="0.0" y="328.5" width="374" height="45"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LpD-8E-lcs">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="378.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfk-IH-GGC" customClass="CustomButton" customModule="Template" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="219" height="45"/>
-                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="45" id="tT4-MD-9qb"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <state key="normal" title="Persona particular">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bjx-ix-yBn" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="46"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="0.0"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="fullRound" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                                <real key="value" value="0.5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                                <size key="value" width="0.0" height="0.0"/>
-                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="capitalizeFirstLetter" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Nombre"/>
+                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="person" catalog="system"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="hideContent" value="NO"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="showLeftIcon" value="NO"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="singleBottomLine" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="personaParticularRadioButtonPressed:" destination="8fy-TG-FSl" eventType="touchUpInside" id="pRh-z6-UMj"/>
-                                                            <action selector="registerButtonPressed:" destination="8fy-TG-FSl" eventType="touchUpInside" id="EJ2-dw-dWV"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jK0-zB-fCb" customClass="CustomButton" customModule="Template" customModuleProvider="target">
-                                                        <rect key="frame" x="249" y="0.0" width="125" height="45"/>
-                                                        <color key="backgroundColor" name="customBlue"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="45" id="3Av-nj-9G6"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <state key="normal" title="Empresa">
-                                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="0.0"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="fullRound" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                                <real key="value" value="0.5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                                <size key="value" width="0.0" height="0.0"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="empresaRadioButtonPressed:" destination="8fy-TG-FSl" eventType="touchUpInside" id="84r-gk-Xlj"/>
-                                                            <action selector="registerButtonPressed:" destination="8fy-TG-FSl" eventType="touchUpInside" id="aJh-Ji-dGJ"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzj-8U-mJP" userLabel="BusinessName Text Field" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="398.5" width="374" height="46"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="capitalizeFirstLetter" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Nombre de la empresa"/>
-                                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="person" catalog="system"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hideContent" value="NO"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showLeftIcon" value="NO"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="singleBottomLine" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bOT-mS-BTk">
-                                                <rect key="frame" x="0.0" y="469.5" width="374" height="50"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Una-S2-E9E">
-                                                        <rect key="frame" x="0.0" y="0.0" width="83" height="50"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cs8-r2-qW2">
-                                                                <rect key="frame" x="0.0" y="0.5" width="83" height="49"/>
-                                                                <imageReference key="image" image="circle" catalog="system"/>
-                                                            </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KnD-7X-BSg">
-                                                                <rect key="frame" x="0.0" y="0.0" width="83" height="50"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title=" "/>
-                                                                <connections>
-                                                                    <action selector="politicaPrivacidadLeidaButtonPressed:" destination="8fy-TG-FSl" eventType="touchUpInside" id="EGn-6Q-RkT"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstItem="Cs8-r2-qW2" firstAttribute="leading" secondItem="Una-S2-E9E" secondAttribute="leading" id="3Os-CW-MVY"/>
-                                                            <constraint firstItem="KnD-7X-BSg" firstAttribute="top" secondItem="Una-S2-E9E" secondAttribute="top" id="3gf-jt-LrH"/>
-                                                            <constraint firstAttribute="bottom" secondItem="KnD-7X-BSg" secondAttribute="bottom" id="4o1-Ln-FsL"/>
-                                                            <constraint firstItem="Cs8-r2-qW2" firstAttribute="top" secondItem="Una-S2-E9E" secondAttribute="top" id="JEv-tU-XnB"/>
-                                                            <constraint firstItem="KnD-7X-BSg" firstAttribute="leading" secondItem="Una-S2-E9E" secondAttribute="leading" id="Ye2-H6-PBg"/>
-                                                            <constraint firstAttribute="trailing" secondItem="Cs8-r2-qW2" secondAttribute="trailing" id="dIN-eR-RDz"/>
-                                                            <constraint firstAttribute="bottom" secondItem="Cs8-r2-qW2" secondAttribute="bottom" id="oZg-Wy-5Re"/>
-                                                            <constraint firstAttribute="trailing" secondItem="KnD-7X-BSg" secondAttribute="trailing" id="wTK-pi-My7"/>
-                                                        </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Si, he leido y acepto la Politica de privacidad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iq0-Vq-z0V">
-                                                        <rect key="frame" x="88" y="0.0" width="286" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tup-i8-xji" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="56" width="374" height="46"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="capitalizeFirstLetter" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Apellidos"/>
+                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="person" catalog="system"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="hideContent" value="NO"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="showLeftIcon" value="NO"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="singleBottomLine" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x52-Kx-GAS" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="112" width="374" height="46"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="capitalizeFirstLetter" value="NO"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Mail"/>
+                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="tray" catalog="system"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="hideContent" value="NO"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="showLeftIcon" value="NO"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="singleBottomLine" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="XOu-Vq-HOa">
+                                                        <rect key="frame" x="0.0" y="168" width="374" height="80"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hz1-aq-TvU" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="46"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="capitalizeFirstLetter" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Contraseña"/>
+                                                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="lock" catalog="system"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hideContent" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showLeftIcon" value="NO"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="singleBottomLine" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor recuerda: Usar al menos un dígito. Usar al menos una letra mayúscula. Usar al menos 8 carácteres" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tFZ-ah-moI">
+                                                                <rect key="frame" x="0.0" y="51" width="374" height="29"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Cómo te identificamos?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6e-Af-RxX">
+                                                        <rect key="frame" x="0.0" y="258" width="374" height="19.5"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ikN-wg-sSn">
+                                                        <rect key="frame" x="0.0" y="287.5" width="374" height="35"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfk-IH-GGC" customClass="CustomButton" customModule="Template" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="229" height="35"/>
+                                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <state key="normal" title="Persona particular">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="0.0"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="fullRound" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                        <real key="value" value="0.5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                        <size key="value" width="0.0" height="0.0"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="personaParticularRadioButtonPressed:" destination="8fy-TG-FSl" eventType="touchUpInside" id="pRh-z6-UMj"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jK0-zB-fCb" customClass="CustomButton" customModule="Template" customModuleProvider="target">
+                                                                <rect key="frame" x="249" y="0.0" width="125" height="35"/>
+                                                                <color key="backgroundColor" name="customBlue"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="qKj-5d-s2k"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <state key="normal" title="Empresa">
+                                                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="0.0"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="fullRound" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                        <real key="value" value="0.5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                        <size key="value" width="0.0" height="0.0"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="empresaRadioButtonPressed:" destination="8fy-TG-FSl" eventType="touchUpInside" id="84r-gk-Xlj"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzj-8U-mJP" userLabel="BusinessName Text Field" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="332.5" width="374" height="46"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="capitalizeFirstLetter" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Nombre de la empresa"/>
+                                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="person" catalog="system"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="hideContent" value="NO"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="showLeftIcon" value="NO"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="singleBottomLine" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MSH-aw-fjV">
+                                                <rect key="frame" x="0.0" y="723" width="374" height="75"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bOT-mS-BTk">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Una-S2-E9E">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cs8-r2-qW2">
+                                                                        <rect key="frame" x="0.0" y="0.5" width="20" height="29"/>
+                                                                        <imageReference key="image" image="circle" catalog="system"/>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Si, he leido y acepto la" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Vw-YL-TU7">
+                                                                        <rect key="frame" x="30" y="6.5" width="145" height="17"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KnD-7X-BSg">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="183" height="30"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain" title=" "/>
+                                                                        <connections>
+                                                                            <action selector="politicaPrivacidadButtonPressed:" destination="8fy-TG-FSl" eventType="touchUpInside" id="Kx1-0Y-upA"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGJ-qY-xS0">
+                                                                        <rect key="frame" x="175" y="0.0" width="156.5" height="30.5"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain">
+                                                                            <attributedString key="attributedTitle">
+                                                                                <fragment content="Politica de privacidad">
+                                                                                    <attributes>
+                                                                                        <font key="NSFont" size="14" name="Helvetica"/>
+                                                                                    </attributes>
+                                                                                </fragment>
+                                                                            </attributedString>
+                                                                            <color key="baseForegroundColor" systemColor="systemBlueColor"/>
+                                                                        </buttonConfiguration>
+                                                                        <connections>
+                                                                            <action selector="verPoliticaPrivacidadButtonPressed:" destination="8fy-TG-FSl" eventType="touchUpInside" id="B0u-rS-eHW"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="Cs8-r2-qW2" firstAttribute="leading" secondItem="Una-S2-E9E" secondAttribute="leading" id="3Os-CW-MVY"/>
+                                                                    <constraint firstItem="KnD-7X-BSg" firstAttribute="top" secondItem="Una-S2-E9E" secondAttribute="top" id="3gf-jt-LrH"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="KnD-7X-BSg" secondAttribute="bottom" id="4o1-Ln-FsL"/>
+                                                                    <constraint firstItem="dGJ-qY-xS0" firstAttribute="leading" secondItem="9Vw-YL-TU7" secondAttribute="trailing" id="HbG-sG-uZe"/>
+                                                                    <constraint firstItem="Cs8-r2-qW2" firstAttribute="top" secondItem="Una-S2-E9E" secondAttribute="top" id="JEv-tU-XnB"/>
+                                                                    <constraint firstItem="Cs8-r2-qW2" firstAttribute="top" secondItem="Una-S2-E9E" secondAttribute="top" id="JuO-xp-mn7"/>
+                                                                    <constraint firstItem="KnD-7X-BSg" firstAttribute="top" secondItem="Una-S2-E9E" secondAttribute="top" id="LCP-fW-hav"/>
+                                                                    <constraint firstItem="Cs8-r2-qW2" firstAttribute="leading" secondItem="Una-S2-E9E" secondAttribute="leading" id="XVC-J6-oGz"/>
+                                                                    <constraint firstItem="KnD-7X-BSg" firstAttribute="leading" secondItem="Una-S2-E9E" secondAttribute="leading" id="Ye2-H6-PBg"/>
+                                                                    <constraint firstItem="dGJ-qY-xS0" firstAttribute="centerY" secondItem="Una-S2-E9E" secondAttribute="centerY" id="cRe-MJ-dcP"/>
+                                                                    <constraint firstItem="9Vw-YL-TU7" firstAttribute="leading" secondItem="Cs8-r2-qW2" secondAttribute="trailing" constant="10" id="fl5-II-hKc"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="Cs8-r2-qW2" secondAttribute="bottom" id="oZg-Wy-5Re"/>
+                                                                    <constraint firstItem="KnD-7X-BSg" firstAttribute="leading" secondItem="Una-S2-E9E" secondAttribute="leading" id="oiV-iv-Mkz"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="KnD-7X-BSg" secondAttribute="trailing" constant="191" id="ouZ-Q6-CtN"/>
+                                                                    <constraint firstItem="9Vw-YL-TU7" firstAttribute="centerY" secondItem="Una-S2-E9E" secondAttribute="centerY" id="tJI-x8-ogp"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="KnD-7X-BSg" secondAttribute="bottom" id="vfH-Fz-YW1"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="Cs8-r2-qW2" secondAttribute="bottom" id="wba-Bq-926"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="xEc-qS-CL7"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJL-dj-1fk" customClass="CustomButton" customModule="Template" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="40" width="374" height="35"/>
+                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="35" id="Aqo-IF-TZI"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <state key="normal" title="REGISTRARSE">
+                                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="fullRound" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                <real key="value" value="0.5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                <size key="value" width="0.0" height="3"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="registerButtonPressed:" destination="8fy-TG-FSl" eventType="touchUpInside" id="XDB-Re-wi3"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="MSH-aw-fjV" secondAttribute="bottom" constant="20" id="BAo-u7-mcD"/>
+                                            <constraint firstItem="LpD-8E-lcs" firstAttribute="leading" secondItem="okd-7D-6Fd" secondAttribute="leading" id="GdE-Oi-Q9p"/>
+                                            <constraint firstItem="LpD-8E-lcs" firstAttribute="top" secondItem="okd-7D-6Fd" secondAttribute="top" id="VGY-t3-bNv"/>
+                                            <constraint firstAttribute="trailing" secondItem="LpD-8E-lcs" secondAttribute="trailing" id="Z8f-TF-vsG"/>
+                                            <constraint firstAttribute="trailing" secondItem="MSH-aw-fjV" secondAttribute="trailing" id="n7w-zI-DdZ"/>
+                                            <constraint firstItem="MSH-aw-fjV" firstAttribute="leading" secondItem="okd-7D-6Fd" secondAttribute="leading" id="oq8-qX-SMj"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="r4m-w5-l4C" secondAttribute="bottom" constant="20" id="GFz-Hd-5T4"/>
-                                    <constraint firstItem="r4m-w5-l4C" firstAttribute="top" secondItem="98c-CM-lNn" secondAttribute="top" constant="20" id="HpC-CV-YnF"/>
-                                    <constraint firstItem="r4m-w5-l4C" firstAttribute="leading" secondItem="98c-CM-lNn" secondAttribute="leading" constant="20" id="hFN-xE-5g9"/>
-                                    <constraint firstAttribute="trailing" secondItem="r4m-w5-l4C" secondAttribute="trailing" constant="20" id="kpv-uj-QLV"/>
-                                    <constraint firstItem="r4m-w5-l4C" firstAttribute="centerX" secondItem="98c-CM-lNn" secondAttribute="centerX" id="zeo-rr-UUy"/>
+                                    <constraint firstItem="okd-7D-6Fd" firstAttribute="centerX" secondItem="98c-CM-lNn" secondAttribute="centerX" id="AM4-zO-AlS"/>
+                                    <constraint firstAttribute="trailing" secondItem="okd-7D-6Fd" secondAttribute="trailing" constant="20" symbolic="YES" id="U43-Ow-jrq"/>
+                                    <constraint firstItem="okd-7D-6Fd" firstAttribute="top" secondItem="98c-CM-lNn" secondAttribute="top" id="Z9b-QP-Sry"/>
+                                    <constraint firstItem="okd-7D-6Fd" firstAttribute="centerY" secondItem="98c-CM-lNn" secondAttribute="centerY" id="bZd-c6-tDh"/>
+                                    <constraint firstAttribute="bottom" secondItem="okd-7D-6Fd" secondAttribute="bottom" constant="20" symbolic="YES" id="rZL-cZ-28J"/>
+                                    <constraint firstItem="okd-7D-6Fd" firstAttribute="leading" secondItem="98c-CM-lNn" secondAttribute="leading" constant="20" symbolic="YES" id="vF4-zf-9XR"/>
                                 </constraints>
                             </scrollView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="J8g-hU-Bjg">
-                                <rect key="frame" x="20" y="797" width="374" height="45"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJL-dj-1fk" customClass="CustomButton" customModule="Template" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
-                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="Yer-9q-pEQ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <state key="normal" title="REGISTRARSE">
-                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
-                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="fullRound" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                <real key="value" value="0.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                <size key="value" width="0.0" height="3"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="registerButtonPressed:" destination="8fy-TG-FSl" eventType="touchUpInside" id="XDB-Re-wi3"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="oy6-tv-a2P"/>
-                                </constraints>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="m6p-YQ-1cd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="98c-CM-lNn" firstAttribute="leading" secondItem="m6p-YQ-1cd" secondAttribute="leading" id="1OO-qf-Gl6"/>
+                            <constraint firstItem="98c-CM-lNn" firstAttribute="bottom" secondItem="m6p-YQ-1cd" secondAttribute="bottom" id="L8r-1C-duR"/>
                             <constraint firstItem="98c-CM-lNn" firstAttribute="top" secondItem="m6p-YQ-1cd" secondAttribute="top" id="e2c-96-9I8"/>
-                            <constraint firstItem="J8g-hU-Bjg" firstAttribute="top" secondItem="98c-CM-lNn" secondAttribute="bottom" constant="30" id="hzR-D3-P7c"/>
-                            <constraint firstItem="J8g-hU-Bjg" firstAttribute="leading" secondItem="m6p-YQ-1cd" secondAttribute="leading" constant="20" id="oaC-O2-s3b"/>
-                            <constraint firstItem="J8g-hU-Bjg" firstAttribute="bottom" secondItem="m6p-YQ-1cd" secondAttribute="bottom" constant="-20" id="p4Y-TM-MRD"/>
                             <constraint firstItem="m6p-YQ-1cd" firstAttribute="trailing" secondItem="98c-CM-lNn" secondAttribute="trailing" id="uyx-Pu-owo"/>
-                            <constraint firstItem="m6p-YQ-1cd" firstAttribute="trailing" secondItem="J8g-hU-Bjg" secondAttribute="trailing" constant="20" id="vSR-n1-c7I"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Registro" id="Nth-nu-FXX"/>
@@ -261,6 +302,7 @@
                         <outlet property="nameTextField" destination="bjx-ix-yBn" id="3Hy-Fb-dGc"/>
                         <outlet property="passwordTextField" destination="Hz1-aq-TvU" id="NMk-Ms-X8T"/>
                         <outlet property="personaParticularRadioButton" destination="Gfk-IH-GGC" id="jTA-IG-RdO"/>
+                        <outlet property="registerButton" destination="AJL-dj-1fk" id="bPl-Lj-xaq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wM7-5r-yzC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

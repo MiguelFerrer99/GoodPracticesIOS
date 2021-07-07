@@ -46,13 +46,13 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="H91-qR-gKv">
-                                <rect key="frame" x="20" y="677" width="374" height="165"/>
+                                <rect key="frame" x="20" y="697" width="374" height="145"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Php-rw-FJ2" customClass="CustomButton" customModule="Template" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="35"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="FPQ-F6-onL"/>
+                                            <constraint firstAttribute="height" constant="35" id="FPQ-F6-onL"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="INICIAR SESIÓN">
@@ -82,10 +82,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJx-bm-Nw9" customClass="CustomButton" customModule="Template" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="70" width="374" height="45"/>
+                                        <rect key="frame" x="0.0" y="60" width="374" height="35"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="dAL-Us-cho"/>
+                                            <constraint firstAttribute="height" constant="35" id="dAL-Us-cho"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="REGISTRARSE">
@@ -112,12 +112,15 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wcw-CT-Kdf">
-                                        <rect key="frame" x="0.0" y="140" width="374" height="25"/>
+                                        <rect key="frame" x="0.0" y="120" width="374" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="iR3-ku-xFl"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Continuar como invitado"/>
+                                        <connections>
+                                            <action selector="continuarComoInvitadoButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qJi-lL-M3z"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

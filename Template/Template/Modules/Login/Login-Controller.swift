@@ -57,11 +57,14 @@ class LoginViewController: ViewController {
   // MARK: - Observers
   @IBAction func loginButtonPressed(_ sender: UIButton) {
     if textFieldsHaveErrors() { return }
+      Cache.set(.logged, true)
+      let tabBarVC = UIViewController.instantiate(viewController: TabBarViewController.self)
+      let nav = UINavigationController(rootViewController: tabBarVC)
+      changeRoot(to: nav)
   }
 
   @IBAction func recoverPasswordButtonPressed(_ sender: UIButton) {
-    let recoverPasswordVC = UIViewController.instantiate(viewController: RecoverPasswordViewController.self)
-    let nav = UINavigationController(rootViewController: recoverPasswordVC)
-    present(viewController: nav)
+      let recoverPasswordVC = UIViewController.instantiate(viewController: RecoverPasswordViewController.self)
+      push(viewController: recoverPasswordVC)
   }
 }

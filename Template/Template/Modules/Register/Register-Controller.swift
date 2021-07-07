@@ -18,6 +18,7 @@ class RegisterViewController: ViewController {
   @IBOutlet weak var personaParticularRadioButton: CustomButton!
   @IBOutlet weak var empresaRadioButton: CustomButton!
   @IBOutlet weak var imageButtonView: UIImageView!
+  @IBOutlet weak var registerButton: CustomButton!
     
   // MARK: - Properties
   private var policyReaded = false
@@ -74,6 +75,7 @@ class RegisterViewController: ViewController {
   // MARK: - Observers
   @IBAction func registerButtonPressed(_ sender: UIButton) {
     if textFieldsHaveErrors() { return }
+    showAlert(title: "Registered successfully", message: "Now you can log in")
   }
     
   @IBAction func personaParticularRadioButtonPressed(_ sender: Any) {
@@ -92,13 +94,24 @@ class RegisterViewController: ViewController {
       personaParticularRadioButton.backgroundColor = .lightGray
   }
     
-    @IBAction func politicaPrivacidadLeidaButtonPressed(_ sender: Any) {
+    @IBAction func politicaPrivacidadButtonPressed(_ sender: Any) {
         if policyReaded {
             imageButtonView.image = UIImage(systemName: "circle")
             policyReaded = false
+            registerButton.isEnabled = false
+            registerButton.alpha = 0.5
         } else {
             imageButtonView.image = UIImage(systemName: "checkmark.circle.fill")
             policyReaded = true
+            registerButton.isEnabled = true
+            registerButton.alpha = 1
         }
+    }
+    
+    @IBAction func verPoliticaPrivacidadButtonPressed(_ sender: Any) {
+        //let politicaPrivacidadVC = UIViewController.instantiate(viewController: PoliticaPrivacidadViewController.self)
+        //let nav = UINavigationController(rootViewController: politicaPrivacidadVC)
+        //push(viewController: nav)
+        print("ver politica privacidad")
     }
 }

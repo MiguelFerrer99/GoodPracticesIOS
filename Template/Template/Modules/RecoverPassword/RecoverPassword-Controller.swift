@@ -47,10 +47,7 @@ class RecoverPasswordViewController: ViewController {
 
   // MARK: - Observers
   @IBAction func recoverButtonPressed(_ sender: UIButton) {
-    if textFieldsHaveErrors() { return }
-  }
-
-  @IBAction func closeButtonPressed(_ sender: UIButton) {
-    dismiss(animated: true)
+      if textFieldsHaveErrors() { return }
+      showAlert(title:"Mail enviado", message: "Nos hemos puesto en contacto contigo para reestablecer tu contraseña.")
   }
 }

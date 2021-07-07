@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Edit Profile View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="EditProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="EditProfileViewController" customModule="Template" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iuj-z1-Uw0">
+                                <rect key="frame" x="20" y="64" width="374" height="178"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ln-j6-MQY" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="46"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Nombre"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="icon">
+                                                <imageReference key="value" image="tray" catalog="system"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="hideContent" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="showLeftIcon" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="singleBottomLine" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBf-CL-O2A" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="66" width="374" height="46"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Apellidos"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="icon">
+                                                <imageReference key="value" image="tray" catalog="system"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="hideContent" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="showLeftIcon" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="singleBottomLine" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wuI-BA-2hK" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="132" width="374" height="46"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Email"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="icon">
+                                                <imageReference key="value" image="tray" catalog="system"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="hideContent" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="showLeftIcon" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="singleBottomLine" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oag-8H-RFd">
+                                <rect key="frame" x="20" y="292" width="374" height="49.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="nEd-vh-NmV">
+                                        <rect key="frame" x="0.0" y="14" width="374" height="21.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cambiar la contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJb-Vw-Cel">
+                                                <rect key="frame" x="0.0" y="0.0" width="203" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bqJ-If-x8y">
+                                                <rect key="frame" x="353" y="2" width="21" height="18"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <imageReference key="image" image="chevron.right" catalog="system"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IwJ-3B-bm1">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=" "/>
+                                        <connections>
+                                            <action selector="cambiarContraseñaButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="13T-19-DIw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="nEd-vh-NmV" firstAttribute="top" secondItem="oag-8H-RFd" secondAttribute="top" constant="14" id="Glo-Uy-hQ9"/>
+                                    <constraint firstAttribute="trailing" secondItem="nEd-vh-NmV" secondAttribute="trailing" id="lTB-o8-KK0"/>
+                                    <constraint firstItem="nEd-vh-NmV" firstAttribute="leading" secondItem="oag-8H-RFd" secondAttribute="leading" id="pfI-RG-1MC"/>
+                                    <constraint firstAttribute="bottom" secondItem="nEd-vh-NmV" secondAttribute="bottom" constant="14" id="wiQ-LH-rcp"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="iuj-z1-Uw0" secondAttribute="trailing" constant="20" id="AGI-lf-fz1"/>
+                            <constraint firstItem="iuj-z1-Uw0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="DAN-Z3-esR"/>
+                            <constraint firstItem="oag-8H-RFd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Ep2-U6-BlD"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oag-8H-RFd" secondAttribute="trailing" constant="20" id="VBd-ce-DrQ"/>
+                            <constraint firstItem="iuj-z1-Uw0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="YDZ-Jj-iLL"/>
+                            <constraint firstItem="oag-8H-RFd" firstAttribute="top" secondItem="iuj-z1-Uw0" secondAttribute="bottom" constant="50" id="jhn-qO-VRX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="apellidosTextField" destination="cBf-CL-O2A" id="RHj-un-LmK"/>
+                        <outlet property="emailTextField" destination="wuI-BA-2hK" id="UAS-cn-kph"/>
+                        <outlet property="nombreTextField" destination="5ln-j6-MQY" id="Apu-tx-Qij"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140.57971014492756" y="128.57142857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="tray" catalog="system" width="128" height="88"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

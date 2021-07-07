@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Terms And Conditions View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="TermsAndConditionsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="TermsAndConditionsViewController" customModule="Template" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5MB-TN-cIQ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="kof-x7-gGJ">
+                                        <rect key="frame" x="16" y="20" width="382" height="1577.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="kch-TV-mhM">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="1577.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4to-bK-l2c" userLabel="Label1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="229.5"/>
+                                                        <string key="text">Al acceder y utilizar este servicio, usted acepta y accede a estar obligado por los términos y disposiciones de este acuerdo. Asimismo, al utilizar estos servicios particulares, usted estará sujeto a toda regla o guía de uso correspondiente que se haya publicado para dichos servicios. Toda participación en este servicio constituirá la aceptación de este acuerdo. Si no acepta cumplir con lo anterior, por favor, no lo utilice. CleanApp se guarda los derechos de todo tipo de cambio o modificación de los Términos y condiciones sin previo aviso.</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yl-is-u3R" userLabel="Label2">
+                                                        <rect key="frame" x="0.0" y="253.5" width="382" height="382"/>
+                                                        <string key="text">CleanApp es una aplicación que ayuda al usuario privado, profesionales y empresas a tener acceso a información profesional que busca con más facilidad. Con ayuda de filtros el usuario puede buscar la clase de tarea que tiene o quiere hacer. CleanApp le muestra detalladamente dependiendo mucho de los productos y maquinas que tenga a su disposición, si el usuario no tiene o se muestra interesado en algún producto lo puede comprar i/o informarse mejor haciendo clic en el “enlace de compra” que le aparece en pantalla y este abrirá una nueva ventana donde podrá comprar el producto en la página oficial de la distribuidora. Con CleanApp tendrá acceso a información sobre el uso, cuidado y mantenimiento correcto de las máquinas de limpieza, recomendación de seguridad, guía paso a paso de como limpiar objetos o lugares, información de los productos de limpieza, su uso correcto y la forma segura de guardarlo, métodos y sistemas de limpieza de todo tipo.</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5y-gN-dKF" userLabel="Label3">
+                                                        <rect key="frame" x="0.0" y="659.5" width="382" height="172"/>
+                                                        <string key="text">Las grandes distribuidoras del que CleanApp posee información son Wetrok, Taski &amp; Kärcher. CleanApp se guarda el derecho de modificar cualquier información dentro de CleanApp. CleanApp no se hace responsable del contenido de la información obtenida por parte de las distribuidoras, al menos de que esta haya sido modificada por CleanApp. La página, las características y la funcionalidad son propiedad de CleanApp.</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uws-Rh-YkE" userLabel="Label4">
+                                                        <rect key="frame" x="0.0" y="855.5" width="382" height="172"/>
+                                                        <string key="text">En el futuro se van a ir sumando más distribuidoras. El usuario registrado puede compartir, imprimir, guardar en formato PDF o en “Elementos guardados” los métodos de limpieza que busco o le interesa mediante el botón que aparece arriba a la derecha, también a cambiar su información personal en el perfil. Los usuarios no registrados no tienen derecho a compartir, copiar o reproducir toda clase de contenido dentro de CleanApp.</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0s-ws-a9Y" userLabel="Label5">
+                                                        <rect key="frame" x="0.0" y="1051.5" width="382" height="95.5"/>
+                                                        <string key="text">No se puede crear mas de una cuenta con la misma dirección de email. “Podemos cancelar su acceso a la página, sin causa o aviso, lo cual podrá resultar en la incautación y destrucción de toda la información que esté asociada con su cuenta.</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmA-cj-F2N" userLabel="Label6">
+                                                        <rect key="frame" x="0.0" y="1171" width="382" height="267.5"/>
+                                                        <string key="text">Las compras hechas mediante CleanApp serán ejecutadas en la pagina oficial dependiendo de la distribuidora de limpieza que eligió. En algunos casos será necesario llamar por teléfono o escribir por email para realizar la compra de algún producto dependiendo de la distribuidora y producto. Una vez hecho clic en “enlace de compra” que le lleva a la pagina oficial de la distribuidora que elegio, CleanApp no se responsabiliza por los errores que pueden ocurrir durante y después de la compra y de la información que contenga la página web oficial, cada una tiene diferentes tipos de pago y diferentes procesos. Aquí tendrá que dar todos sus datos personales para hacer la compra.</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIl-Xk-ynn" userLabel="Label7">
+                                                        <rect key="frame" x="0.0" y="1462.5" width="382" height="115"/>
+                                                        <string key="text">Si el usuario tiene alguna duda sobre algún producto también tiene la posibilidad de contactar un experto de la distribuidora que elegio. El numero de contacto aparecerá en pantalla. CleanApp no se hace responsable de la información que obtenga de los expertos.</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="kof-x7-gGJ" secondAttribute="bottom" constant="20" id="YdT-lm-kav"/>
+                                    <constraint firstAttribute="trailing" secondItem="kof-x7-gGJ" secondAttribute="trailing" constant="16" id="jx1-bb-bs4"/>
+                                    <constraint firstItem="kof-x7-gGJ" firstAttribute="leading" secondItem="5MB-TN-cIQ" secondAttribute="leading" constant="16" id="l4V-zW-mXg"/>
+                                    <constraint firstItem="kof-x7-gGJ" firstAttribute="centerX" secondItem="5MB-TN-cIQ" secondAttribute="centerX" id="oOb-L2-MlQ"/>
+                                    <constraint firstItem="kof-x7-gGJ" firstAttribute="top" secondItem="5MB-TN-cIQ" secondAttribute="top" constant="20" id="wOe-gF-n6m"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5MB-TN-cIQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="0yB-lw-KyX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="5MB-TN-cIQ" secondAttribute="bottom" id="8kl-Pz-SFM"/>
+                            <constraint firstItem="5MB-TN-cIQ" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="IIN-Ve-TJt"/>
+                            <constraint firstItem="5MB-TN-cIQ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="kao-pj-aZN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="label1" destination="4to-bK-l2c" id="Pi8-vk-IGb"/>
+                        <outlet property="label2" destination="5yl-is-u3R" id="jtf-QT-ffF"/>
+                        <outlet property="label3" destination="m5y-gN-dKF" id="opO-g2-A2i"/>
+                        <outlet property="label4" destination="uws-Rh-YkE" id="La7-cQ-L0D"/>
+                        <outlet property="label5" destination="Z0s-ws-a9Y" id="g57-wG-2qZ"/>
+                        <outlet property="label6" destination="vmA-cj-F2N" id="uKz-9m-h94"/>
+                        <outlet property="label7" destination="RIl-Xk-ynn" id="8a8-Zo-s0Q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="211.59420289855075" y="43.526785714285715"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

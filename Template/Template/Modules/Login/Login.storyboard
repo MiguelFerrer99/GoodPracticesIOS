@@ -66,13 +66,13 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bmm-23-bh6">
-                                <rect key="frame" x="20" y="797" width="374" height="45"/>
+                                <rect key="frame" x="20" y="807" width="374" height="35"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohL-bw-V5t" customClass="CustomButton" customModule="Template" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="35"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="THv-aG-wvB"/>
+                                            <constraint firstAttribute="height" constant="35" id="THv-aG-wvB"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="INICIAR SESIÓN">

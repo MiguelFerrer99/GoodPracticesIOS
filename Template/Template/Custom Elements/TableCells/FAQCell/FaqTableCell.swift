@@ -14,7 +14,7 @@ class FaqTableCell: UITableViewCell, ViewModelCell {
     //MARK:- IBOutlets
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
-
+    
     //MARK:- Properties
     var viewModel: FaqTableCellViewModel! {
       didSet { fillUI() }

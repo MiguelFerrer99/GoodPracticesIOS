@@ -12,7 +12,13 @@ class ChangeLanguageViewController: ViewController, ViewModelController {
     typealias T = ChangeLanguageViewModel
 
     // MARK: - IBOutlets
-        
+    @IBOutlet weak var spanishLabel: UILabel!
+    @IBOutlet weak var englishLabel: UILabel!
+    @IBOutlet weak var germanLabel: UILabel!
+    @IBOutlet weak var spanishView: UIView!
+    @IBOutlet weak var englishView: UIView!
+    @IBOutlet weak var germanView: UIView!
+    
     // MARK: - Properties
     override var hideNavigationBar: Bool {
         return false
@@ -29,17 +35,66 @@ class ChangeLanguageViewController: ViewController, ViewModelController {
         super.viewDidLoad()
         
         setUpUI()
-        fillUI()
     }
         
     // MARK: - Functions
-    func fillUI() {
-        
+    func setUpUI() {
+        let save = UIBarButtonItem(title: "Guardar", style: .plain, target: self, action: #selector(saveButtonPressed))
+        navigationItem.rightBarButtonItems = [save]
+        selectedLanguage()
     }
     
-    func setUpUI() {
+    func fillUI() {
+        if !isViewLoaded { return }
+        selectedLanguage()
+    }
+    
+    func selectedLanguage() {
+        spanishLabel.textColor = .lightGray
+        spanishView.backgroundColor = .none
+        englishLabel.textColor = .lightGray
+        englishView.backgroundColor = .none
+        germanLabel.textColor = .lightGray
+        germanView.backgroundColor = .none
         
+        switch viewModel.selectedLanguage {
+            case .spanish:
+                spanishLabel.textColor = .white
+                spanishView.backgroundColor = UIColor(named: "customBlue")
+            case .english:
+                englishLabel.textColor = .white
+                englishView.backgroundColor = UIColor(named: "customBlue")
+            case .german:
+                germanLabel.textColor = .white
+                germanView.backgroundColor = UIColor(named: "customBlue")
+        }
     }
         
     // MARK: - Observers
+    @IBAction func spanishButtonPressed(_ sender: Any) {
+        viewModel.selectedLanguage = .spanish
+        selectedLanguage()
+    }
+    
+    @IBAction func englishButtonPressed(_ sender: Any) {
+        viewModel.selectedLanguage = .english
+        selectedLanguage()
+    }
+    
+    @IBAction func germanButtonPressed(_ sender: Any) {
+        viewModel.selectedLanguage = .german
+        selectedLanguage()
+    }
+    
+    @objc func saveButtonPressed(sender: Any) {
+        switch viewModel.selectedLanguage {
+            case .spanish:
+                Cache.set(.language, "es")
+            case .english:
+                Cache.set(.language, "en")
+            case .german:
+                Cache.set(.language, "de")
+        }
+        self.pop()
+    }
 }

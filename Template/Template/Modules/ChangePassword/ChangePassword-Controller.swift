@@ -61,7 +61,7 @@ class ChangePasswordViewController: ViewController {
     }
         
     // MARK: - Observers
-    @objc func saveButtonPressed(sender: UIButton) {
+    @objc func saveButtonPressed(sender: Any) {
         guard !textFieldsHaveErrors() else { return }
         self.pop()
     }

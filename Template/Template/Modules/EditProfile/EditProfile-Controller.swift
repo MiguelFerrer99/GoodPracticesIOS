@@ -68,7 +68,7 @@ class EditProfileViewController: ViewController {
         push(viewController: changePassVC)
     }
     
-    @objc func saveButtonPressed(sender: UIButton) {
+    @objc func saveButtonPressed(sender: Any) {
         if textFieldsHaveErrors() { return }
         self.pop()
     }

@@ -10,4 +10,22 @@ import UIKit
 
 class ChangeLanguageViewModel: ViewModel {
     
+    var selectedLanguage: LanguageOption
+    
+    init() {
+        switch Cache.get(stringFor: .language) {
+            case "es":
+                selectedLanguage = .spanish
+            case "en":
+                selectedLanguage = .english
+            case "de":
+                selectedLanguage = .german
+            default:
+                selectedLanguage = .spanish
+        }
+    }
+}
+
+enum LanguageOption {
+    case spanish, english, german
 }

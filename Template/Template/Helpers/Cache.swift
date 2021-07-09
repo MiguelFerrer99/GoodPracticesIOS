@@ -14,7 +14,8 @@ struct Cache {
     access_token,
     logged,
     userID,
-    onboardDone
+    onboardDone,
+    language
   }
 
   static func set(_ key: key, _ value: Any?) {

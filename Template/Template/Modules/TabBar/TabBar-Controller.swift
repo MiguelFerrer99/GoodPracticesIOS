@@ -31,17 +31,16 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     fileprivate func setNavigation(_ index: Int) {
         let nav = viewControllers![index] as? UINavigationController
         switch index {
-        case 0: 
-            //let profileVM = ProfileViewModel()
+        case 0:
             let profileVC = UIViewController.instantiate(viewController: ProfileViewController.self)
             nav?.viewControllers = [profileVC]
 
-        /*case 1:
-            let profileVM = ProfileViewModel()
-            let profileVC = UIViewController.instantiate(viewController: ProfileViewController.self, withViewModel: profileVM)
-            nav?.viewControllers  = [profileVC]
+        case 1:
+            let filtersVM = FiltersViewModel()
+            let filtersVC = UIViewController.instantiate(viewController: FiltersViewController.self, withViewModel: filtersVM)
+            nav?.viewControllers = [filtersVC]
             
-        case 2: break
+        /*case 2: break
             let filtersVM = FiltersViewModel()
             let filtersVC = UIViewController.instantiate(viewController: FiltersViewController.self, withViewModel: filtersVM)
             nav?.viewControllers = [filtersVC]*/

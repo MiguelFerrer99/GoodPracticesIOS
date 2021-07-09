@@ -73,7 +73,7 @@ class RegisterViewController: ViewController {
   }
 
   // MARK: - Observers
-  @IBAction func registerButtonPressed(_ sender: UIButton) {
+  @IBAction func registerButtonPressed(_ sender: Any) {
     if textFieldsHaveErrors() { return }
     showAlert(title: "Registered successfully", message: "Now you can log in")
   }
@@ -109,9 +109,7 @@ class RegisterViewController: ViewController {
     }
     
     @IBAction func verPoliticaPrivacidadButtonPressed(_ sender: Any) {
-        //let politicaPrivacidadVC = UIViewController.instantiate(viewController: PoliticaPrivacidadViewController.self)
-        //let nav = UINavigationController(rootViewController: politicaPrivacidadVC)
-        //push(viewController: nav)
-        print("ver politica privacidad")
+        let politicaPrivacidadVC = UIViewController.instantiate(viewController: PrivacyPolicyViewController.self)
+        push(viewController: politicaPrivacidadVC)
     }
 }

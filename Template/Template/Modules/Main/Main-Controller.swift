@@ -19,7 +19,8 @@ class MainViewController: ViewController {
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-
+    
+    Cache.set(.language, "es")
     let hasSeenOnboarding = Cache.get(boolFor: .onboardDone)
     let isLogged = Cache.get(boolFor: .logged)
     if isLogged {

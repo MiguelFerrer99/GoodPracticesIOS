@@ -24,12 +24,13 @@ class StartupViewController: ViewController {
   }
 
   // MARK: - Observers
-  @IBAction func registerButtonPressed(_ sender: UIButton) {
+  @IBAction func registerButtonPressed(_ sender: Any) {
       let registerVC = UIViewController.instantiate(viewController: RegisterViewController.self)
       push(viewController: registerVC)
   }
   
-  @IBAction func loginButtonPressed(_ sender: UIButton) {
+  @IBAction func loginButtonPressed(_ sender: Any) {
+      Cache.set(.logged, true)
       let loginVC = UIViewController.instantiate(viewController: LoginViewController.self)
       push(viewController: loginVC) //Como Startup-Controller ya tiene un UINavigationController, solo hay que hacer el push del VC
   }

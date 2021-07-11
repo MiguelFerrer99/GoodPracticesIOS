@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension FiltersViewController: UITableViewDelegate, UITableViewDataSource, SelectAnswerDelegate {
+extension FiltersViewController: UITableViewDelegate, UITableViewDataSource, SelectAnswerDelegate, SelectDeviceDelegate {
     
     func configure(_ tableView: UITableView) {
       tableView.delegate = self
@@ -36,6 +36,18 @@ extension FiltersViewController: UITableViewDelegate, UITableViewDataSource, Sel
     }
     
     func selectAnswer(filterIndex: Int, answerName: String) {
+        viewModel.answerNames[filterIndex] = answerName
+        if viewModel.answerNames[2] == "Con aparato" && viewModel.filters.count == 3 {
+            viewModel.filters.append(viewModel.filter4)
+            viewModel.filters.append(viewModel.filter5)
+        } else if viewModel.answerNames[2] == "Manual" && viewModel.filters.count == 5 {
+            viewModel.filters.removeLast()
+            viewModel.filters.removeLast()
+        }
+        tableView.reloadData()
+    }
+    
+    func selectDevice(filterIndex: Int, answerName: String) {
         viewModel.answerNames[filterIndex] = answerName
         tableView.reloadData()
     }

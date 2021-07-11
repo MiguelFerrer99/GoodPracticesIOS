@@ -30,7 +30,7 @@ class FiltersViewModel: ViewModel {
     
     var answerNames: [String]
     
-    //MARK: - Initialziaer
+    //MARK: - Initializer
     init() {
         answersFilter1 = [
             Answer(name: "Baño", image: UIImage(systemName: "1.circle.fill")!),
@@ -54,17 +54,17 @@ class FiltersViewModel: ViewModel {
             Answer(name: "Viper", image: UIImage(systemName: "1.circle.fill")!),
             Answer(name: "Karcher", image: UIImage(systemName: "2.circle.fill")!)
         ]
-        filter4 = Filter(title: "Marca", question: "¿Marca del producto?", answers: answersFilter3)
+        filter4 = Filter(title: "Marca", question: "¿Marca del producto?", answers: answersFilter4)
         
         answersFilter5 = [
             Answer(name: "Fregadoras", image: UIImage(systemName: "1.circle.fill")!),
             Answer(name: "Aspiradores Agua-Polvo", image: UIImage(systemName: "2.circle.fill")!)
         ]
-        filter5 = Filter(title: "Tipo de aparato", question: "¿Cuál tiene a su disposición?", answers: answersFilter3)
+        filter5 = Filter(title: "Tipo de aparato", question: "¿Cuál tiene a su disposición?", answers: answersFilter5)
     
         filters = [filter1, filter2, filter3]
         
-        answerNames = ["", "", ""]
+        answerNames = ["", "", "", "", ""]
     }
     
     //MARK: - Functions

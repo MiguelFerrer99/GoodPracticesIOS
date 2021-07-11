@@ -19,8 +19,9 @@
                     </tabBar>
                     <connections>
                         <outlet property="tabbar" destination="wcj-9R-WUd" id="aBP-fu-IP9"/>
-                        <segue destination="vZF-Mf-teq" kind="relationship" relationship="viewControllers" id="e3K-rl-9k1"/>
-                        <segue destination="Gcr-ms-Fhx" kind="relationship" relationship="viewControllers" id="WDq-Ow-5g6"/>
+                        <segue destination="cCV-Iq-wtO" kind="relationship" relationship="viewControllers" id="OXp-ff-jzw"/>
+                        <segue destination="vZF-Mf-teq" kind="relationship" relationship="viewControllers" id="ttl-iQ-3Hr"/>
+                        <segue destination="Gcr-ms-Fhx" kind="relationship" relationship="viewControllers" id="lGZ-I4-75G"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FIJ-W6-ejt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -43,7 +44,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o5A-Pz-wKX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1397" y="882"/>
+            <point key="canvasLocation" x="-1010" y="882"/>
         </scene>
         <!--Filtros-->
         <scene sceneID="sOX-R5-5tq">
@@ -59,10 +60,29 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MaP-lP-2bu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-617" y="882"/>
+            <point key="canvasLocation" x="-301" y="882"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="kd0-UL-NPy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cCV-Iq-wtO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="G0e-Wl-LFv">
+                        <imageReference key="image" image="house" catalog="system"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W6y-n5-zyA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xWK-U4-Hla" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1722" y="882"/>
         </scene>
     </scenes>
     <resources>
+        <image name="house" catalog="system" width="128" height="106"/>
         <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
     </resources>

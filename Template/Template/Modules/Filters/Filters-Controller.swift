@@ -50,7 +50,7 @@ class FiltersViewController: ViewController, ViewModelController {
     }
     
     @IBAction func reiniciarFiltrosButtonPressed(_ sender: Any) {
-        viewModel.answerNames = ["", "", ""]
+        viewModel.answerNames = ["", "", "", "", ""]
         tableView.reloadData()
     }
 }

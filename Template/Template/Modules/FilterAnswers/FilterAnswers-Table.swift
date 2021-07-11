@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension FilterAnswersViewController: UITableViewDelegate, UITableViewDataSource {
+extension FilterAnswersViewController: UITableViewDelegate, UITableViewDataSource, SelectDeviceDelegate {
     
     func configure(_ tableView: UITableView) {
       tableView.delegate = self
@@ -27,7 +27,26 @@ extension FilterAnswersViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.selectAnswer(filterIndex: viewModel.filterIndex, answerName: viewModel.answers[indexPath.row].name)
+        if viewModel.filterIndex == 4 && indexPath.row == viewModel.answers.count-2 {
+            let filterDevicesVM = FilterDevicesViewModel(title: "Fregadoras", devices: viewModel.fregadoraDevices, filterIndex: viewModel.filterIndex)
+            let filterDevicesVC = UIViewController.instantiate(viewController: FilterDevicesViewController.self, withViewModel: filterDevicesVM)
+            tableView.deselectRow(at: indexPath, animated: true)
+            filterDevicesVC.delegate = self
+            push(viewController: filterDevicesVC)
+        } else if viewModel.filterIndex == 4 && indexPath.row == viewModel.answers.count-1 {
+            let filterDevicesVM = FilterDevicesViewModel(title: "Aspiradoras", devices: viewModel.aspiradoraDevices, filterIndex: viewModel.filterIndex)
+            let filterDevicesVC = UIViewController.instantiate(viewController: FilterDevicesViewController.self, withViewModel: filterDevicesVM)
+            tableView.deselectRow(at: indexPath, animated: true)
+            filterDevicesVC.delegate = self
+            push(viewController: filterDevicesVC)
+        } else {
+            delegate?.selectAnswer(filterIndex: viewModel.filterIndex, answerName: viewModel.answers[indexPath.row].name)
+            self.pop()
+        }
+    }
+    
+    func selectDevice(filterIndex: Int, answerName: String) {
+        delegate?.selectAnswer(filterIndex: filterIndex, answerName: answerName)
         self.pop()
     }
 }

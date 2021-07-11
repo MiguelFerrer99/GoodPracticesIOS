@@ -9,6 +9,7 @@
 import UIKit
 
 class FilterAnswersCellViewModel: ViewModel {
+    
     //MARK: - Properties
     var answer: Answer
     

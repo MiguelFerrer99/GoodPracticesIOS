@@ -32,19 +32,16 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         let nav = viewControllers![index] as? UINavigationController
         switch index {
         case 0:
+            let homeVM = HomeViewModel()
+            let homeVC = UIViewController.instantiate(viewController: HomeViewController.self, withViewModel: homeVM)
+            nav?.viewControllers = [homeVC]
+        case 1:
             let profileVC = UIViewController.instantiate(viewController: ProfileViewController.self)
             nav?.viewControllers = [profileVC]
-
-        case 1:
+        case 2:
             let filtersVM = FiltersViewModel()
             let filtersVC = UIViewController.instantiate(viewController: FiltersViewController.self, withViewModel: filtersVM)
             nav?.viewControllers = [filtersVC]
-            
-        /*case 2: break
-            let filtersVM = FiltersViewModel()
-            let filtersVC = UIViewController.instantiate(viewController: FiltersViewController.self, withViewModel: filtersVM)
-            nav?.viewControllers = [filtersVC]*/
-            
         default:
             break
         }

@@ -44,14 +44,14 @@ class HomeViewController: ViewController, ViewModelController {
         
         var savedButton = UIBarButtonItem()
         savedButton = UIBarButtonItem(image: UIImage(systemName: "book"), style: .plain, target: self, action: #selector(savedButtonPressed))
-        savedButton.tintColor = #colorLiteral(red: 0, green: 0.05099999905, blue: 0.1490000039, alpha: 1)
+        savedButton.tintColor = .black
 
         navigationItem.rightBarButtonItem = savedButton
     }
         
     // MARK: - Observers
     @objc func savedButtonPressed(sender: UIButton) {
-        let savedElementsVM = SavedElementsViewModel()
+        let savedElementsVM = SavedElementsViewModel(savedMethodologies: [])
         let savedElementsVC = UIViewController.instantiate(viewController: SavedElementsViewController.self, withViewModel: savedElementsVM)
         push(viewController: savedElementsVC)
     }

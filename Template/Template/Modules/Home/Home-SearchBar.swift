@@ -19,7 +19,7 @@ extension HomeViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let delayInSeconds = 1.0
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delayInSeconds) {
-            if let name = searchBar.text {
+            if let _ /*name*/ = searchBar.text {
                 //... falta por hacer
             }
         }

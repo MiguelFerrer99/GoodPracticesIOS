@@ -14,8 +14,8 @@ class SavedElementsViewModel: ViewModel {
     var savedMethodologies: [Methodology]
     
     //MARK: - Initializer
-    init() {
-        self.savedMethodologies = []
+    init(savedMethodologies: [Methodology]) {
+        self.savedMethodologies = savedMethodologies
     }
     
     //MARK: - Functions

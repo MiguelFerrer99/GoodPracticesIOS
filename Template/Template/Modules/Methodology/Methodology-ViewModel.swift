@@ -12,6 +12,7 @@ class MethodologyViewModel: ViewModel {
     
     //MARK: - Properties
     var methodology: Methodology
+    let collectionManager = MethodologyCollectionManager()
     
     //MARK: - Initializer
     init(methodology: Methodology) {

@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol ReloadTableViewDelegate {
-    func reloadTableView(methodologyIndex: Int)
-}
-
 class MethodologyCell: UITableViewCell, ViewModelCell {
     typealias T = MethodologyCellViewModel
     
@@ -26,7 +22,6 @@ class MethodologyCell: UITableViewCell, ViewModelCell {
     var viewModel: MethodologyCellViewModel! {
         didSet { fillUI() }
     }
-    var delegate: ReloadTableViewDelegate?
     
     //MARK: - Functions
     func fillUI() {
@@ -34,6 +29,10 @@ class MethodologyCell: UITableViewCell, ViewModelCell {
         labelSubtitle.text = viewModel.methodology.subtitle
         if viewModel.methodology.isSaved {
             saveMethodologyButton.imageView?.image = UIImage(systemName: "bookmark.fill")
+            print("fillUI:isSaved = true")
+        } else {
+            saveMethodologyButton.imageView?.image = UIImage(systemName: "bookmark")
+            print("fillUI:isSaved = false")
         }
         methodologyImageView.image = viewModel.methodology.image
         labelShortDescription.text = viewModel.methodology.shortDescription
@@ -42,12 +41,11 @@ class MethodologyCell: UITableViewCell, ViewModelCell {
     //MARK: - Observers
     @IBAction func saveButtonPressed(_ sender: Any) {
         if viewModel.methodology.isSaved {
-            saveMethodologyButton.imageView?.image = UIImage(systemName: "bookmark")
             viewModel.methodology.isSaved = false
+            saveMethodologyButton.imageView?.image = UIImage(systemName: "bookmark")
         } else {
-            saveMethodologyButton.imageView?.image = UIImage(systemName: "bookmark.fill")
             viewModel.methodology.isSaved = true
+            saveMethodologyButton.imageView?.image = UIImage(systemName: "bookmark.fill")
         }
-        delegate?.reloadTableView(methodologyIndex: viewModel.methodology.index)
     }
 }

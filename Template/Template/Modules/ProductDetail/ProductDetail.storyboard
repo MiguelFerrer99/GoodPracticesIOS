@@ -10,28 +10,28 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Methodology View Controller-->
+        <!--Product Detail View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="MethodologyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="MethodologyViewController" customModule="Template" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="ProductDetailViewController" customModule="Template" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ewz-Fd-UVJ">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MNR-Tp-U5m">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="O2j-Oy-ahe">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yAI-gn-sJW">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yPN-yw-iAF">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wf4-fw-MT7">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Dk9-dS-xEd">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sOE-5h-ffk">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
@@ -42,19 +42,19 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ewz-Fd-UVJ" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="1N3-gK-ROP"/>
-                            <constraint firstItem="ewz-Fd-UVJ" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="HH8-tG-6y4"/>
-                            <constraint firstItem="ewz-Fd-UVJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="McH-yR-lDE"/>
-                            <constraint firstItem="ewz-Fd-UVJ" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="QOg-I5-OCd"/>
+                            <constraint firstItem="MNR-Tp-U5m" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="TU3-Yq-z88"/>
+                            <constraint firstItem="MNR-Tp-U5m" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="YGm-VR-gmc"/>
+                            <constraint firstItem="MNR-Tp-U5m" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="koF-uj-DZh"/>
+                            <constraint firstItem="MNR-Tp-U5m" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="zvi-Zc-WpT"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="ewz-Fd-UVJ" id="qza-l8-S37"/>
+                        <outlet property="collectionView" destination="MNR-Tp-U5m" id="Je7-Br-6dm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="85.507246376811594" y="65.625"/>
+            <point key="canvasLocation" x="53.623188405797109" y="123.88392857142857"/>
         </scene>
     </scenes>
     <resources>

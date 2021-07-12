@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource, ReloadTableViewDelegate {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func configure(_ tableView: UITableView) {
       tableView.delegate = self
@@ -23,15 +23,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, Reload
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellVM = MethodologyCellViewModel(methodology: viewModel.methodologies[indexPath.row])
         let cell = tableView.dequeue(MethodologyCell.self, viewModel: cellVM)
-        cell.delegate = self
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func reloadTableView(methodologyIndex: Int) {
-        tableView.reloadData()
+        let methodologyVM = MethodologyViewModel(methodology: viewModel.methodologies[indexPath.row])
+        let methodologyVC = UIViewController.instantiate(viewController: MethodologyViewController.self, withViewModel: methodologyVM)
+        push(viewController: methodologyVC)
     }
 }

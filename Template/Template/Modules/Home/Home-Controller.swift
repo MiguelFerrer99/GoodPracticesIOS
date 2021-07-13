@@ -51,8 +51,12 @@ class HomeViewController: ViewController, ViewModelController {
         
     // MARK: - Observers
     @objc func savedButtonPressed(sender: UIButton) {
-        let savedElementsVM = SavedElementsViewModel(savedMethodologies: [])
-        let savedElementsVC = UIViewController.instantiate(viewController: SavedElementsViewController.self, withViewModel: savedElementsVM)
-        push(viewController: savedElementsVC)
+        if Cache.get(boolFor: .logged) {
+            let savedElementsVM = SavedElementsViewModel(savedMethodologies: [])
+            let savedElementsVC = UIViewController.instantiate(viewController: SavedElementsViewController.self, withViewModel: savedElementsVM)
+            push(viewController: savedElementsVC)
+        } else {
+            showGuestAlert()
+        }
     }
 }

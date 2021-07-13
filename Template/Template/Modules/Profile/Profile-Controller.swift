@@ -56,9 +56,6 @@ class ProfileViewController: ViewController {
     }
     
     @IBAction func cerrarSesionButtonPressed(_ sender: Any) {
-        Cache.set(.logged, false)
-        let startupVC = UIViewController.instantiate(viewController: StartupViewController.self)
-        let nav = UINavigationController(rootViewController: startupVC)
-        changeRoot(to: nav)
+        showLogOutAlert()
     }
 }

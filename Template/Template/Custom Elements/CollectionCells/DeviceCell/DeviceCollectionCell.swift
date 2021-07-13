@@ -31,9 +31,8 @@ class DeviceCollectionCell: UICollectionViewCell, ViewModelCell {
     
     //MARK: - Observers
     @IBAction func verButtonPressed(_ sender: Any) {
-        print("ver")
-        //let deviceDetailVM = DeviceDetailViewModel(device: viewModel.device)
-        //let deviceDetailVC = UIViewController.instantiate(viewController: DeviceDetailViewController.self, withViewModel: deviceDetailVM)
-        //presenter?.push(viewController: deviceDetailVC)
+        let deviceDetailVM = DeviceDetailViewModel(device: viewModel.device)
+        let deviceDetailVC = UIViewController.instantiate(viewController: DeviceDetailViewController.self, withViewModel: deviceDetailVM)
+        presenter?.push(viewController: deviceDetailVC)
     }
 }

@@ -61,12 +61,16 @@ class MethodologyViewController: ViewController, ViewModelController {
         
     // MARK: - Observers
     @objc func saveButtonPressed(sender: UIButton) {
-        if viewModel.methodology.isSaved {
-            viewModel.methodology.isSaved = false
-            saveButton.image = UIImage(systemName: "bookmark")
-        } else  {
-            viewModel.methodology.isSaved = true
-            saveButton.image = UIImage(systemName: "bookmark.fill")
+        if Cache.get(boolFor: .logged) {
+            if viewModel.methodology.isSaved {
+                viewModel.methodology.isSaved = false
+                saveButton.image = UIImage(systemName: "bookmark")
+            } else  {
+                viewModel.methodology.isSaved = true
+                saveButton.image = UIImage(systemName: "bookmark.fill")
+            }
+        } else {
+            showGuestAlert()
         }
     }
     

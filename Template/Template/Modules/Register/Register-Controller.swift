@@ -67,7 +67,7 @@ class RegisterViewController: ViewController {
     if lastnameTextField.hasError { textFieldsHaveErrors = true }
     if emailTextField.hasError    { textFieldsHaveErrors = true }
     if passwordTextField.hasError { textFieldsHaveErrors = true }
-      if businessName.hasError    { textFieldsHaveErrors = true }
+    if businessName.hasError      { textFieldsHaveErrors = true }
 
     return textFieldsHaveErrors
   }

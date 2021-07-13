@@ -27,6 +27,16 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         navigationController?.navigationBar.isHidden = true
     }
     
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if viewController == tabBarController.viewControllers?[1],
+           !Cache.get(boolFor: .logged) {
+          showGuestAlert()
+          return false
+        } else {
+          return true
+        }
+    }
+    
     // MARK: - Functions
     fileprivate func setNavigation(_ index: Int) {
         let nav = viewControllers![index] as? UINavigationController

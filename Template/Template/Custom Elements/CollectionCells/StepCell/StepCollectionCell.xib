@@ -54,7 +54,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="kbk-RP-wlI">
-                                <rect key="frame" x="20" y="280" width="266" height="180"/>
+                                <rect key="frame" x="20" y="280" width="266" height="260"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ayl-c9-RfI">
                                         <rect key="frame" x="0.0" y="0.0" width="266" height="20"/>
@@ -137,7 +137,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="C94-PJ-GLU">
-                                        <rect key="frame" x="0.0" y="130" width="266" height="50"/>
+                                        <rect key="frame" x="0.0" y="130" width="266" height="130"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ldf-vS-Xkn">
                                                 <rect key="frame" x="0.0" y="0.0" width="266" height="20"/>
@@ -163,18 +163,17 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RaJ-N9-Qz9">
-                                                <rect key="frame" x="0.0" y="30" width="266" height="20"/>
+                                                <rect key="frame" x="0.0" y="30" width="266" height="100"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mp5-GN-9OD">
-                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="100"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="e03-ak-mZI"/>
                                                             <constraint firstAttribute="width" constant="20" id="hC9-Kx-4h1"/>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKy-tD-twp">
-                                                        <rect key="frame" x="25" y="0.0" width="241" height="20"/>
+                                                        <rect key="frame" x="25" y="0.0" width="241" height="100"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>

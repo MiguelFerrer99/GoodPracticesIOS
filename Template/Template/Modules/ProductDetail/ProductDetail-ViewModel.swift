@@ -12,6 +12,7 @@ class ProductDetailViewModel: ViewModel {
     
     //MARK: - Properties
     var product: Product
+    let collectionManager = ProductDetailCollectionManager()
     
     //MARK: - Initializer
     init(product: Product) {

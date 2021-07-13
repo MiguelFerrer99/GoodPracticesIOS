@@ -9,7 +9,8 @@
 import UIKit
 
 class DeviceDetailViewController: ViewController, ViewModelController {
-
+    typealias T = DeviceDetailViewModel
+    
     //MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -20,7 +21,7 @@ class DeviceDetailViewController: ViewController, ViewModelController {
     override var navBarTitle: String {
         return "Aparato"
     }
-    var viewModel: ProductDetailViewModel! {
+    var viewModel: DeviceDetailViewModel! {
       didSet { fillUI() }
     }
     
@@ -35,7 +36,12 @@ class DeviceDetailViewController: ViewController, ViewModelController {
     func fillUI() {
         if !isViewLoaded { return }
         setUpUI()
-        //configure(collectionView)
+        configure(collectionView)
+        
+        let products = viewModel.device.products
+        let devices = viewModel.device.attachments
+        viewModel.collectionManager.addProductsSection(products: products)
+        viewModel.collectionManager.addDevicesSection(devices: devices)
     }
     
     func setUpUI() {

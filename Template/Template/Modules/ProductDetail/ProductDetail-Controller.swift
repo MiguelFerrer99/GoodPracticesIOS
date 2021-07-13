@@ -36,7 +36,12 @@ class ProductDetailViewController: ViewController, ViewModelController {
     func fillUI() {
         if !isViewLoaded { return }
         setUpUI()
-        //configure(collectionView)
+        configure(collectionView)
+        
+        let products = viewModel.product.related
+        let devices = viewModel.product.devices
+        viewModel.collectionManager.addProductsSection(products: products)
+        viewModel.collectionManager.addDevicesSection(devices: devices)
     }
     
     func setUpUI() {

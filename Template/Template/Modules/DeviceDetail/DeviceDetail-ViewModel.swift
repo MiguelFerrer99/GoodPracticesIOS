@@ -12,6 +12,7 @@ class DeviceDetailViewModel: ViewModel {
     
     //MARK: - Properties
     var device: Device
+    let collectionManager = DeviceDetailCollectionManager()
     
     //MARK: - Initializer
     init(device: Device) {

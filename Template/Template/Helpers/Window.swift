@@ -46,3 +46,36 @@ func showAlert(title: String, message: String  = "", completion: (() -> Void)? =
 
   topMostController()?.present(viewController: alert)
 }
+
+func showLogOutAlert() {
+  if topMostController() is UIAlertController { return }
+
+  let alert = UIAlertController(title: "Logout", message: "Se va a cerrar la sesión", preferredStyle: .alert)
+  let accept = UIAlertAction(title: "Aceptar", style: .default) { _ in
+    Cache.set(.logged, false)
+    let vc = UIViewController.instantiate(viewController: StartupViewController.self)
+    let nav = UINavigationController(rootViewController: vc)
+    changeRoot(to: nav)
+  }
+  let cancel = UIAlertAction(title: "Cancelar", style: .cancel)
+  alert.addAction(accept)
+  alert.addAction(cancel)
+
+  topMostController()?.present(viewController: alert)
+}
+
+func showGuestAlert() {
+  if topMostController() is UIAlertController { return }
+
+  let alert = UIAlertController(title: "Login", message: "Tienes que loguearte para acceder a esta característica", preferredStyle: .alert)
+  let accept = UIAlertAction(title: "Login", style: .default) { _ in
+    let vc = UIViewController.instantiate(viewController: StartupViewController.self)
+    let nav = UINavigationController(rootViewController: vc)
+    changeRoot(to: nav)
+  }
+  let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+  alert.addAction(accept)
+  alert.addAction(cancel)
+
+  topMostController()?.present(viewController: alert)
+}

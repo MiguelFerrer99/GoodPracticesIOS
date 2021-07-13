@@ -40,12 +40,16 @@ class MethodologyCell: UITableViewCell, ViewModelCell {
     
     //MARK: - Observers
     @IBAction func saveButtonPressed(_ sender: Any) {
-        if viewModel.methodology.isSaved {
-            viewModel.methodology.isSaved = false
-            saveMethodologyButton.imageView?.image = UIImage(systemName: "bookmark")
+        if Cache.get(boolFor: .logged) {
+            if viewModel.methodology.isSaved {
+                viewModel.methodology.isSaved = false
+                saveMethodologyButton.imageView?.image = UIImage(systemName: "bookmark")
+            } else {
+                viewModel.methodology.isSaved = true
+                saveMethodologyButton.imageView?.image = UIImage(systemName: "bookmark.fill")
+            }
         } else {
-            viewModel.methodology.isSaved = true
-            saveMethodologyButton.imageView?.image = UIImage(systemName: "bookmark.fill")
+            showGuestAlert()
         }
     }
 }

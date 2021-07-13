@@ -117,7 +117,9 @@ extension MethodologyViewController: UICollectionViewDelegate, UICollectionViewD
                 alignment: .top)*/
 
           section = NSCollectionLayoutSection(group: group)
-          section.orthogonalScrollingBehavior = .continuous
+          //section.orthogonalScrollingBehavior = .continuous //--> Scroll continuo, se puede quedar en mitad de un item
+          section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary //--> Scroll continuo pero no se queda en mitad de un item
+          //section.orthogonalScrollingBehavior = .paging     //--> Scroll paginado, se forman X páginas dependiendo los items dentro de una página
 
           //section.boundarySupplementaryItems = [sectionHeader]
 

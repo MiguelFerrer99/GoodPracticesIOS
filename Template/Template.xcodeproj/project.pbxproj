@@ -113,6 +113,7 @@
 		A257CA26269C546700756CA6 /* StepCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A257CA24269C546700756CA6 /* StepCollectionCell.xib */; };
 		A265F8C72695D57A006F750B /* TermsAndConditions-Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A265F8C62695D57A006F750B /* TermsAndConditions-Controller.swift */; };
 		A265F8C92695D5C7006F750B /* TermsAndConditions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A265F8C82695D5C7006F750B /* TermsAndConditions.storyboard */; };
+		A26BFB59269DB09000E35D6A /* Register-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26BFB58269DB09000E35D6A /* Register-ViewModel.swift */; };
 		A27450F0269CD05E00236D76 /* HeaderForCollectionSections-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27450EF269CD05E00236D76 /* HeaderForCollectionSections-ViewModel.swift */; };
 		A27450F3269CD0EB00236D76 /* HeaderForCollectionSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27450F1269CD0EB00236D76 /* HeaderForCollectionSections.swift */; };
 		A27450F4269CD0EB00236D76 /* HeaderForCollectionSections.xib in Resources */ = {isa = PBXBuildFile; fileRef = A27450F2269CD0EB00236D76 /* HeaderForCollectionSections.xib */; };
@@ -274,6 +275,7 @@
 		A257CA24269C546700756CA6 /* StepCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepCollectionCell.xib; sourceTree = "<group>"; };
 		A265F8C62695D57A006F750B /* TermsAndConditions-Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TermsAndConditions-Controller.swift"; sourceTree = "<group>"; };
 		A265F8C82695D5C7006F750B /* TermsAndConditions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TermsAndConditions.storyboard; sourceTree = "<group>"; };
+		A26BFB58269DB09000E35D6A /* Register-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Register-ViewModel.swift"; sourceTree = "<group>"; };
 		A27450EF269CD05E00236D76 /* HeaderForCollectionSections-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeaderForCollectionSections-ViewModel.swift"; sourceTree = "<group>"; };
 		A27450F1269CD0EB00236D76 /* HeaderForCollectionSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderForCollectionSections.swift; sourceTree = "<group>"; };
 		A27450F2269CD0EB00236D76 /* HeaderForCollectionSections.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderForCollectionSections.xib; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 			isa = PBXGroup;
 			children = (
 				310FC91524192781002EFCD4 /* Register-Controller.swift */,
+				A26BFB58269DB09000E35D6A /* Register-ViewModel.swift */,
 				31981E44241919A300D25074 /* Register.storyboard */,
 			);
 			path = Register;
@@ -1135,6 +1138,7 @@
 				A234906F269B520500539BE0 /* Home-Controller.swift in Sources */,
 				A20EE9D72694575A00128096 /* OnboardCollection-Collection.swift in Sources */,
 				A20EE9E526946AB100128096 /* OnboardScroll-Scroll.swift in Sources */,
+				A26BFB59269DB09000E35D6A /* Register-ViewModel.swift in Sources */,
 				A2349087269B5DDC00539BE0 /* SavedElements-Table.swift in Sources */,
 				E3D14DC7242D06A400436D51 /* Generic-Service.swift in Sources */,
 				A215D3F8269A297D00BC7975 /* FilterDevices-Table.swift in Sources */,

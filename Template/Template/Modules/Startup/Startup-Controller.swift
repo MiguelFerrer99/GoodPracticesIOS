@@ -25,7 +25,8 @@ class StartupViewController: ViewController {
 
   // MARK: - Observers
   @IBAction func registerButtonPressed(_ sender: Any) {
-      let registerVC = UIViewController.instantiate(viewController: RegisterViewController.self)
+      let registerVM = RegisterViewModel()
+      let registerVC = UIViewController.instantiate(viewController: RegisterViewController.self, withViewModel: registerVM)
       push(viewController: registerVC)
   }
   

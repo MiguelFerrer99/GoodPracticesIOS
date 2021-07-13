@@ -8,7 +8,9 @@
 
 import UIKit
 
-class RegisterViewController: ViewController {
+class RegisterViewController: ViewController, ViewModelController {
+    typealias T = RegisterViewModel
+    
   // MARK: - IBOutlets
   @IBOutlet weak var nameTextField: CustomTextField!
   @IBOutlet weak var lastnameTextField: CustomTextField!
@@ -21,23 +23,44 @@ class RegisterViewController: ViewController {
   @IBOutlet weak var registerButton: CustomButton!
     
   // MARK: - Properties
+  override var hideNavigationBar: Bool {
+    return false
+  }
+  override var navBarTitle: String {
+    return "Registro"
+  }
+  var viewModel: RegisterViewModel! {
+    didSet { fillUI() }
+  }
   private var policyReaded = false
 
   // MARK: - Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    configureTextFields()
+    setUpUI()
+    fillUI()
   }
 
   // MARK: - Functions
-  func fillUI() {
-    if !isViewLoaded { return }
-
+  func setUpUI() {
+      configureTextFields()
+      
+      viewModel._isTermsChecked.bindAndFire { [weak self] isTermsChecked in
+          self?.imageButtonView.image = isTermsChecked ? UIImage(systemName: "checkmark.circle.fill") : UIImage(systemName: "circle")
+          self?.registerButton.isEnabled = isTermsChecked
+          self?.registerButton.alpha = isTermsChecked ? 1 : 0.5
+      }
+      
+      viewModel._isCompany.bindAndFire { [weak self] isCompany in
+          self?.empresaRadioButton.backgroundColor = isCompany ? UIColor(named: "customBlue") : .lightGray
+          self?.personaParticularRadioButton.backgroundColor = !isCompany ? UIColor(named: "customBlue") : .lightGray
+          self?.businessName.isHidden = isCompany ? false : true
+      }
   }
     
-  override var navBarTitle: String {
-      return "Registro"
+  func fillUI() {
+    if !isViewLoaded { return }
   }
     
   func configureTextFields() {
@@ -75,37 +98,24 @@ class RegisterViewController: ViewController {
   // MARK: - Observers
   @IBAction func registerButtonPressed(_ sender: Any) {
     if textFieldsHaveErrors() { return }
-    showAlert(title: "Registered successfully", message: "Now you can log in")
+      showAlert(title: "Registered successfully", message: "Now you can log in") {
+          Cache.set(.logged, true)
+          let tabBarVC = UIViewController.instantiate(viewController: TabBarViewController.self)
+          let nav = UINavigationController(rootViewController: tabBarVC)
+          changeRoot(to: nav)
+      }
   }
     
   @IBAction func personaParticularRadioButtonPressed(_ sender: Any) {
-      UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseOut], animations: {
-          self.businessName.isHidden = true
-      }, completion: nil)
-      empresaRadioButton.backgroundColor = .lightGray
-      personaParticularRadioButton.backgroundColor = UIColor(named: "customBlue")
+      viewModel.isCompany = false
   }
     
   @IBAction func empresaRadioButtonPressed(_ sender: Any) {
-      UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseOut], animations: {
-          self.businessName.isHidden = false
-      }, completion: nil)
-      empresaRadioButton.backgroundColor = UIColor(named: "customBlue")
-      personaParticularRadioButton.backgroundColor = .lightGray
+      viewModel.isCompany = true
   }
     
     @IBAction func politicaPrivacidadButtonPressed(_ sender: Any) {
-        if policyReaded {
-            imageButtonView.image = UIImage(systemName: "circle")
-            policyReaded = false
-            registerButton.isEnabled = false
-            registerButton.alpha = 0.5
-        } else {
-            imageButtonView.image = UIImage(systemName: "checkmark.circle.fill")
-            policyReaded = true
-            registerButton.isEnabled = true
-            registerButton.alpha = 1
-        }
+        viewModel.isTermsChecked.toggle()
     }
     
     @IBAction func verPoliticaPrivacidadButtonPressed(_ sender: Any) {

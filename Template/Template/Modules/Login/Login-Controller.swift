@@ -8,28 +8,38 @@
 
 import UIKit
 
-class LoginViewController: ViewController {
+class LoginViewController: ViewController, ViewModelController {
+    typealias T = LoginViewModel
+    
   // MARK: - IBOutlets
   @IBOutlet weak var emailTextField: CustomTextField!
   @IBOutlet weak var passwordTextField: CustomTextField!
+  @IBOutlet weak var loginButton: CustomButton!
     
   // MARK: - Properties
+  override var hideNavigationBar: Bool {
+    return false
+  }
+  override var navBarTitle: String {
+    return "Login"
+  }
+  var viewModel: LoginViewModel!
 
   // MARK: - Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    configureTextFields()
-  }
-
-  override var navBarTitle: String {
-    return "Login"
+    setUpUI()
+    fillUI()
   }
     
   // MARK: - Functions
+  func setUpUI() {
+    configureTextFields()
+  }
+    
   func fillUI() {
     if !isViewLoaded { return }
-
   }
     
   func configureTextFields() {
@@ -56,15 +66,30 @@ class LoginViewController: ViewController {
 
   // MARK: - Observers
   @IBAction func loginButtonPressed(_ sender: Any) {
-    if textFieldsHaveErrors() { return }
-      Cache.set(.logged, true)
-      let tabBarVC = UIViewController.instantiate(viewController: TabBarViewController.self)
-      let nav = UINavigationController(rootViewController: tabBarVC)
-      changeRoot(to: nav)
+      if textFieldsHaveErrors() { return }
+      
+      loginButton.showLoading()
+      
+      let email = emailTextField.value
+      let password = passwordTextField.value
+      
+      viewModel.login(username: email, password: password) { result in
+          self.loginButton.hideLoading()
+          switch result {
+          case .success(_):
+              let tabBarVC = UIViewController.instantiate(viewController: TabBarViewController.self)
+              let nav = UINavigationController(rootViewController: tabBarVC)
+              changeRoot(to: nav)
+              
+          case .failure(_):
+              showAlert(title: "Error en Login. Parámetros incorrectos")
+          }
+      }
   }
 
   @IBAction func recoverPasswordButtonPressed(_ sender: Any) {
-      let recoverPasswordVC = UIViewController.instantiate(viewController: RecoverPasswordViewController.self)
+      let recoverPasswordVM = RecoverPasswordViewModel()
+      let recoverPasswordVC = UIViewController.instantiate(viewController: RecoverPasswordViewController.self, withViewModel: recoverPasswordVM)
       push(viewController: recoverPasswordVC)
   }
 }

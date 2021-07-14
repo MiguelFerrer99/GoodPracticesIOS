@@ -46,7 +46,8 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
             let homeVC = UIViewController.instantiate(viewController: HomeViewController.self, withViewModel: homeVM)
             nav?.viewControllers = [homeVC]
         case 1:
-            let profileVC = UIViewController.instantiate(viewController: ProfileViewController.self)
+            let profileVM = ProfileViewModel()
+            let profileVC = UIViewController.instantiate(viewController: ProfileViewController.self, withViewModel: profileVM)
             nav?.viewControllers = [profileVC]
         case 2:
             let filtersVM = FiltersViewModel()

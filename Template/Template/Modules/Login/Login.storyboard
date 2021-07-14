@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="n9I-i3-gpK">
-                                <rect key="frame" x="20" y="64" width="374" height="180"/>
+                                <rect key="frame" x="20" y="64" width="374" height="178"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKb-Ue-Ty3" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="46"/>
@@ -34,8 +34,8 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="singleBottomLine" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WgE-3M-nU7">
-                                        <rect key="frame" x="0.0" y="86" width="374" height="94"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WgE-3M-nU7">
+                                        <rect key="frame" x="0.0" y="86" width="374" height="92"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SjM-7J-mPm" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="46"/>
@@ -52,7 +52,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jog-UF-lGm">
-                                                <rect key="frame" x="0.0" y="46" width="374" height="48"/>
+                                                <rect key="frame" x="0.0" y="46" width="374" height="46"/>
                                                 <state key="normal" title="¿Has olvidado la contraseña?"/>
                                                 <connections>
                                                     <action selector="recoverPasswordButtonPressed:" destination="IYm-bh-C1N" eventType="touchUpInside" id="ZgF-cd-JVF"/>
@@ -61,9 +61,6 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="dSy-8W-sHZ"/>
-                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bmm-23-bh6">
                                 <rect key="frame" x="20" y="807" width="374" height="35"/>
@@ -112,6 +109,7 @@
                     <navigationItem key="navigationItem" title="Iniciar sesión" id="MKi-DA-V78"/>
                     <connections>
                         <outlet property="emailTextField" destination="cKb-Ue-Ty3" id="ZzS-sR-bcX"/>
+                        <outlet property="loginButton" destination="ohL-bw-V5t" id="8Mp-Zz-EfF"/>
                         <outlet property="passwordTextField" destination="SjM-7J-mPm" id="JMc-9z-SbK"/>
                     </connections>
                 </viewController>

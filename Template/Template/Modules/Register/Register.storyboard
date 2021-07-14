@@ -25,8 +25,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="okd-7D-6Fd">
                                         <rect key="frame" x="20" y="0.0" width="374" height="818"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LpD-8E-lcs">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="378.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LpD-8E-lcs">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="438.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bjx-ix-yBn" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="46"/>
@@ -41,7 +41,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tup-i8-xji" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="56" width="374" height="46"/>
+                                                        <rect key="frame" x="0.0" y="66" width="374" height="46"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="capitalizeFirstLetter" value="YES"/>
@@ -53,7 +53,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x52-Kx-GAS" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="112" width="374" height="46"/>
+                                                        <rect key="frame" x="0.0" y="132" width="374" height="46"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="capitalizeFirstLetter" value="NO"/>
@@ -65,7 +65,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="XOu-Vq-HOa">
-                                                        <rect key="frame" x="0.0" y="168" width="374" height="80"/>
+                                                        <rect key="frame" x="0.0" y="198" width="374" height="80"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hz1-aq-TvU" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="46"/>
@@ -88,13 +88,13 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Cómo te identificamos?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6e-Af-RxX">
-                                                        <rect key="frame" x="0.0" y="258" width="374" height="19.5"/>
+                                                        <rect key="frame" x="0.0" y="298" width="374" height="19.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ikN-wg-sSn">
-                                                        <rect key="frame" x="0.0" y="287.5" width="374" height="35"/>
+                                                        <rect key="frame" x="0.0" y="337.5" width="374" height="35"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfk-IH-GGC" customClass="CustomButton" customModule="Template" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="229" height="35"/>
@@ -148,7 +148,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzj-8U-mJP" userLabel="BusinessName Text Field" customClass="CustomTextField" customModule="Template" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="332.5" width="374" height="46"/>
+                                                        <rect key="frame" x="0.0" y="392.5" width="374" height="46"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="capitalizeFirstLetter" value="YES"/>
@@ -327,7 +327,7 @@
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="tray" catalog="system" width="128" height="88"/>
         <namedColor name="customBlue">
-            <color red="0.34901960784313724" green="0.57647058823529407" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34900000691413879" green="0.57599997520446777" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

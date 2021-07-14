@@ -23,7 +23,18 @@ class MethodologyHeaderCollectionCell: UICollectionViewCell, ViewModelCell {
       didSet { fillUI() }
     }
 
+    //MARK: - Life cycle
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        setUpUI()
+    }
+    
     //MARK: - Functions
+    func setUpUI() {
+        methodologyImageView.layer.cornerRadius = 15
+    }
+    
     func fillUI() {
         labelName.text = viewModel.name
         labelSubtitle.text = viewModel.subtitle
@@ -31,6 +42,4 @@ class MethodologyHeaderCollectionCell: UICollectionViewCell, ViewModelCell {
         shortDescriptionLabel.text = viewModel.shortDescription
         longDescriptionLabel.text = viewModel.longDescription
     }
-
-    //MARK: - Observers
 }

@@ -52,7 +52,7 @@ func showLogOutAlert() {
 
   let alert = UIAlertController(title: "Logout", message: "Se va a cerrar la sesión", preferredStyle: .alert)
   let accept = UIAlertAction(title: "Aceptar", style: .default) { _ in
-    Cache.set(.logged, false)
+      AuthService().logout()
     let vc = UIViewController.instantiate(viewController: StartupViewController.self)
     let nav = UINavigationController(rootViewController: vc)
     changeRoot(to: nav)

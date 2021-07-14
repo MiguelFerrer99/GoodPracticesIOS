@@ -17,13 +17,29 @@ class MethodologyCell: UITableViewCell, ViewModelCell {
     @IBOutlet weak var labelShortDescription: UILabel!
     @IBOutlet weak var methodologyImageView: UIImageView!
     @IBOutlet weak var saveMethodologyButton: UIButton!
+    @IBOutlet weak var methodologyCellView: CustomView!
     
     //MARK: - Properties
     var viewModel: MethodologyCellViewModel! {
         didSet { fillUI() }
     }
     
+    //MARK: - Life cycle
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    
+        setUpUI()
+    }
+    
     //MARK: - Functions
+    func setUpUI() {
+        methodologyCellView.layer.cornerRadius = 10
+        methodologyCellView.layer.shadowColor = UIColor.black.cgColor
+        methodologyCellView.layer.shadowOpacity = 0.3
+        methodologyCellView.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        methodologyCellView.layer.shadowRadius = 10
+    }
+    
     func fillUI() {
         labelName.text = viewModel.methodology.name
         labelSubtitle.text = viewModel.methodology.subtitle
@@ -32,7 +48,6 @@ class MethodologyCell: UITableViewCell, ViewModelCell {
             print("fillUI:isSaved = true")
         } else {
             saveMethodologyButton.imageView?.image = UIImage(systemName: "bookmark")
-            print("fillUI:isSaved = false")
         }
         methodologyImageView.image = viewModel.methodology.image
         labelShortDescription.text = viewModel.methodology.shortDescription

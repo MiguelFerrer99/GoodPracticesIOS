@@ -11,6 +11,7 @@ import UIKit
 class MainViewController: ViewController {
   
   // MARK: - Properties
+  var viewModel = MainViewModel()
   
   // MARK: - Life cycle
   override func viewDidLoad() {
@@ -24,9 +25,19 @@ class MainViewController: ViewController {
     let hasSeenOnboarding = Cache.get(boolFor: .onboardDone)
     let isLogged = Cache.get(boolFor: .logged)
     if isLogged {
-        let tabbarVC = UIViewController.instantiate(viewController: TabBarViewController.self)
-        let nav = UINavigationController(rootViewController: tabbarVC)
-        changeRoot(to: nav)
+        viewModel.usersService.getMe { result in
+            switch result {
+            case .success:
+                let tabbarVC = UIViewController.instantiate(viewController: TabBarViewController.self)
+                let nav = UINavigationController(rootViewController: tabbarVC)
+                changeRoot(to: nav)
+                
+            case .failure:
+                let startupVC = UIViewController.instantiate(viewController: StartupViewController.self)
+                let nav = UINavigationController(rootViewController: startupVC)
+                changeRoot(to: nav)
+            }
+        }
     } else {
       Cache.set(.logged, false)
       if hasSeenOnboarding {

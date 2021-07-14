@@ -8,22 +8,34 @@
 
 import UIKit
 
-class ProfileViewController: ViewController {
+class ProfileViewController: ViewController, ViewModelController {
+    typealias T = ProfileViewModel
 
-    // MARK: - IBActions
+    // MARK: - IBOutlets
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     
     // MARK: - Properties
+    var viewModel: ProfileViewModel!
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fillUI()
     }
     
     // MARK: - Functions
+    func fillUI() {
+        viewModel.getMe()
+        fullNameLabel.text = viewModel.fullName
+        emailLabel.text = viewModel.email
+    }
     
     // MARK: - Observers
     @IBAction func editarPerfilButtonPressed(_ sender: Any) {
-        let editProfileVC = UIViewController.instantiate(viewController: EditProfileViewController.self)
+        let editProfileVM = EditProfileViewModel()
+        let editProfileVC = UIViewController.instantiate(viewController: EditProfileViewController.self, withViewModel: editProfileVM)
         push(viewController: editProfileVC)
     }
     

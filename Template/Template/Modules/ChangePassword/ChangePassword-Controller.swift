@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ChangePasswordViewController: ViewController {
+class ChangePasswordViewController: ViewController, ViewModelController {
+    typealias T = ChangePasswordViewModel
 
     // MARK: - IBOutlets
     @IBOutlet weak var contraseñaAntigua: CustomTextField!
@@ -22,6 +23,7 @@ class ChangePasswordViewController: ViewController {
     override var navBarTitle: String {
         return "Cambiar contraseña"
     }
+    var viewModel: ChangePasswordViewModel!
         
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -63,6 +65,19 @@ class ChangePasswordViewController: ViewController {
     // MARK: - Observers
     @objc func saveButtonPressed(sender: Any) {
         guard !textFieldsHaveErrors() else { return }
-        self.pop()
+        let oldPassword = contraseñaAntigua.value
+        let newPassword = contraseñaNuevaRepetida.value
+        
+        viewModel.updatePassword(oldPassword: oldPassword, newPassword: newPassword) { result in
+            switch result {
+            case .success(_):
+                showAlert(title: "Éxito", message: "La contraseña se ha cambiado correctamente") {
+                    self.pop()
+                }
+                
+            case .failure(_):
+                showAlert(title: "Error", message: "Error en el cambio de contraseña")
+            }
+        }
     }
 }

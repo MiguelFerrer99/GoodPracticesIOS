@@ -15,7 +15,7 @@ enum Endpoint {
   var path: String {
     switch self {
     case .backend:
-    return "https://translator.rudo.es"
+    return "https://cleanapp.rudo.es/"
     }
   }
 }
@@ -24,4 +24,9 @@ enum Endpoint {
 struct ContentType {
   static let urlEncoded  = "application/x-www-form-urlencoded"
   static let jsonEncoded = "application/json"
+}
+
+struct APIKeys {
+  static let clientID  = "LKIgXHNaJGSIE2Bg0tBSEyVO3HVBTSP72AjE7BrT"
+  static let clientSecret = "G8FezB5lWnakaPtKJFKvJFOYT69pZ1That9p5guboGhU3hjPVeNKFlByeykPjJtpuNbDXmhl2cYF6XIHl7P97SN8k7CAZAhe0vI8usx9FkNfTTToKDD2BWUp6s5rr5hC"
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol Presenter: class {
+protocol Presenter: AnyObject {
   func present(viewController: UIViewController, completion: (() -> Void)?)
   func presentWithNavBar(viewController: UIViewController, completion: (() -> Void)?)
   func push(viewController: UIViewController)

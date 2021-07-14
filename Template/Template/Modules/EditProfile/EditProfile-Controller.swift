@@ -8,8 +8,9 @@
 
 import UIKit
 
-class EditProfileViewController: ViewController {
-
+class EditProfileViewController: ViewController, ViewModelController {
+    typealias T = EditProfileViewModel
+    
     // MARK: - IBOutlets
     @IBOutlet weak var nombreTextField: CustomTextField!
     @IBOutlet weak var apellidosTextField: CustomTextField!
@@ -22,12 +23,14 @@ class EditProfileViewController: ViewController {
     override var navBarTitle: String {
         return "Editar perfil"
     }
+    var viewModel: EditProfileViewModel!
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpUI()
+        fillUI()
     }
     
     // MARK: - Functions
@@ -37,6 +40,12 @@ class EditProfileViewController: ViewController {
       navigationItem.rightBarButtonItems = [save]
         
       configureTextFields()
+    }
+    
+    func fillUI() {
+        nombreTextField.textField.text = viewModel.firstName
+        apellidosTextField.textField.text = viewModel.lastName
+        emailTextField.textField.text = viewModel.email
     }
     
     func configureTextFields() {
@@ -64,12 +73,27 @@ class EditProfileViewController: ViewController {
     
     // MARK: - Observers
     @IBAction func cambiarContraseñaButtonPressed(_ sender: Any) {
-        let changePassVC = UIViewController.instantiate(viewController: ChangePasswordViewController.self)
+        let changePassVM = ChangePasswordViewModel()
+        let changePassVC = UIViewController.instantiate(viewController: ChangePasswordViewController.self, withViewModel: changePassVM)
         push(viewController: changePassVC)
     }
     
     @objc func saveButtonPressed(sender: Any) {
         if textFieldsHaveErrors() { return }
-        self.pop()
+        
+        let firstName = nombreTextField.value
+        let lastName = apellidosTextField.value
+        let email = emailTextField.value
+        
+        viewModel.editMe(email: email, firstName: firstName, lastName: lastName) { result in
+            switch result {
+            case .success(_):
+                showAlert(title: "Éxito", message: "Perfil actualizada correctamente")
+                self.pop()
+                
+            case .failure(_): showAlert(title: "Error", message: "Error al actualizar el perfil")
+                
+            }
+        }
     }
 }

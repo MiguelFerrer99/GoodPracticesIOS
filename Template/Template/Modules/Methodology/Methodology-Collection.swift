@@ -81,82 +81,64 @@ extension MethodologyViewController: UICollectionViewDelegate, UICollectionViewD
       return UICollectionViewCompositionalLayout { (sectionNumber: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
 
         let sectionLayoutKind = self.viewModel.collectionManager.collectionSections[sectionNumber]
-
+        let noProducts = self.viewModel.methodology.products.isEmpty
+        let noDevices = self.viewModel.methodology.devices.isEmpty
+        let noSteps = self.viewModel.methodology.steps.isEmpty
         let section: NSCollectionLayoutSection
 
         switch sectionLayoutKind {
         case .headerSection:
-          let heightDimension = NSCollectionLayoutDimension.estimated(300)
-
-          let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: heightDimension)
-
-          let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-          let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: heightDimension)
-
-          let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
-
-          section = NSCollectionLayoutSection(group: group)
+            let heightDimension = NSCollectionLayoutDimension.estimated(300)
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: heightDimension)
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: heightDimension)
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+            section = NSCollectionLayoutSection(group: group)
 
         case .productsSection:
-          let heightDimension = NSCollectionLayoutDimension.estimated(230)
-
-          let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-
-          let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-          let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.32), heightDimension: heightDimension)
-
-          let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-
-          /*let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                          heightDimension: .estimated(44))
-          let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
-                layoutSize: headerFooterSize,
-                elementKind: MethodologyViewController.sectionHeaderElementKind,
-                alignment: .top)*/
-
-          section = NSCollectionLayoutSection(group: group)
-          //section.orthogonalScrollingBehavior = .continuous //--> Scroll continuo, se puede quedar en mitad de un item
-          section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary //--> Scroll continuo pero no se queda en mitad de un item
-          //section.orthogonalScrollingBehavior = .paging     //--> Scroll paginado, se forman X páginas dependiendo los items dentro de una página
-
-          //section.boundarySupplementaryItems = [sectionHeader]
+            let heightDimension = NSCollectionLayoutDimension.estimated(noProducts ? 0 : 230)
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(noProducts ? 0 : 1.0), heightDimension: .fractionalHeight(noProducts ? 0 : 1.0))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(noProducts ? 0 : 0.32), heightDimension: heightDimension)
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            section = NSCollectionLayoutSection(group: group)
+            section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary //--> Scroll continuo pero no se queda en mitad de un item
+            //section.orthogonalScrollingBehavior = .continuous //--> Scroll continuo, se puede quedar en mitad de un item
+            //section.orthogonalScrollingBehavior = .paging     //--> Scroll paginado, se forman X páginas dependiendo los items dentro de una página
+            let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(noProducts ? 0 : 1.0), heightDimension: .estimated(noProducts ? 0 : 44))
+            let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: headerFooterSize,
+                    elementKind: MethodologyViewController.sectionHeaderElementKind,
+                    alignment: .top)
+            section.boundarySupplementaryItems = [sectionHeader]
 
         case .devicesSection:
-          let heightDimension = NSCollectionLayoutDimension.estimated(75)
-
-          let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-
-          let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-          let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: heightDimension)
-
-          let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-
-          /*let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                          heightDimension: .estimated(44))
-          let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
-                layoutSize: headerFooterSize,
-                elementKind: MethodologyViewController.sectionHeaderElementKind,
-                alignment: .top)*/
-
-          section = NSCollectionLayoutSection(group: group)
-
-          //section.boundarySupplementaryItems = [sectionHeader]
-
-        default:
-          let heightDimension = NSCollectionLayoutDimension.estimated(300)
-
-          let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: heightDimension)
-
-          let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-          let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: heightDimension)
-
-          let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
-
-          section = NSCollectionLayoutSection(group: group)
+            let heightDimension = NSCollectionLayoutDimension.estimated(noDevices ? 0 : 75)
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(noDevices ? 0 : 1.0), heightDimension: .fractionalHeight(noDevices ? 0 : 1.0))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(noDevices ? 0 : 1), heightDimension: heightDimension)
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            section = NSCollectionLayoutSection(group: group)
+            let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(noDevices ? 0 : 1.0), heightDimension: .estimated(noDevices ? 0 : 44))
+            let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: headerFooterSize,
+                    elementKind: MethodologyViewController.sectionHeaderElementKind,
+                    alignment: .top)
+            section.boundarySupplementaryItems = [sectionHeader]
+        
+        case .stepsSection:
+            let heightDimension = NSCollectionLayoutDimension.estimated(noSteps ? 0 : 300)
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(noSteps ? 0 : 1.0), heightDimension: heightDimension)
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(noSteps ? 0 : 1.0), heightDimension: heightDimension)
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: noSteps ? 0 : 1)
+            section = NSCollectionLayoutSection(group: group)
+            let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(noSteps ? 0 : 1.0), heightDimension: .estimated(noSteps ? 0 : 44))
+            let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: headerFooterSize,
+                    elementKind: MethodologyViewController.sectionHeaderElementKind,
+                    alignment: .top)
+            section.boundarySupplementaryItems = [sectionHeader]
         }
 
         return section
@@ -174,6 +156,11 @@ extension MethodologyViewController: UICollectionViewDelegate, UICollectionViewD
 
       case .devicesSection:
         let headerVM = HeaderForCollectionSectionsViewModel(title: "Aparatos:")
+        let header = collectionView.dequeue(supplementaryView: HeaderForCollectionSections.self, for: indexPath, viewModel: headerVM)
+        return header
+        
+      case .stepsSection:
+        let headerVM = HeaderForCollectionSectionsViewModel(title: "Pasos:")
         let header = collectionView.dequeue(supplementaryView: HeaderForCollectionSections.self, for: indexPath, viewModel: headerVM)
         return header
 

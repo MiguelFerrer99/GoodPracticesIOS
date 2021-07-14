@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol DatePickerDelegate: class {
+protocol DatePickerDelegate: AnyObject {
   func datePicker(_ datePicker: DatePickerViewController, didSelect date: Date)
 }
 
-protocol DatePickerDataSource: class {
+protocol DatePickerDataSource: AnyObject {
   func maximumDate(_ datePicker: DatePickerViewController) -> Date?
   func minimumDate(_ datePicker: DatePickerViewController) -> Date?
   func selectedDate(_ datePicker: DatePickerViewController) -> Date

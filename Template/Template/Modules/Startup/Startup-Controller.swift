@@ -12,6 +12,9 @@ class StartupViewController: ViewController {
   // MARK: - IBOutlets
     
   // MARK: - Properties
+  override var hideNavigationBar: Bool {
+    return true
+  }
 
   // MARK: - Life cycle
   override func viewDidLoad() {
@@ -31,8 +34,8 @@ class StartupViewController: ViewController {
   }
   
   @IBAction func loginButtonPressed(_ sender: Any) {
-      Cache.set(.logged, true)
-      let loginVC = UIViewController.instantiate(viewController: LoginViewController.self)
+      let loginVM = LoginViewModel()
+      let loginVC = UIViewController.instantiate(viewController: LoginViewController.self, withViewModel: loginVM)
       push(viewController: loginVC) //Como Startup-Controller ya tiene un UINavigationController, solo hay que hacer el push del VC
   }
     

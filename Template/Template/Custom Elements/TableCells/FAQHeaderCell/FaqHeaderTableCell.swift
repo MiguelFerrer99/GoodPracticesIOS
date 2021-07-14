@@ -16,6 +16,12 @@ class FaqHeaderTableCell: UITableViewCell, Reusable {
     // MARK: - Life cycle
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        setUpUI()
+    }
+    
+    //MARK: - Functions
+    func setUpUI() {
         label.text = "Aqui resolveremos tus mayores dudas sobre nuestros servicios"
     }
 }

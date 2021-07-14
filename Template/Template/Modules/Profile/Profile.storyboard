@@ -361,6 +361,10 @@
                             <constraint firstItem="PBB-rZ-B3b" firstAttribute="leading" secondItem="erY-Si-Qhq" secondAttribute="leading" id="xj2-J7-uMQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="NXP-vm-PhW" id="sYZ-by-rVZ"/>
+                        <outlet property="fullNameLabel" destination="XXj-rT-83Q" id="MHW-FE-AIU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

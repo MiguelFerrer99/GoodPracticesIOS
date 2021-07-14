@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol TableParent: class {
+protocol TableParent: AnyObject {
   func reloadTable()
 }

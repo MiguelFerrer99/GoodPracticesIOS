@@ -65,67 +65,47 @@ extension ProductDetailViewController: UICollectionViewDelegate, UICollectionVie
         return UICollectionViewCompositionalLayout { (sectionNumber: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
             let sectionLayoutKind = self.viewModel.collectionManager.collectionSections[sectionNumber]
-
+            let noProducts = self.viewModel.product.related.isEmpty
+            let noDevices = self.viewModel.product.devices.isEmpty
             let section: NSCollectionLayoutSection
-
+            
             switch sectionLayoutKind {
             case .headerSection:
-              let heightDimension = NSCollectionLayoutDimension.estimated(500)
-
-              let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: heightDimension)
-
-              let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-              let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: heightDimension)
-
-              let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
-
-              section = NSCollectionLayoutSection(group: group)
+                let heightDimension = NSCollectionLayoutDimension.estimated(500)
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: heightDimension)
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: heightDimension)
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+                section = NSCollectionLayoutSection(group: group)
 
             case .productsSection:
-              let heightDimension = NSCollectionLayoutDimension.estimated(230)
-
-              let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-
-              let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-              let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.32), heightDimension: heightDimension)
-
-              let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-
-              /*let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                            heightDimension: .estimated(44))
-              let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
-                  layoutSize: headerFooterSize,
-                  elementKind: MethodologyViewController.sectionHeaderElementKind,
-                  alignment: .top)*/
-
-              section = NSCollectionLayoutSection(group: group)
-              section.orthogonalScrollingBehavior = .continuous
-
-              //section.boundarySupplementaryItems = [sectionHeader]
+                let heightDimension = NSCollectionLayoutDimension.estimated(noProducts ? 0 : 230)
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(noProducts ? 0 : 1.0), heightDimension: .fractionalHeight(noProducts ? 0 : 1.0))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(noProducts ? 0 : 0.32), heightDimension: heightDimension)
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                section = NSCollectionLayoutSection(group: group)
+                section.orthogonalScrollingBehavior = .continuous
+                let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(noProducts ? 0 : 1.0), heightDimension: .estimated(noProducts ? 0 : 44))
+                let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+                      layoutSize: headerFooterSize,
+                      elementKind: MethodologyViewController.sectionHeaderElementKind,
+                      alignment: .top)
+                section.boundarySupplementaryItems = [sectionHeader]
 
             case .devicesSection:
-              let heightDimension = NSCollectionLayoutDimension.estimated(75)
-
-              let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-
-              let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-              let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: heightDimension)
-
-              let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-
-              /*let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                            heightDimension: .estimated(44))
-              let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
-                  layoutSize: headerFooterSize,
-                  elementKind: MethodologyViewController.sectionHeaderElementKind,
-                  alignment: .top)*/
-
-              section = NSCollectionLayoutSection(group: group)
-
-              //section.boundarySupplementaryItems = [sectionHeader]
+                let heightDimension = NSCollectionLayoutDimension.estimated(noDevices ? 0 : 75)
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(noDevices ? 0 : 1.0), heightDimension: .fractionalHeight(noDevices ? 0 : 1.0))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(noDevices ? 0 : 1), heightDimension: heightDimension)
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                section = NSCollectionLayoutSection(group: group)
+                let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(noDevices ? 0 : 1.0), heightDimension: .estimated(noDevices ? 0 : 44))
+                let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+                      layoutSize: headerFooterSize,
+                      elementKind: MethodologyViewController.sectionHeaderElementKind,
+                      alignment: .top)
+                section.boundarySupplementaryItems = [sectionHeader]
             }
 
             return section

@@ -8,17 +8,21 @@
 
 import UIKit
 
-class RecoverPasswordViewController: ViewController {
+class RecoverPasswordViewController: ViewController, ViewModelController {
+  typealias T = RecoverPasswordViewModel
+    
   // MARK: - IBOutlets
   @IBOutlet weak var emailTextField: CustomTextField!
     
   // MARK: - Properties
+    var viewModel: RecoverPasswordViewModel!
 
   // MARK: - Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    configureTextFields()
+    setUpUI()
+    fillUI()
   }
 
   override var navBarTitle: String {
@@ -26,6 +30,10 @@ class RecoverPasswordViewController: ViewController {
   }
     
   // MARK: - Functions
+  func setUpUI() {
+    configureTextFields()
+  }
+    
   func fillUI() {
     if !isViewLoaded { return }
   }
@@ -48,6 +56,18 @@ class RecoverPasswordViewController: ViewController {
   // MARK: - Observers
   @IBAction func recoverButtonPressed(_ sender: Any) {
       if textFieldsHaveErrors() { return }
-      showAlert(title:"Mail enviado", message: "Nos hemos puesto en contacto contigo para reestablecer tu contraseña.")
+      
+      let email = emailTextField.value
+      
+      viewModel.newPassword(email: email) { result in
+          switch result {
+          case .success:
+              showAlert(title:"Mail enviado", message: "Nos hemos puesto en contacto contigo para reestablecer tu contraseña.")
+              self.pop()
+              
+          case .failure:
+              showAlert(title: "Error", message: "Error en la recuperación de contraseña")
+          }
+      }
   }
 }

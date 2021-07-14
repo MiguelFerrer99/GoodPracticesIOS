@@ -22,7 +22,18 @@ class DetailHeaderCollectionCell: UICollectionViewCell, ViewModelCell {
     }
     weak var presenter: Presenter?
 
+    //MARK: - Life cycle
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        setUpUI()
+    }
+    
     //MARK: - Functions
+    func setUpUI() {
+        detailHeaderCollectionImageView.layer.cornerRadius = 10
+    }
+    
     func fillUI() {
         detailHeaderCollectionImageView.image = viewModel.image
         shortDescription.text = viewModel.shortDescription

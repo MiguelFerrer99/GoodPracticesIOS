@@ -98,11 +98,33 @@ class RegisterViewController: ViewController, ViewModelController {
   // MARK: - Observers
   @IBAction func registerButtonPressed(_ sender: Any) {
     if textFieldsHaveErrors() { return }
-      showAlert(title: "Registered successfully", message: "Now you can log in") {
-          Cache.set(.logged, true)
-          let tabBarVC = UIViewController.instantiate(viewController: TabBarViewController.self)
-          let nav = UINavigationController(rootViewController: tabBarVC)
-          changeRoot(to: nav)
+      
+      let email = emailTextField.value
+      let password = passwordTextField.value
+      let name = nameTextField.value
+      let lastName = lastnameTextField.value
+      let companyName = businessName.value
+      
+      viewModel.register(email: email, password: password, firstName: name, lastName: lastName, isBusiness: viewModel.isCompany, businessName: companyName) { result in
+          switch result {
+          case .success(let user):
+              showAlert(title: "Registered successfully", message: "Now you can log in") {
+                  self.viewModel.login(username: user.email, password: password) { result in
+                      switch result {
+                      case .success(_):
+                          let tabBarVC = UIViewController.instantiate(viewController: TabBarViewController.self)
+                          let nav = UINavigationController(rootViewController: tabBarVC)
+                          changeRoot(to: nav)
+                          
+                      case .failure(_):
+                          showAlert(title: "Error en login. Parámetros incorrectos")
+                      }
+                  }
+              }
+              
+          case .failure(_):
+              showAlert(title: "Error", message: "Error en el registro", completion: nil)
+          }
       }
   }
     

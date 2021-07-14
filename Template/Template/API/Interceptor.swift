@@ -58,21 +58,21 @@ final class RequestInterceptor: Alamofire.RequestInterceptor {
       completion(.retryWithDelay(1))
     } else {
       RequestInterceptor.isRefresing = true
+        
+      guard let token = Cache.get(stringFor: .refresh_token) else { return completion(.doNotRetry) }
+        
+      AuthService().refreshToken(withToken: token) { result in
+        switch result {
+        case .success(let token):
+          Cache.set(.refresh_token, token.refreshToken)
+          completion(.retry)
 
-// TODO: - Set the refresh token
-// Example
-//      AuthService().refreshToken { result in
-//        switch result {
-//        case .success(let token):
-//          Cache.set(.refresh_token, token.refreshToken)
-//          completion(.retry)
-//
-//        case .failure(let error):
-//          completion(.doNotRetryWithError(error))
-//        }
-//
-//        RequestInterceptor.isRefresing = false
-//      }
+        case .failure(let error):
+          completion(.doNotRetryWithError(error))
+        }
+
+        RequestInterceptor.isRefresing = false
+      }
     }
   }
 }

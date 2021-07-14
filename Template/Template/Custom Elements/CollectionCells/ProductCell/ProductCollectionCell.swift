@@ -12,6 +12,7 @@ class ProductCollectionCell: UICollectionViewCell, ViewModelCell {
     typealias T = ProductCollectionCellViewModel
     
     //MARK: - IBOutlets
+    @IBOutlet weak var cellView: CustomView!
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var labelName: UILabel!
     
@@ -20,7 +21,23 @@ class ProductCollectionCell: UICollectionViewCell, ViewModelCell {
       didSet { fillUI() }
     }
 
+    // MARK: - Life cycle
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+
+        setUpUI()
+    }
+    
     //MARK: - Functions
+    func setUpUI() {
+        cellView.layer.cornerRadius = 8
+        cellView.layer.shadowColor = UIColor.black.cgColor
+        cellView.layer.shadowOpacity = 0.3
+        cellView.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        cellView.layer.shadowRadius = 8
+    }
+    
     func fillUI() {
         labelName.text = viewModel.product.name
         productImageView.image = viewModel.product.image

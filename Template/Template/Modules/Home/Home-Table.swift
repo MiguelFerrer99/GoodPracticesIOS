@@ -17,18 +17,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.methodologies.count
+        return viewModel.methods.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellVM = MethodologyCellViewModel(methodology: viewModel.methodologies[indexPath.row])
+        let cellVM = MethodologyCellViewModel(methodology: viewModel.methods[indexPath.row])
         let cell = tableView.dequeue(MethodologyCell.self, viewModel: cellVM)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let methodologyVM = MethodologyViewModel(methodology: viewModel.methodologies[indexPath.row])
+        let methodologyVM = MethodologyViewModel(methodology: viewModel.methods[indexPath.row])
         let methodologyVC = UIViewController.instantiate(viewController: MethodologyViewController.self, withViewModel: methodologyVM)
         push(viewController: methodologyVC)
     }

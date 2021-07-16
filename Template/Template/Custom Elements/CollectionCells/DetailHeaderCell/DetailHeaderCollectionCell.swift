@@ -42,6 +42,10 @@ class DetailHeaderCollectionCell: UICollectionViewCell, ViewModelCell {
 
     //MARK: - Observers
     @IBAction func buyButtonPressed(_ sender: Any) {
-        print("Buyed")
+        print("Redirecting to online store...")
+        /*if let url = URL(string: viewModel.url){
+            let safariViewController = SFSafariViewController(url: url)
+            presenter?.present(viewController: safariViewController, completion: nil)
+        }*/
     }
 }

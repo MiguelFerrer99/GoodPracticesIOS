@@ -71,7 +71,7 @@ class CustomTextField: UIView {
       errorLabel.text     = error.localizedDescription
       errorLabel.isHidden = !hasError
 
-      if hasError { return false }
+      if hasError { return true }
     }
 
     return false

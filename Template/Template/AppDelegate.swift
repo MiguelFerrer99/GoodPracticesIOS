@@ -7,16 +7,24 @@
 //
 
 import UIKit
+import IQKeyboardManager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-  var window: UIWindow?
+    var window: UIWindow?
 
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-      
-      window?.rootViewController = UIViewController.instantiate(viewController: MainViewController.self)
-      
-      return true
-  }
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+          
+        configureKeyboard()
+          
+        return true
+    }
+    
+    func configureKeyboard() {
+        IQKeyboardManager.shared().isEnabled                    = true
+        IQKeyboardManager.shared().shouldShowToolbarPlaceholder = false
+        IQKeyboardManager.shared().isEnableAutoToolbar          = false
+        IQKeyboardManager.shared().shouldResignOnTouchOutside   = true
+    }
 }

@@ -9,6 +9,8 @@
 import UIKit
 
 class FAQ {
+    
+    //MARK: - Properties
     let question: String
     let answer: String
     

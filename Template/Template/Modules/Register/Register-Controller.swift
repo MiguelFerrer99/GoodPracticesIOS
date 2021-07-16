@@ -66,9 +66,11 @@ class RegisterViewController: ViewController, ViewModelController {
   func configureTextFields() {
     nameTextField.addErrorsToCheck([TextFieldErrorEmptyValue()])
     nameTextField.textField.textContentType = .name
+    nameTextField.textField.autocorrectionType = .no
 
     lastnameTextField.addErrorsToCheck([TextFieldErrorEmptyValue()])
-    nameTextField.textField.textContentType = .familyName
+    lastnameTextField.textField.textContentType = .familyName
+    lastnameTextField.textField.autocorrectionType = .no
 
     emailTextField.addErrorsToCheck([TextFieldErrorEmptyValue(),
                                      TextFieldErrorEmailFormat()])

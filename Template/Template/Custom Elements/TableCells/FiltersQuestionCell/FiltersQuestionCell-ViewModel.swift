@@ -11,11 +11,21 @@ import UIKit
 class FiltersQuestionCellViewModel: ViewModel {
     
     //MARK: - Properties
-    var question: String
-    var selectedAnswer: Answer?
+    var question, answer: String
+    var selectedDeviceName: String?
     
     //MARK: - Init
-    init(question: String) {
-        self.question = question
+    init(question: Question, selectedDeviceName: String? = nil) {
+        self.question = question.question
+        answer = ""
+        if let selectedIndex = question.selectedAnswerIndex {
+            if (question.childrenQuestions.count > 0), let selectedChildrenIndex = question.childrenQuestions[selectedIndex].selectedAnswerIndex {
+              answer = question.childrenQuestions[selectedIndex].answers[selectedChildrenIndex].text
+            }
+            else {
+              answer = question.answers[selectedIndex].text
+            }
+        }
+        self.selectedDeviceName = selectedDeviceName
     }
 }

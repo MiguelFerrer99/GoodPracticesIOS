@@ -10,62 +10,166 @@ import UIKit
 
 class FiltersViewModel: ViewModel {
     
+    enum CellType {
+        case place
+        case frequency
+        case manualOrDevice
+        case brand
+        case device
+    }
+    
     //MARK: - Properties
-    var filters: [Filter]
+    var questions: [Question]
     
-    var answersFilter1: [Answer]
-    var filter1: Filter
+    var tableCells: [CellType] = [
+        .place,
+        .frequency,
+        .manualOrDevice
+    ]
     
-    var answersFilter2: [Answer]
-    var filter2: Filter
+    let methodologiesService = MethodologiesService()
+    let devicesService = DevicesService()
     
-    var answersFilter3: [Answer]
-    var filter3: Filter
+    var places: [Place] = []
+    var frequencies: [Frequency] = []
+    var brands: [Brand] = []
+    var devices: [Device] = []
+    var deviceTypes: [ItemType] = []
     
-    var answersFilter4: [Answer]
-    var filter4: Filter
+    private(set) var _selectedBrand: Dynamic<Brand?> = Dynamic(nil)
+    var selectedBrand: Brand? {
+        get { _selectedBrand.value }
+        set { _selectedBrand.value = newValue }
+    }
     
-    var answersFilter5: [Answer]
-    var filter5: Filter
+    var isManual: Bool? = nil
+    var selectedPlace: Place? = nil
+    var selectedFrequency: Frequency? = nil
+    var selectedDevice: DeviceDetail? = nil
     
-    var answerNames: [String]
+    var question1 = Question(title: "Tipo de trabajo", question: "¿Qué trabajo se va a hacer?", answers: [])
+    var question2 = Question(title: "Clase de limpieza", question: "¿Qué clase de limpieza?", answers: [])
+    var question3 = Question(title: "Manual / Aparato", question: "¿Manual o con algún producto?", answers: [
+            Answer(text: "Manual", imagePath: "manual"),
+            Answer(text: "Con aparato", imagePath: "con_aparato")
+    ])
+    var question4 = Question(title: "Marca", question: "¿Marca del producto?", answers: [])
+    var question5 = Question(title: "Tipo de aparato", question: "¿Cuál tiene a su disposición?", answers: [])
     
     //MARK: - Initializer
     init() {
-        answersFilter1 = [
-            Answer(name: "Baño", image: UIImage(systemName: "1.circle.fill")!),
-            Answer(name: "Cocina", image: UIImage(systemName: "2.circle.fill")!)
-        ]
-        filter1 = Filter(title: "Tipo de trabajo", question: "¿Qué trabajo se va a hacer?", answers: answersFilter1)
-        
-        answersFilter2 = [
-            Answer(name: "Diaria", image: UIImage(systemName: "1.circle.fill")!),
-            Answer(name: "Semanal", image: UIImage(systemName: "2.circle.fill")!)
-        ]
-        filter2 = Filter(title: "Clase de limpieza", question: "¿Qué clase de limpieza?", answers: answersFilter2)
-        
-        answersFilter3 = [
-            Answer(name: "Con aparato", image: UIImage(systemName: "1.circle.fill")!),
-            Answer(name: "Manual", image: UIImage(systemName: "2.circle.fill")!)
-        ]
-        filter3 = Filter(title: "Manual / Aparato", question: "¿Manual o con algún producto?", answers: answersFilter3)
-        
-        answersFilter4 = [
-            Answer(name: "Viper", image: UIImage(systemName: "1.circle.fill")!),
-            Answer(name: "Karcher", image: UIImage(systemName: "2.circle.fill")!)
-        ]
-        filter4 = Filter(title: "Marca", question: "¿Marca del producto?", answers: answersFilter4)
-        
-        answersFilter5 = [
-            Answer(name: "Fregadoras", image: UIImage(systemName: "1.circle.fill")!),
-            Answer(name: "Aspiradores Agua-Polvo", image: UIImage(systemName: "2.circle.fill")!)
-        ]
-        filter5 = Filter(title: "Tipo de aparato", question: "¿Cuál tiene a su disposición?", answers: answersFilter5)
-    
-        filters = [filter1, filter2, filter3]
-        
-        answerNames = ["", "", "", "", ""]
+        questions = [question1, question2, question3]
+        if(questions[2].selectedAnswerIndex == 1) {
+            isManual = false
+            questions.append(question4)
+            questions.append(question5)
+        }
+        if(questions[2].selectedAnswerIndex == 0) {
+            isManual = true
+        }
     }
     
     //MARK: - Functions
+    func getPlaces(completion: @escaping ((Result<[Place], API.NetworkError>) -> Void)) {
+        methodologiesService.getPlaces { result in
+            if case .success(let places) = result {
+                self.places = places
+                self.updateQuestion(number: 1)
+            }
+            completion(result)
+        }
+    }
+    
+    func getFrequencies(completion: @escaping ((Result<[Frequency], API.NetworkError>) -> Void)) {
+        methodologiesService.getFrequencies { result in
+            if case .success(let frequencies) = result {
+                self.frequencies = frequencies
+                self.updateQuestion(number: 2)
+            }
+            completion(result)
+        }
+    }
+    
+    func getBrands(completion: @escaping ((Result<[Brand], API.NetworkError>) -> Void)) {
+        devicesService.getBrands { result in
+            if case .success(let brands) = result {
+                self.brands = brands
+                self.updateQuestion(number: 4)
+            }
+            completion(result)
+        }
+    }
+    
+    func getDeviceTypes(completion: @escaping ((Result<[ItemType], API.NetworkError>) -> Void)) {
+        devicesService.getItemTypes { result in
+            if case .success(let deviceTypes) = result {
+                self.deviceTypes = deviceTypes
+                self.updateQuestion(number: 5)
+            }
+            completion(result)
+        }
+    }
+    
+    func updateQuestion(number: Int) {
+      var answers: [Answer] = []
+      switch number {
+      case 1:
+        for place in places {
+          answers.append(Answer(text: place.name ?? "place", imagePath: place.image?.thumbnail ?? ""))
+        }
+        question1 = Question(title: "Tipo de trabajo", question: "¿Qué trabajo se va a hacer?", answers: answers)
+        
+      case 2:
+        for frequency in frequencies {
+          answers.append(Answer(text: frequency.name ?? "frequency", imagePath: frequency.image?.thumbnail ?? ""))
+        }
+        question2 = Question(title: "Clase de limpieza", question: "¿Qué clase de limpieza?", answers: answers)
+        
+      case 3:
+        question3 = Question(title: "Manual / Aparato", question: "¿Manual o con algún producto?", answers: [
+                Answer(text: "Manual", imagePath: "manual"),
+                Answer(text: "Con aparato", imagePath: "con_aparato")
+        ])
+
+      case 4:
+        for brand in brands {
+          answers.append(Answer(text: brand.name ?? "brand", imagePath: brand.image?.thumbnail ?? ""))
+        }
+        question4 = Question(title: "Marca", question: "¿Marca del producto?", answers: answers)
+
+      case 5:
+        for deviceType in deviceTypes {
+          answers.append(Answer(text: deviceType.name!, imagePath: deviceType.image?.midsize ?? ""))
+        }
+        question5 = Question(title: "Tipo de aparato", question: "¿Cuál tiene a su disposición?", answers: answers)
+        
+      default:
+        break
+      }
+        
+      questions = [question1, question2, question3]
+      if(questions[2].selectedAnswerIndex == 1) {
+        questions.append(question4)
+        questions.append(question5)
+        addBrandAndDevice()
+      }
+    }
+    
+    func addBrandAndDevice() {
+      tableCells = [
+        .place,
+        .frequency,
+        .manualOrDevice,
+        .brand,
+        .device
+      ]
+    }
+
+    func removeBrandAndDevice() {
+      tableCells = [
+        .place,
+        .frequency,
+        .manualOrDevice
+      ]
+    }
 }

@@ -6,14 +6,12 @@
 //  Copyright © 2021 Rudo. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class Brand {
-    let image: UIImage
-    let name: String
+struct Brand: Codable {
     
-    init(name: String, image: UIImage) {
-        self.name = name
-        self.image = image
-    }
+    //MARK: - Properties
+    let id: String
+    let image: Image?
+    let name: String?
 }

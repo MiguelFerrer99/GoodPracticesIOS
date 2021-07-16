@@ -33,8 +33,8 @@ class ProductCollectionCell: UICollectionViewCell, ViewModelCell {
     func setUpUI() {
         cellView.layer.cornerRadius = 8
         cellView.layer.shadowColor = UIColor.black.cgColor
-        cellView.layer.shadowOpacity = 0.3
-        cellView.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        cellView.layer.shadowOpacity = 0.2
+        cellView.layer.shadowOffset = CGSize(width: 0.0, height: 0.5)
         cellView.layer.shadowRadius = 8
     }
     

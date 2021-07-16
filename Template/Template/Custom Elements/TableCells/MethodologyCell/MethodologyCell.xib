@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,13 +20,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sjy-m7-fpr" customClass="CustomView" customModule="Template" customModuleProvider="target">
-                        <rect key="frame" x="20" y="20" width="285" height="370"/>
+                        <rect key="frame" x="20" y="20" width="285" height="375"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aZd-7l-oVS">
-                                <rect key="frame" x="0.0" y="5" width="285" height="360"/>
+                                <rect key="frame" x="0.0" y="5" width="285" height="365"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFD-JH-KNN">
-                                        <rect key="frame" x="0.0" y="0.0" width="285" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="285" height="55"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="CoV-LJ-uSd">
                                                 <rect key="frame" x="15" y="5" width="260" height="43"/>
@@ -52,8 +53,11 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4LI-lx-ITB">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="43"/>
+                                                                <fontDescription key="fontDescription" name=".SFNS-Regular" family=".AppleSystemUIFont" pointSize="1"/>
                                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <state key="normal" title=" " image="bookmark" catalog="system"/>
+                                                                <state key="normal" title=" ">
+                                                                    <imageReference key="image" image="bookmark" catalog="system" symbolScale="large"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="saveButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ntg-wd-CnT"/>
                                                                 </connections>
@@ -61,7 +65,12 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wxn-Gy-rR9">
                                                                 <rect key="frame" x="50" y="0.0" width="50" height="43"/>
                                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <state key="normal" title=" " image="square.and.arrow.up" catalog="system"/>
+                                                                <state key="normal" title=" ">
+                                                                    <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="large"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="shareButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="syh-u3-2wT"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -73,20 +82,20 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="4QI-y3-Q0x"/>
+                                            <constraint firstAttribute="height" constant="55" id="4QI-y3-Q0x"/>
                                             <constraint firstAttribute="trailing" secondItem="CoV-LJ-uSd" secondAttribute="trailing" constant="10" id="Cjr-v1-qel"/>
                                             <constraint firstItem="CoV-LJ-uSd" firstAttribute="leading" secondItem="gFD-JH-KNN" secondAttribute="leading" constant="15" id="PKr-d1-D52"/>
                                             <constraint firstItem="CoV-LJ-uSd" firstAttribute="top" secondItem="gFD-JH-KNN" secondAttribute="top" constant="5" id="obi-FZ-yhU"/>
                                         </constraints>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ayj-cz-qfb">
-                                        <rect key="frame" x="0.0" y="70" width="285" height="220"/>
+                                        <rect key="frame" x="0.0" y="55" width="285" height="240"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="220" id="Cmr-4P-pp7"/>
+                                            <constraint firstAttribute="height" constant="240" id="Cmr-4P-pp7"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xu-Ja-gv9">
-                                        <rect key="frame" x="0.0" y="290" width="285" height="70"/>
+                                        <rect key="frame" x="0.0" y="295" width="285" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOx-W0-PEk">
                                                 <rect key="frame" x="15" y="5" width="255" height="60"/>

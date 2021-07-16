@@ -23,6 +23,7 @@ class MethodologyCell: UITableViewCell, ViewModelCell {
     var viewModel: MethodologyCellViewModel! {
         didSet { fillUI() }
     }
+    weak var presenter: Presenter?
     
     //MARK: - Life cycle
     override func awakeFromNib() {
@@ -66,5 +67,12 @@ class MethodologyCell: UITableViewCell, ViewModelCell {
         } else {
             showGuestAlert()
         }
+    }
+    
+    @IBAction func shareButtonPressed(_ sender: Any) {
+        let text = "https://cleanapp.rudo.es/methodology/1"
+
+        let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+        self.presenter?.present(viewController: activityViewController, completion: nil)
     }
 }

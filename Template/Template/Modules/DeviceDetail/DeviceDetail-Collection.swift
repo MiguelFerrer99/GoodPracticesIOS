@@ -33,7 +33,7 @@ extension DeviceDetailViewController: UICollectionViewDelegate, UICollectionView
         
         switch cellType {
         case .headerSection:
-            let cellVM = DetailHeaderCollectionCellViewModel(image: viewModel.device.image, shortDescription: viewModel.device.shortDescription, longDescription: viewModel.device.longDescription)
+            let cellVM = DetailHeaderCollectionCellViewModel(image: viewModel.device.image, shortDescription: viewModel.device.shortDescription, longDescription: viewModel.device.longDescription, url: viewModel.device.url)
             let cell = collectionView.dequeue(DetailHeaderCollectionCell.self, for: indexPath, viewModel: cellVM)
             cell.presenter = self
             return cell

@@ -20,10 +20,10 @@ class FiltersQuestionCell: UITableViewCell, ViewModelCell {
     
     func fillUI() {
         questionLabel.text = viewModel.question
-        if let selectedAnswer = viewModel.selectedAnswer {
-            answerLabel.text = selectedAnswer.name
+        if let device = viewModel.selectedDeviceName {
+            answerLabel.text = device
         } else {
-            answerLabel.text = ""
+            answerLabel.text = viewModel.answer
         }
     }
 }

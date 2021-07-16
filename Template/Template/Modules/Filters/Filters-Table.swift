@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension FiltersViewController: UITableViewDelegate, UITableViewDataSource, SelectAnswerDelegate, SelectDeviceDelegate {
+extension FiltersViewController: UITableViewDelegate, UITableViewDataSource {
     
     func configure(_ tableView: UITableView) {
       tableView.delegate = self
@@ -17,38 +17,30 @@ extension FiltersViewController: UITableViewDelegate, UITableViewDataSource, Sel
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.filters.count
+        return viewModel.questions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellVM = FiltersQuestionCellViewModel(question: viewModel.filters[indexPath.row].question)
-        let cell = tableView.dequeue(FiltersQuestionCell.self, viewModel: cellVM)
-        cell.answerLabel.text = viewModel.answerNames[indexPath.row]
-        return cell
+        let cellType = viewModel.tableCells[indexPath.row]
+        
+        switch cellType {
+        case .device:
+            let cellVM = FiltersQuestionCellViewModel(question: viewModel.questions[indexPath.row], selectedDeviceName: viewModel.selectedDevice?.name)
+            let cell = tableView.dequeue(FiltersQuestionCell.self, viewModel: cellVM)
+            return cell
+        default:
+            let cellVM = FiltersQuestionCellViewModel(question: viewModel.questions[indexPath.row])
+            let cell = tableView.dequeue(FiltersQuestionCell.self, viewModel: cellVM)
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let filterAnswersVM = FilterAnswersViewModel(title: viewModel.filters[indexPath.row].title, answers: viewModel.filters[indexPath.row].answers, filterIndex: indexPath.row)
-        let filterAnswersVC = UIViewController.instantiate(viewController: FilterAnswersViewController.self, withViewModel: filterAnswersVM)
-        tableView.deselectRow(at: indexPath, animated: true)
-        filterAnswersVC.delegate = self
-        push(viewController: filterAnswersVC)
-    }
-    
-    func selectAnswer(filterIndex: Int, answerName: String) {
-        viewModel.answerNames[filterIndex] = answerName
-        if viewModel.answerNames[2] == "Con aparato" && viewModel.filters.count == 3 {
-            viewModel.filters.append(viewModel.filter4)
-            viewModel.filters.append(viewModel.filter5)
-        } else if viewModel.answerNames[2] == "Manual" && viewModel.filters.count == 5 {
-            viewModel.filters.removeLast()
-            viewModel.filters.removeLast()
+        let cellType = viewModel.tableCells[indexPath.row]
+        switch cellType {
+        case .place:
+            break
+        default: break
         }
-        tableView.reloadData()
-    }
-    
-    func selectDevice(filterIndex: Int, answerName: String) {
-        viewModel.answerNames[filterIndex] = answerName
-        tableView.reloadData()
     }
 }

@@ -10,12 +10,6 @@ import Foundation
 
 class User: Codable {
     
-    static var me: User?
-    
-    static var isLogged: Bool {
-        return me != nil
-    }
-    
     private enum CodingKeys: String, CodingKey {
         case id, email
         case firstName    = "first_name"
@@ -24,6 +18,11 @@ class User: Codable {
         case businessName = "business_name"
     }
     
+    //MARK: - Properties
+    static var me: User?
+    static var isLogged: Bool {
+        return me != nil
+    }
     let id: String
     let email, firstName, lastName, businessName: String?
     let isBusiness: Bool?

@@ -33,7 +33,7 @@ extension ProductDetailViewController: UICollectionViewDelegate, UICollectionVie
         
         switch cellType {
         case .headerSection:
-            let cellVM = DetailHeaderCollectionCellViewModel(image: viewModel.product.image, shortDescription: viewModel.product.shortDescription, longDescription: viewModel.product.longDescription)
+            let cellVM = DetailHeaderCollectionCellViewModel(image: viewModel.product.image, shortDescription: viewModel.product.shortDescription, longDescription: viewModel.product.longDescription, url: viewModel.product.url)
             let cell = collectionView.dequeue(DetailHeaderCollectionCell.self, for: indexPath, viewModel: cellVM)
             cell.presenter = self
             return cell

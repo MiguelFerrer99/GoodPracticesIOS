@@ -8,17 +8,16 @@
 
 import UIKit
 
-class Step {
-    let image: UIImage
-    let stepNumber: Int
-    let method, specifications, notes, methodology: String
-    
-    init(image: UIImage, stepNumber: Int, method: String, specifications: String, notes: String, methodology: String) {
-        self.image = image
-        self.stepNumber = stepNumber
-        self.method = method
-        self.specifications = specifications
-        self.notes = notes
-        self.methodology = methodology
+class Step: Codable {
+
+    private enum CodingKeys: String, CodingKey {
+      case id, image, method, specifications, notes, methodology
+      case stepNumber = "step_number"
     }
+
+    //MARK: - Properties
+    let id: String
+    let image: Image?
+    let method, specifications, notes, methodology: String?
+    let stepNumber: Int
 }

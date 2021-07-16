@@ -9,15 +9,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Filter Answers View Controller-->
+        <!--Filters Device Model View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="FilterAnswersViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="FilterAnswersViewController" customModule="Template" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FiltersDeviceModelViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="FiltersDeviceModelViewController" customModule="Template" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="G3H-Pk-SDb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Dn-2j-jky">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
@@ -25,19 +25,19 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="G3H-Pk-SDb" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="Ks1-o5-N2u"/>
-                            <constraint firstItem="G3H-Pk-SDb" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="VTT-M2-Dc8"/>
-                            <constraint firstItem="G3H-Pk-SDb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="d25-hq-Kpn"/>
-                            <constraint firstItem="G3H-Pk-SDb" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="dOD-58-Hq6"/>
+                            <constraint firstItem="0Dn-2j-jky" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="1iB-qV-mBc"/>
+                            <constraint firstItem="0Dn-2j-jky" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Bjz-jn-jmS"/>
+                            <constraint firstItem="0Dn-2j-jky" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="ONh-Hv-RI3"/>
+                            <constraint firstItem="0Dn-2j-jky" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="tiW-aE-HbF"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="G3H-Pk-SDb" id="oeB-ul-LXp"/>
+                        <outlet property="tableView" destination="0Dn-2j-jky" id="t5d-4s-zce"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="73.913043478260875" y="123.88392857142857"/>
+            <point key="canvasLocation" x="60.869565217391312" y="93.75"/>
         </scene>
     </scenes>
     <resources>

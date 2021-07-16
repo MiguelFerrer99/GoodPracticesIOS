@@ -8,25 +8,33 @@
 
 import UIKit
 
-class Methodology {
-    let index: Int
-    let name, subtitle, shortDescription: String, longDescription: String
-    let image: UIImage
-    var isSaved: Bool
-    let products: [Product]
-    let devices: [Device]
-    let steps: [Step]
-    
-    init(index: Int, name: String, subtitle: String, shortDescription: String, longDescription: String, isSaved: Bool, image: UIImage, products: [Product], devices: [Device], steps: [Step]) {
-        self.index = index
-        self.name = name
-        self.subtitle = subtitle
-        self.shortDescription = shortDescription
-        self.longDescription = longDescription
-        self.isSaved = isSaved
-        self.image = image
-        self.products = products
-        self.devices = devices
-        self.steps = steps
+class Methodology: Codable {
+
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case image
+        case steps
+        case products
+        case devices
+        case place
+        case frequency
+        case name
+        case subtitle
+        case isSaved          = "is_saved"
+        case shortDescription = "short_description"
+        case longDescription  = "long_description"
+        case isManual         = "is_manual"
     }
+
+    //MARK: - Properties
+    let id: String
+    let image: Image?
+    let steps: [Step]?
+    let products: [Product]?
+    let devices: [Device]?
+    var isSaved: Bool
+    let isManual: Bool?
+    let place: Place?
+    let frequency: Frequency?
+    let name, subtitle, shortDescription, longDescription: String?
 }

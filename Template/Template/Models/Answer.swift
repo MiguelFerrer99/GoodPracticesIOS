@@ -9,11 +9,13 @@
 import UIKit
 
 class Answer {
-    let name: String
-    let image: UIImage
     
-    init(name: String, image: UIImage) {
-        self.name = name
-        self.image = image
+    //MARK: - Properties
+    var text: String
+    var imagePath: String
+    
+    init(text: String, imagePath: String) {
+        self.text = text.capitalized
+        self.imagePath = imagePath
     }
 }

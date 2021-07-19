@@ -40,7 +40,7 @@ class ProfileViewController: ViewController, ViewModelController {
     }
     
     @IBAction func elementosGuardadosButtonPressed(_ sender: Any) {
-        let savedElementsVM = SavedElementsViewModel(savedMethodologies: [])
+        let savedElementsVM = SavedElementsViewModel()
         let savedElementsVC = UIViewController.instantiate(viewController: SavedElementsViewController.self, withViewModel: savedElementsVM)
         push(viewController: savedElementsVC)
     }

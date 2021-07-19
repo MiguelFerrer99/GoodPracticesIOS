@@ -17,6 +17,4 @@ class MethodologyCellViewModel: ViewModel {
     init(methodology: Methodology) {
         self.methodology = methodology
     }
-    
-    //MARK: - Functions
 }

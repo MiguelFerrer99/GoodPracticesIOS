@@ -19,13 +19,19 @@ extension HomeViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let delayInSeconds = 1.0
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delayInSeconds) {
-            if let _ /*name*/ = searchBar.text {
-                //... falta por hacer
+            if let name = searchBar.text {
+                let searchParams = ["name": name]
+                if MethodologiesService.searchParameters != nil {
+                    MethodologiesService.searchParameters!["name"] = name
+                } else {
+                    MethodologiesService.searchParameters = searchParams
+                }
             }
         }
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
+        MethodologiesService.searchParameters?["name"] = nil
     }
 }

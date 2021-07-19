@@ -10,7 +10,7 @@ import Foundation
 
 class Frequency: Codable {
     
-    private enum CodingKey: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id, name, image
     }
     

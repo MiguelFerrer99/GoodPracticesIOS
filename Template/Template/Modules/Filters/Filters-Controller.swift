@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FiltersViewController: ViewController, ViewModelController {
+class FiltersViewController: ViewController, ViewModelController, FiltersSelectionViewControllerDelegate, FiltersDeviceModelDelegate {
     typealias T = FiltersViewModel
 
     // MARK: - IBOutlets

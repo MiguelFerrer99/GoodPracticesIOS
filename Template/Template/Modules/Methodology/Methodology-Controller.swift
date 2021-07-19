@@ -31,24 +31,24 @@ class MethodologyViewController: ViewController, ViewModelController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpUI()
         fillUI()
     }
         
     // MARK: - Functions
     func fillUI() {
         if !isViewLoaded { return }
-        setUpUI()
-        configure(collectionView)
-        
-        let products = viewModel.methodology.products
-        let devices = viewModel.methodology.devices
-        let steps = viewModel.methodology.steps
-        viewModel.collectionManager.updateCollectionSections(products: products, devices: devices, steps: steps)
+        if let products = viewModel.methodology.products,
+        let devices = viewModel.methodology.devices,
+        let steps = viewModel.methodology.steps {
+            viewModel.collectionManager.updateCollectionSections(products: products, devices: devices, steps: steps)
+        }
     }
     
     func setUpUI() {
+        configure(collectionView)
+        
         let savedIcon = viewModel.methodology.isSaved ? "bookmark.fill" : "bookmark"
-
         saveButton = UIBarButtonItem(image: UIImage(systemName: savedIcon), style: .plain, target: self, action: #selector(saveButtonPressed))
         saveButton.tintColor = .black
 
@@ -61,21 +61,30 @@ class MethodologyViewController: ViewController, ViewModelController {
         
     // MARK: - Observers
     @objc func saveButtonPressed(sender: UIButton) {
-        if Cache.get(boolFor: .logged) {
-            if viewModel.methodology.isSaved {
-                viewModel.methodology.isSaved = false
-                saveButton.image = UIImage(systemName: "bookmark")
-            } else  {
-                viewModel.methodology.isSaved = true
-                saveButton.image = UIImage(systemName: "bookmark.fill")
+        if User.isLogged {
+            viewModel.saveMethodology { result in
+                self.viewModel.methodology.isSaved = self.viewModel.methodology.isSaved
+                let resetIcon = self.viewModel.methodology.isSaved ? "bookmark.fill" : "bookmark"
+                self.saveButton.image = UIImage(systemName: resetIcon)
+                switch result {
+                case .success(_):
+                  NotificationCenter.default.post(name: .SavedMethodologiesChanged, object: nil)
+                  
+                case .failure(_):
+                  let resetIcon = self.viewModel.methodology.isSaved ? "bookmark.fill" : "bookmark"
+                  self.saveButton.image = UIImage(systemName: resetIcon)
+                  showAlert(title: "Error al guardar método")
+                }
             }
         } else {
+            let resetIcon = self.viewModel.methodology.isSaved ? "bookmark.fill" : "bookmark"
+            self.saveButton.image = UIImage(systemName: resetIcon)
             showGuestAlert()
         }
     }
     
     @objc func shareButtonPressed(sender: UIButton) {
-        let text = "https://cleanapp.rudo.es/methodology/1"
+        let text = "https://cleanapp.rudo.es/methodology/\(viewModel.methodology.id)"
 
         let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view

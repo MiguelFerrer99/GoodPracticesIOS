@@ -299,13 +299,17 @@
                     <navigationItem key="navigationItem" title="Registro" id="Nth-nu-FXX"/>
                     <connections>
                         <outlet property="businessName" destination="5vc-Va-Okq" id="93A-jq-LOA"/>
+                        <outlet property="comoIdentificamosLabel" destination="J76-Ge-i4Y" id="wAs-gt-8nc"/>
                         <outlet property="emailTextField" destination="G02-6K-HU8" id="1OI-Hf-vIQ"/>
                         <outlet property="empresaRadioButton" destination="V88-oR-tgL" id="6S4-Z2-TqK"/>
+                        <outlet property="heLeidoLabel" destination="LaE-Qc-sbQ" id="rk9-IA-wMO"/>
                         <outlet property="imageButtonView" destination="JtA-gQ-bFF" id="uz5-vm-7Lx"/>
                         <outlet property="lastnameTextField" destination="zee-Zv-SLt" id="8oJ-e8-11l"/>
                         <outlet property="nameTextField" destination="fBc-bm-DB4" id="U6H-Ds-dkG"/>
                         <outlet property="passwordTextField" destination="kME-M2-TPv" id="cWo-36-Cnw"/>
+                        <outlet property="passwordTipLabel" destination="9ld-BY-W61" id="1O9-h1-f3Z"/>
                         <outlet property="personaParticularRadioButton" destination="eWO-Y5-JF9" id="E7O-4I-uqI"/>
+                        <outlet property="politicaPrivacidadButton" destination="2KG-S8-6Jg" id="Ufp-xt-CTr"/>
                         <outlet property="registerButton" destination="jml-5a-uO6" id="J2M-CU-WNl"/>
                     </connections>
                 </viewController>

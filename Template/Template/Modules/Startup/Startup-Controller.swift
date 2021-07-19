@@ -9,8 +9,12 @@
 import UIKit
 
 class StartupViewController: ViewController {
+  
   // MARK: - IBOutlets
-    
+  @IBOutlet weak var iniciarSesionButton: CustomButton!
+  @IBOutlet weak var registarseButton: CustomButton!
+  @IBOutlet weak var continuarComoInvitadoButton: UIButton!
+  
   // MARK: - Properties
   override var hideNavigationBar: Bool {
     return true
@@ -19,11 +23,25 @@ class StartupViewController: ViewController {
   // MARK: - Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    setUpUI()
+    fillUI()
   }
 
   // MARK: - Functions
+  func setUpUI() {
+      iniciarSesionButton.titleLabel?.text = "signin_login_button".localized(Cache.get(stringFor: .language))
+      registarseButton.titleLabel?.text = "signin_register_button".localized(Cache.get(stringFor: .language))
+      continuarComoInvitadoButton.titleLabel?.text = "signin_guest_button".localized(Cache.get(stringFor: .language))
+  }
+  
   func fillUI() {
     if !isViewLoaded { return }
+  }
+  
+  override func languageChanged(notification: NSNotification) {
+      setUpUI()
+      fillUI()
   }
 
   // MARK: - Observers

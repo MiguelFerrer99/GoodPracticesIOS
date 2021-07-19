@@ -21,7 +21,11 @@ class RegisterViewController: ViewController, ViewModelController {
   @IBOutlet weak var empresaRadioButton: CustomButton!
   @IBOutlet weak var imageButtonView: UIImageView!
   @IBOutlet weak var registerButton: CustomButton!
-    
+  @IBOutlet weak var passwordTipLabel: UILabel!
+  @IBOutlet weak var comoIdentificamosLabel: UILabel!
+  @IBOutlet weak var heLeidoLabel: UILabel!
+  @IBOutlet weak var politicaPrivacidadButton: UIButton!
+  
   // MARK: - Properties
   override var hideNavigationBar: Bool {
     return false
@@ -46,6 +50,20 @@ class RegisterViewController: ViewController, ViewModelController {
   func setUpUI() {
       configureTextFields()
       
+      self.title = "register_toolbar".localized(Cache.get(stringFor: .language))
+      nameTextField.textField.placeholder = "register_name_hint".localized(Cache.get(stringFor: .language))
+      lastnameTextField.textField.placeholder = "register_surname_hint".localized(Cache.get(stringFor: .language))
+      emailTextField.textField.placeholder = "register_email_hint".localized(Cache.get(stringFor: .language))
+      passwordTextField.textField.placeholder = "register_password_hint".localized(Cache.get(stringFor: .language))
+      businessName.textField.placeholder = "register_company_hint".localized(Cache.get(stringFor: .language))
+      personaParticularRadioButton.titleLabel?.text = "register_radio_one".localized(Cache.get(stringFor: .language))
+      empresaRadioButton.titleLabel?.text = "register_radio_two".localized(Cache.get(stringFor: .language))
+      registerButton.titleLabel?.text = "register_button".localized(Cache.get(stringFor: .language))
+      passwordTipLabel.text = "register_password_requirements".localized(Cache.get(stringFor: .language))
+      comoIdentificamosLabel.text = "register_radio_title".localized(Cache.get(stringFor: .language))
+      heLeidoLabel.text = "register_privacy_policy".localized(Cache.get(stringFor: .language))
+      politicaPrivacidadButton.titleLabel?.text = "register_privacy_policy_span".localized(Cache.get(stringFor: .language))
+    
       viewModel._isTermsChecked.bindAndFire { [weak self] isTermsChecked in
           self?.imageButtonView.image = isTermsChecked ? UIImage(systemName: "checkmark.circle.fill") : UIImage(systemName: "circle")
           self?.registerButton.isEnabled = isTermsChecked
@@ -63,6 +81,10 @@ class RegisterViewController: ViewController, ViewModelController {
     if !isViewLoaded { return }
   }
     
+  override func languageChanged(notification: NSNotification) {
+    setUpUI()
+  }
+  
   func configureTextFields() {
     nameTextField.addErrorsToCheck([TextFieldErrorEmptyValue()])
     nameTextField.textField.textContentType = .name

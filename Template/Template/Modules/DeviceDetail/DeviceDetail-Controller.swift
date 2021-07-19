@@ -29,22 +29,30 @@ class DeviceDetailViewController: ViewController, ViewModelController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpUI()
         fillUI()
     }
     
     //MARK: - Functions
     func fillUI() {
         if !isViewLoaded { return }
-        setUpUI()
-        configure(collectionView)
         
-        let products = viewModel.device.products
-        let devices = viewModel.device.attachments
-        viewModel.collectionManager.addProductsSection(products: products)
-        viewModel.collectionManager.addDevicesSection(devices: devices)
+        viewModel.getDeviceDetail { result in
+          if case .success(let deviceDetail) = result {
+            if let products = deviceDetail.products, products.count > 0{
+                self.viewModel.collectionManager.addProductsSection(products: products)
+            }
+            if let devices = deviceDetail.attachments, devices.count > 0 {
+                self.viewModel.collectionManager.addDevicesSection(devices: devices)
+            }
+            self.collectionView.reloadData()
+          }
+        }
     }
     
     func setUpUI() {
+        configure(collectionView)
+        
         var shareButton = UIBarButtonItem()
         shareButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(shareButtonPressed))
         shareButton.tintColor = .black
@@ -54,7 +62,8 @@ class DeviceDetailViewController: ViewController, ViewModelController {
     
     //MARK: - Observers
     @objc func shareButtonPressed(sender: UIButton) {
-        let text = "https://cleanapp.rudo.es/methodology/1/devices/1"
+        guard let id = viewModel.deviceDetail?.id else { return }
+        let text = "https://cleanapp.rudo.es/device/\(id)"
 
         let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view

@@ -34,33 +34,41 @@ extension MethodologyViewController: UICollectionViewDelegate, UICollectionViewD
         
         switch cellType {
         case .headerSection:
-            let name = viewModel.methodology.name
-            let subtitle = viewModel.methodology.subtitle
-            let shortDescription = viewModel.methodology.shortDescription
-            let image = viewModel.methodology.image
-            let longDescription = viewModel.methodology.longDescription
-            let cellVM = MethodologyHeaderCollectionCellViewModel(name: name, subtitle: subtitle, shortDescription: shortDescription, longDescription: longDescription, image: image)
-            let cell = collectionView.dequeue(MethodologyHeaderCollectionCell.self, for: indexPath, viewModel: cellVM)
-            return cell
+            if let name = viewModel.methodology.name,
+            let subtitle = viewModel.methodology.subtitle,
+            let shortDescription = viewModel.methodology.shortDescription,
+            let image = viewModel.methodology.image,
+            let longDescription = viewModel.methodology.longDescription {
+                let cellVM = MethodologyHeaderCollectionCellViewModel(title: name, type: subtitle, description: shortDescription, image: image, longDescription: longDescription)
+                let cell = collectionView.dequeue(MethodologyHeaderCollectionCell.self, for: indexPath, viewModel: cellVM)
+                return cell
+            }
+            return UICollectionViewCell()
             
         case .productsSection:
-            let products = viewModel.methodology.products
-            let cellVM = ProductCollectionCellViewModel(product: products[indexPath.row])
-            let cell = collectionView.dequeue(ProductCollectionCell.self, for: indexPath, viewModel: cellVM)
-            return cell
+            if let products = viewModel.methodology.products {
+                let cellVM = ProductCollectionCellViewModel(product: products[indexPath.row])
+                let cell = collectionView.dequeue(ProductCollectionCell.self, for: indexPath, viewModel: cellVM)
+                return cell
+            }
+            return UICollectionViewCell()
 
         case .devicesSection:
-            let devices = viewModel.methodology.devices
-            let cellVM = DeviceCollectionCellViewModel(device: devices[indexPath.row])
-            let cell = collectionView.dequeue(DeviceCollectionCell.self, for: indexPath, viewModel: cellVM)
-            cell.presenter = self
-            return cell
+            if let devices = viewModel.methodology.devices {
+                let cellVM = DeviceCollectionCellViewModel(device: devices[indexPath.row])
+                let cell = collectionView.dequeue(DeviceCollectionCell.self, for: indexPath, viewModel: cellVM)
+                cell.presenter = self
+                return cell
+            }
+            return UICollectionViewCell()
 
         case .stepsSection:
-            let steps = viewModel.methodology.steps
-            let cellVM = StepCollectionCellViewModel(step: steps[indexPath.row], totalSteps: steps.count, actualStep: indexPath.row+1)
-            let cell = collectionView.dequeue(StepCollectionCell.self, for: indexPath, viewModel: cellVM)
-            return cell
+            if let steps = viewModel.methodology.steps {
+                let cellVM = StepCollectionCellViewModel(step: steps[indexPath.row], totalSteps: steps.count, actualStep: indexPath.row+1)
+                let cell = collectionView.dequeue(StepCollectionCell.self, for: indexPath, viewModel: cellVM)
+                return cell
+            }
+            return UICollectionViewCell()
         }
     }
     
@@ -69,10 +77,12 @@ extension MethodologyViewController: UICollectionViewDelegate, UICollectionViewD
         
         switch cellType {
         case .productsSection(_):
-            let products = viewModel.methodology.products
-            let productDetailVM = ProductDetailViewModel(product: products[indexPath.row])
-            let productDetailVC = UIViewController.instantiate(viewController: ProductDetailViewController.self, withViewModel: productDetailVM)
-            push(viewController: productDetailVC)
+            if let products = viewModel.methodology.products {
+                let productDetailVM = ProductDetailViewModel(product: products[indexPath.row])
+                let productDetailVC = UIViewController.instantiate(viewController: ProductDetailViewController.self, withViewModel: productDetailVM)
+                push(viewController: productDetailVC)
+            }
+            
         default: break
         }
     }
@@ -81,10 +91,11 @@ extension MethodologyViewController: UICollectionViewDelegate, UICollectionViewD
       return UICollectionViewCompositionalLayout { (sectionNumber: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
 
         let sectionLayoutKind = self.viewModel.collectionManager.collectionSections[sectionNumber]
-        let noProducts = self.viewModel.methodology.products.isEmpty
-        let noDevices = self.viewModel.methodology.devices.isEmpty
-        let noSteps = self.viewModel.methodology.steps.isEmpty
         let section: NSCollectionLayoutSection
+        
+        let noProducts = self.viewModel.methodology.products?.isEmpty ?? true
+        let noDevices = self.viewModel.methodology.devices?.isEmpty ?? true
+        let noSteps = self.viewModel.methodology.steps?.isEmpty ?? true
 
         switch sectionLayoutKind {
         case .headerSection:

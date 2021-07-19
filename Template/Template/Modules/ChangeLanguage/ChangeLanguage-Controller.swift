@@ -14,10 +14,8 @@ class ChangeLanguageViewController: ViewController, ViewModelController {
     // MARK: - IBOutlets
     @IBOutlet weak var spanishLabel: UILabel!
     @IBOutlet weak var englishLabel: UILabel!
-    @IBOutlet weak var germanLabel: UILabel!
     @IBOutlet weak var spanishView: UIView!
     @IBOutlet weak var englishView: UIView!
-    @IBOutlet weak var germanView: UIView!
     
     // MARK: - Properties
     override var hideNavigationBar: Bool {
@@ -54,8 +52,6 @@ class ChangeLanguageViewController: ViewController, ViewModelController {
         spanishView.backgroundColor = .none
         englishLabel.textColor = .lightGray
         englishView.backgroundColor = .none
-        germanLabel.textColor = .lightGray
-        germanView.backgroundColor = .none
         
         switch viewModel.selectedLanguage {
             case .spanish:
@@ -64,9 +60,6 @@ class ChangeLanguageViewController: ViewController, ViewModelController {
             case .english:
                 englishLabel.textColor = .white
                 englishView.backgroundColor = UIColor(named: "customBlue")
-            case .german:
-                germanLabel.textColor = .white
-                germanView.backgroundColor = UIColor(named: "customBlue")
         }
     }
         
@@ -81,20 +74,14 @@ class ChangeLanguageViewController: ViewController, ViewModelController {
         selectedLanguage()
     }
     
-    @IBAction func germanButtonPressed(_ sender: Any) {
-        viewModel.selectedLanguage = .german
-        selectedLanguage()
-    }
-    
     @objc func saveButtonPressed(sender: Any) {
         switch viewModel.selectedLanguage {
             case .spanish:
                 Cache.set(.language, "es")
             case .english:
                 Cache.set(.language, "en")
-            case .german:
-                Cache.set(.language, "de")
         }
+        NotificationCenter.default.post(name: .LanguageChanged, object: nil)
         self.pop()
     }
 }

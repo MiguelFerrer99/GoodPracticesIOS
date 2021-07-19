@@ -79,4 +79,8 @@ struct Cache {
     Cache.set(.logged, false)
     Cache.set(.userID, nil)
   }
+  
+  static func setLanguage(language: String) {
+    Cache.set(.language, language)
+  }
 }

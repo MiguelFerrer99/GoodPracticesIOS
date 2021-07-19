@@ -18,8 +18,6 @@ class ChangeLanguageViewModel: ViewModel {
                 selectedLanguage = .spanish
             case "en":
                 selectedLanguage = .english
-            case "de":
-                selectedLanguage = .german
             default:
                 selectedLanguage = .spanish
         }
@@ -27,5 +25,5 @@ class ChangeLanguageViewModel: ViewModel {
 }
 
 enum LanguageOption {
-    case spanish, english, german
+    case spanish, english
 }

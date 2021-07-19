@@ -33,30 +33,40 @@ extension ProductDetailViewController: UICollectionViewDelegate, UICollectionVie
         
         switch cellType {
         case .headerSection:
-            let cellVM = DetailHeaderCollectionCellViewModel(image: viewModel.product.image, shortDescription: viewModel.product.shortDescription, longDescription: viewModel.product.longDescription, url: viewModel.product.url)
+            let cellVM = DetailHeaderCollectionCellViewModel(image: viewModel.product?.image ?? viewModel.productDetail?.image, shortDescription: viewModel.productDetail?.shortDescription ?? "", longDescription: viewModel.productDetail?.longDescription ?? "", url: viewModel.productDetail?.buyLink ?? "")
             let cell = collectionView.dequeue(DetailHeaderCollectionCell.self, for: indexPath, viewModel: cellVM)
             cell.presenter = self
             return cell
+            
         case .productsSection:
-            let cellVM = ProductCollectionCellViewModel(product: viewModel.product.related[indexPath.row])
-            let cell = collectionView.dequeue(ProductCollectionCell.self, for: indexPath, viewModel: cellVM)
-            return cell
+            if let detail = viewModel.productDetail, let products = detail.related {
+                let cellVM = ProductCollectionCellViewModel(product: products[indexPath.row])
+                let cell = collectionView.dequeue(ProductCollectionCell.self, for: indexPath, viewModel: cellVM)
+                return cell
+            }
+            return UICollectionViewCell()
+            
         case .devicesSection:
-            let cellVM = DeviceCollectionCellViewModel(device: viewModel.product.devices[indexPath.row])
-            let cell = collectionView.dequeue(DeviceCollectionCell.self, for: indexPath, viewModel: cellVM)
-            cell.presenter = self
-            return cell
+            if let detail = viewModel.productDetail, let devices = detail.devices {
+                let cellVM = DeviceCollectionCellViewModel(device: devices[indexPath.row])
+                let cell = collectionView.dequeue(DeviceCollectionCell.self, for: indexPath, viewModel: cellVM)
+                cell.presenter = self
+                return cell
+            }
+            return UICollectionViewCell()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cellType = viewModel.collectionManager.collectionSections[indexPath.section]
         switch cellType {
-        case .productsSection:
-            let relatedProducts = viewModel.product.related
-            let productDetailVM = ProductDetailViewModel(product: relatedProducts[indexPath.row])
-            let productDetailVC = UIViewController.instantiate(viewController: ProductDetailViewController.self, withViewModel: productDetailVM)
-            push(viewController: productDetailVC)
+        case .productsSection(_):
+            if let detail = viewModel.productDetail, let products = detail.related {
+              let productDetailVM = ProductDetailViewModel(product: products[indexPath.row])
+              let productDetailVC = UIViewController.instantiate(viewController: ProductDetailViewController.self, withViewModel: productDetailVM)
+              push(viewController: productDetailVC)
+            }
+            
         default: break
         }
     }
@@ -65,9 +75,10 @@ extension ProductDetailViewController: UICollectionViewDelegate, UICollectionVie
         return UICollectionViewCompositionalLayout { (sectionNumber: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
             let sectionLayoutKind = self.viewModel.collectionManager.collectionSections[sectionNumber]
-            let noProducts = self.viewModel.product.related.isEmpty
-            let noDevices = self.viewModel.product.devices.isEmpty
             let section: NSCollectionLayoutSection
+            
+            let noProducts = self.viewModel.productDetail?.related?.isEmpty ?? true
+            let noDevices = self.viewModel.productDetail?.devices?.isEmpty ?? true
             
             switch sectionLayoutKind {
             case .headerSection:

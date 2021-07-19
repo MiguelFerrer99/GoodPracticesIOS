@@ -25,12 +25,12 @@ class StepCollectionCell: UICollectionViewCell, ViewModelCell {
 
     //MARK: - Functions
     func fillUI() {
-        stepImageView.image = viewModel.step.image
         numberOfStepLabel.text = "Paso \(viewModel.actualStep)/\(viewModel.totalSteps)"
         metodoLabel.text = viewModel.step.method
         especificacionesLabel.text = viewModel.step.specifications
         notasLabel.text = viewModel.step.notes
+        if let image = viewModel.step.image, let midsize = image.midsize {
+            stepImageView.setURLImage(midsize)
+        }
     }
-    
-    //MARK: - Observers
 }

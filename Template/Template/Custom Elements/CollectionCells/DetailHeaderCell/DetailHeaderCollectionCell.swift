@@ -35,7 +35,9 @@ class DetailHeaderCollectionCell: UICollectionViewCell, ViewModelCell {
     }
     
     func fillUI() {
-        detailHeaderCollectionImageView.image = viewModel.image
+        if let image = viewModel.image {
+            detailHeaderCollectionImageView.setURLImage(image.midsize)
+        }
         shortDescription.text = viewModel.shortDescription
         longDescription.text = viewModel.longDescription
     }

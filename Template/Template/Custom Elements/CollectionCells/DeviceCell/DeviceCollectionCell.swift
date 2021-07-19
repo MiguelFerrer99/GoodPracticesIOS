@@ -24,9 +24,11 @@ class DeviceCollectionCell: UICollectionViewCell, ViewModelCell {
 
     //MARK: - Functions
     func fillUI() {
-        deviceImageView.image = viewModel.device.image
         nameLabel.text = viewModel.device.name
-        brandLabel.text = viewModel.device.brand.name
+        brandLabel.text = viewModel.device.brand?.name
+        if let image = viewModel.device.image {
+            deviceImageView.setURLImage(image.thumbnail)
+        }
     }
     
     //MARK: - Observers

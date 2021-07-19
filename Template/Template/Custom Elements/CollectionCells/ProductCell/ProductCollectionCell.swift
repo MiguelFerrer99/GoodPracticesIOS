@@ -40,7 +40,9 @@ class ProductCollectionCell: UICollectionViewCell, ViewModelCell {
     
     func fillUI() {
         labelName.text = viewModel.product.name
-        productImageView.image = viewModel.product.image
+        if let image = viewModel.product.image {
+            productImageView.setURLImage(image.thumbnail)
+        }
     }
     
     //MARK: - Observers

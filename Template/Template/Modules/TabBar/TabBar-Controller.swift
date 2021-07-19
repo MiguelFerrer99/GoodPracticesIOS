@@ -26,6 +26,15 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         }
         navigationController?.navigationBar.isHidden = true
     }
+  
+  override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+    
+      NotificationCenter.default.addObserver(self,
+                                             selector: #selector(languageChanged),
+                                             name: .LanguageChanged,
+                                             object: nil)
+  }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController == tabBarController.viewControllers?[1],
@@ -38,7 +47,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     }
     
     // MARK: - Functions
-    fileprivate func setNavigation(_ index: Int) {
+  fileprivate func setNavigation(_ index: Int) {
         let nav = viewControllers![index] as? UINavigationController
         switch index {
         case 0:
@@ -58,8 +67,17 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         }
     }
     
-    func fillUI() {
-        
+  
+  
+    @objc func languageChanged(notification: NSNotification) {
+        setUpUI()
+    }
+  
+    func setUpUI() {
+        let tabBarItems = tabBar.items!
+        tabBarItems[0].title = "home_tabbar_item_title".localized(Cache.get(stringFor: .language))
+        tabBarItems[1].title = "profile_tabbar_item_title".localized(Cache.get(stringFor: .language))
+        tabBarItems[2].title = "filters_tabbar_item_title".localized(Cache.get(stringFor: .language))
     }
     
     // MARK: - Observers

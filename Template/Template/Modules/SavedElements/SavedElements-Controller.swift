@@ -8,7 +8,8 @@
 
 import UIKit
 
-class SavedElementsViewController: ViewController, ViewModelController {
+class SavedElementsViewController: ViewController, ViewModelController, MethodologyCellDelegate {
+    
     typealias T = SavedElementsViewModel
 
     // MARK: - IBOutlets
@@ -29,18 +30,37 @@ class SavedElementsViewController: ViewController, ViewModelController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpUI()
         fillUI()
     }
         
     // MARK: - Functions
     func fillUI() {
         if !isViewLoaded { return }
-        setUpUI()
+        viewModel.getSavedMethodologies { result in
+            if case .success(_) = result {
+                self.viewModel.isLoading = false
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func setUpUI() {
         configure(tableView)
     }
         
-    // MARK: - Observers
+    // MARK: - Delegate
+    func updateSavedMethodologies(methodologyID: String) {
+        viewModel.methodologiesService.saveMethodology(methodologyId: methodologyID) { result in
+            if case .success(_) = result {
+                if let index = self.viewModel.savedMethodologies.firstIndex(where: { $0.id == methodologyID }) {
+                    self.viewModel.savedMethodologies.remove(at: index)
+                    NotificationCenter.default.post(name: .SavedMethodologiesChanged, object: nil)
+                    self.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .fade)
+                }
+            } else {
+                showAlert(title: "Server error. Try later please")
+            }
+        }
+    }
 }

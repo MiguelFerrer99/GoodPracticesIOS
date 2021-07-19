@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MethodologyCellDelegate: AnyObject {
+  func updateSavedMethodologies(methodologyID: String)
+}
+
 class MethodologyCell: UITableViewCell, ViewModelCell {
     typealias T = MethodologyCellViewModel
     
@@ -24,6 +28,7 @@ class MethodologyCell: UITableViewCell, ViewModelCell {
         didSet { fillUI() }
     }
     weak var presenter: Presenter?
+    weak var delegate: MethodologyCellDelegate?
     
     //MARK: - Life cycle
     override func awakeFromNib() {
@@ -44,33 +49,31 @@ class MethodologyCell: UITableViewCell, ViewModelCell {
     func fillUI() {
         labelName.text = viewModel.methodology.name
         labelSubtitle.text = viewModel.methodology.subtitle
-        if viewModel.methodology.isSaved {
-            saveMethodologyButton.imageView?.image = UIImage(systemName: "bookmark.fill")
-            print("fillUI:isSaved = true")
-        } else {
-            saveMethodologyButton.imageView?.image = UIImage(systemName: "bookmark")
+        if let image = viewModel.methodology.image {
+            methodologyImageView.setURLImage(image.midsize)
         }
-        methodologyImageView.image = viewModel.methodology.image
         labelShortDescription.text = viewModel.methodology.shortDescription
+        checkSaved()
+    }
+    
+    func checkSaved() {
+        let resetIcon = self.viewModel.methodology.isSaved ? "bookmark.fill" : "bookmark"
+        saveMethodologyButton.setImage(UIImage(systemName: resetIcon), for: .normal)
     }
     
     //MARK: - Observers
     @IBAction func saveButtonPressed(_ sender: Any) {
-        if Cache.get(boolFor: .logged) {
-            if viewModel.methodology.isSaved {
-                viewModel.methodology.isSaved = false
-                saveMethodologyButton.imageView?.image = UIImage(systemName: "bookmark")
-            } else {
-                viewModel.methodology.isSaved = true
-                saveMethodologyButton.imageView?.image = UIImage(systemName: "bookmark.fill")
-            }
+        if User.isLogged {
+            viewModel.methodology.isSaved.toggle()
+            checkSaved()
+            delegate?.updateSavedMethodologies(methodologyID: viewModel.methodology.id)
         } else {
             showGuestAlert()
         }
     }
     
     @IBAction func shareButtonPressed(_ sender: Any) {
-        let text = "https://cleanapp.rudo.es/methodology/1"
+        let text = "https://cleanapp.rudo.es/methodology/\(viewModel.methodology.id)"
 
         let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
         self.presenter?.present(viewController: activityViewController, completion: nil)

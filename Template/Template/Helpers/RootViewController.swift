@@ -73,6 +73,11 @@ class ViewController: UIViewController {
     navigationController?.setNavigationBarHidden(hideNavigationBar, animated: false)
     navigationController?.navigationBar.alpha = setNavigationBarTransparent ? 0 : 1
     navigationItem.largeTitleDisplayMode = useLargeTitle ? .always : .never
+    
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(languageChanged),
+                                           name: .LanguageChanged,
+                                           object: nil)
   }
 
   override func viewDidAppear(_ animated: Bool) {
@@ -92,4 +97,6 @@ class ViewController: UIViewController {
     navigationController?.navigationBar.alpha = setNavigationBarTransparent ? 0 : 1
     navigationItem.largeTitleDisplayMode = useLargeTitle ? .always : .never
   }
+  
+  @objc func languageChanged(notification: NSNotification) {}
 }

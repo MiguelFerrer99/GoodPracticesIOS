@@ -13,4 +13,5 @@ extension Notification.Name {
     //MARK: - Cart
     static let FiltersChanged = Notification.Name(rawValue: "FiltersChanged")
     static let SavedMethodologiesChanged = Notification.Name(rawValue: "SavedMethodologiesChanged")
+    static let LanguageChanged = Notification.Name(rawValue: "LanguageChanged")
 }

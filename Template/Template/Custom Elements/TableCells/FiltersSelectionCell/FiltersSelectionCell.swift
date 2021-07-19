@@ -31,6 +31,7 @@ class FiltersSelectionCell: UITableViewCell, ViewModelCell {
             iconImageView.setURLImage(viewModel.answer.imagePath) { image in
                 self.setCellColors()
             }
+            titleLabel.text = viewModel.answer.text
         }
     }
     
@@ -48,6 +49,4 @@ class FiltersSelectionCell: UITableViewCell, ViewModelCell {
         titleLabel.font = UIFont.systemFont(ofSize: 14)
       }
     }
-    
-    //MARK: - Observers
 }

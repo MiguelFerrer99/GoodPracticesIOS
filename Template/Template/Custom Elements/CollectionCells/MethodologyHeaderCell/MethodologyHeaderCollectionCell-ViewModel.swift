@@ -9,14 +9,20 @@
 import UIKit
 
 class MethodologyHeaderCollectionCellViewModel: ViewModel {
-    let name, subtitle, shortDescription, longDescription: String
-    let image: UIImage
     
-    init(name: String, subtitle: String, shortDescription:String, longDescription:String, image:UIImage) {
-        self.name = name
-        self.subtitle = subtitle
-        self.shortDescription = shortDescription
-        self.longDescription = longDescription
-        self.image = image
+    //MARK: - Properties
+    var title: String
+    var type: String
+    var description: String
+    var image: Image?
+    var longDescription: String
+
+    //MARK: - Initializer
+    init(title: String, type: String, description: String, image: Image?, longDescription: String) {
+      self.title = title
+      self.type = type
+      self.description = description
+      self.image = image
+      self.longDescription = longDescription
     }
 }

@@ -17,6 +17,4 @@ class ProductCollectionCellViewModel: ViewModel {
     init(product: Product) {
         self.product = product
     }
-    
-    //MARK: - Functions
 }

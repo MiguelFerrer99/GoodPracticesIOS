@@ -33,19 +33,27 @@ extension DeviceDetailViewController: UICollectionViewDelegate, UICollectionView
         
         switch cellType {
         case .headerSection:
-            let cellVM = DetailHeaderCollectionCellViewModel(image: viewModel.device.image, shortDescription: viewModel.device.shortDescription, longDescription: viewModel.device.longDescription, url: viewModel.device.url)
+            let cellVM = DetailHeaderCollectionCellViewModel(image: viewModel.device?.image ?? viewModel.deviceDetail?.image, shortDescription: viewModel.deviceDetail?.shortDescription ?? "", longDescription: viewModel.deviceDetail?.longDescription ?? "", url: viewModel.deviceDetail?.buyLink ?? "")
             let cell = collectionView.dequeue(DetailHeaderCollectionCell.self, for: indexPath, viewModel: cellVM)
             cell.presenter = self
             return cell
+            
         case .productsSection:
-            let cellVM = ProductCollectionCellViewModel(product: viewModel.device.products[indexPath.row])
+          if let detail = viewModel.deviceDetail, let products = detail.products {
+            let cellVM = ProductCollectionCellViewModel(product: products[indexPath.row])
             let cell = collectionView.dequeue(ProductCollectionCell.self, for: indexPath, viewModel: cellVM)
             return cell
+          }
+          return UICollectionViewCell()
+
         case .devicesSection:
-            let cellVM = DeviceCollectionCellViewModel(device: viewModel.device.attachments[indexPath.row])
+          if let detail = viewModel.deviceDetail, let attachments = detail.attachments {
+            let cellVM = DeviceCollectionCellViewModel(device: attachments[indexPath.row])
             let cell = collectionView.dequeue(DeviceCollectionCell.self, for: indexPath, viewModel: cellVM)
             cell.presenter = self
             return cell
+          }
+            return UICollectionViewCell()
         }
     }
     
@@ -53,10 +61,12 @@ extension DeviceDetailViewController: UICollectionViewDelegate, UICollectionView
         let cellType = viewModel.collectionManager.collectionSections[indexPath.section]
         switch cellType {
         case .productsSection:
-            let products = viewModel.device.products
-            let productDetailVM = ProductDetailViewModel(product: products[indexPath.row])
-            let productDetailVC = UIViewController.instantiate(viewController: ProductDetailViewController.self, withViewModel: productDetailVM)
-            push(viewController: productDetailVC)
+            if let detail = viewModel.deviceDetail, let products = detail.products {
+                let productDetailVM = ProductDetailViewModel(product: products[indexPath.row])
+                let productDetailVC = UIViewController.instantiate(viewController: ProductDetailViewController.self, withViewModel: productDetailVM)
+                push(viewController: productDetailVC)
+            }
+            
         default: break
         }
     }
@@ -65,9 +75,10 @@ extension DeviceDetailViewController: UICollectionViewDelegate, UICollectionView
         return UICollectionViewCompositionalLayout { (sectionNumber: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
             let sectionLayoutKind = self.viewModel.collectionManager.collectionSections[sectionNumber]
-            let noProducts = self.viewModel.device.products.isEmpty
-            let noDevices = self.viewModel.device.attachments.isEmpty
             let section: NSCollectionLayoutSection
+            
+            let noProducts = self.viewModel.deviceDetail?.products?.isEmpty ?? true
+            let noDevices = self.viewModel.deviceDetail?.attachments?.isEmpty ?? true
 
             switch sectionLayoutKind {
             case .headerSection:

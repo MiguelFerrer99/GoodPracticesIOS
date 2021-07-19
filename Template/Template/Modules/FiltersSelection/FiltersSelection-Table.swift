@@ -65,7 +65,10 @@ extension FiltersSelectionViewController: UITableViewDelegate, UITableViewDataSo
             
             if viewModel.deviceTypes != nil {
                 viewModel.selectedType = viewModel.deviceTypes?[indexPath.row]
-                //...
+              let deviceModelsVM = FiltersDeviceViewModel(index: indexPath.row, selectedBrand: viewModel.selectedBrand, selectedType: viewModel.selectedType)
+              deviceModelsVM.delegate = self.viewModel.delegate as? FiltersDeviceModelDelegate
+              let deviceModels = UIViewController.instantiate(viewController: FiltersDeviceModelViewController.self, withViewModel: deviceModelsVM)
+              push(viewController: deviceModels)
             }
             
             tableView.reloadData()

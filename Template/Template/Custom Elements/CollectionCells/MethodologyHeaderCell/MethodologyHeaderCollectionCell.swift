@@ -36,10 +36,12 @@ class MethodologyHeaderCollectionCell: UICollectionViewCell, ViewModelCell {
     }
     
     func fillUI() {
-        labelName.text = viewModel.name
-        labelSubtitle.text = viewModel.subtitle
-        methodologyImageView.image = viewModel.image
-        shortDescriptionLabel.text = viewModel.shortDescription
+        labelName.text = viewModel.title
+        labelSubtitle.text = viewModel.type
+        shortDescriptionLabel.text = viewModel.description
         longDescriptionLabel.text = viewModel.longDescription
+        if let image = viewModel.image {
+            methodologyImageView.setURLImage(image.midsize)
+        }
     }
 }

@@ -13,11 +13,19 @@ class OnboardCollectionViewModel: ViewModel {
   let onboardScreens: [OnboardScreen]
 
   init() {
-    onboardScreens = [
-        OnboardScreen(image: "Onboard_0", title: "Bienvenido a CleanApp", description: ""),
-        OnboardScreen(image: "Onboard_1", title: "Aprende como limpiar de forma óptima.", description: "Todos los métodos y sistemas de limpieza en una aplicación."),
-        OnboardScreen(image: "Onboard_2", title: "Para empresas.", description: "Guía paso a paso sobre todos los métodos de limpiesza, sus productos y mucho más."),
-        OnboardScreen(image: "Onboard_3", title: "Para personas privadas.", description: "Sepa cómo tener la casa limpia de forma segura.")
+      onboardScreens = [
+        OnboardScreen(image: "Onboard_0",
+           title: "onboarding_first_title".localized(Cache.get(stringFor: .language)),
+           description: ""),
+      OnboardScreen(image: "Onboard_1",
+           title: "onboarding_second_title".localized(Cache.get(stringFor: .language)),
+           description: "onboarding_second_body".localized(Cache.get(stringFor: .language))),
+      OnboardScreen(image: "Onboard_2",
+           title: "onboarding_third_title".localized(Cache.get(stringFor: .language)),
+           description: "onboarding_third_body".localized(Cache.get(stringFor: .language))),
+      OnboardScreen(image: "Onboard_3",
+           title: "onboarding_fourth_title".localized(Cache.get(stringFor: .language)),
+           description: "onboarding_fourth_body".localized(Cache.get(stringFor: .language)))
     ]
   }
 }

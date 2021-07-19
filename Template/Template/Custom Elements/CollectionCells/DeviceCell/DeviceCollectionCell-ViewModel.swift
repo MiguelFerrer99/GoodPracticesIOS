@@ -17,6 +17,4 @@ class DeviceCollectionCellViewModel: ViewModel {
     init(device: Device) {
         self.device = device
     }
-    
-    //MARK: - Functions
 }

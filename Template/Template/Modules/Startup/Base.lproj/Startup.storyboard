@@ -138,6 +138,11 @@
                             <constraint firstItem="ekG-8t-sK4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="oQe-6G-iRl"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="continuarComoInvitadoButton" destination="Wcw-CT-Kdf" id="d6t-SC-rsX"/>
+                        <outlet property="iniciarSesionButton" destination="Php-rw-FJ2" id="Wtd-NG-d7L"/>
+                        <outlet property="registarseButton" destination="cJx-bm-Nw9" id="zDA-Fw-Xmk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -12,6 +12,8 @@ class MethodologyViewModel: ViewModel {
     
     //MARK: - Properties
     var methodology: Methodology
+    
+    let methodologiesService = MethodologiesService()
     let collectionManager = MethodologyCollectionManager()
     
     //MARK: - Initializer
@@ -20,4 +22,7 @@ class MethodologyViewModel: ViewModel {
     }
     
     //MARK: - Functions
+    func saveMethodology(_ completion: @escaping ((Result<[String: String], API.NetworkError>) -> Void)) {
+        methodologiesService.saveMethodology(methodologyId: methodology.id, completionHandler: completion)
+    }
 }

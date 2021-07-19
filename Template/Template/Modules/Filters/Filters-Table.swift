@@ -28,6 +28,7 @@ extension FiltersViewController: UITableViewDelegate, UITableViewDataSource {
             let cellVM = FiltersQuestionCellViewModel(question: viewModel.questions[indexPath.row], selectedDeviceName: viewModel.selectedDevice?.name)
             let cell = tableView.dequeue(FiltersQuestionCell.self, viewModel: cellVM)
             return cell
+        
         default:
             let cellVM = FiltersQuestionCellViewModel(question: viewModel.questions[indexPath.row])
             let cell = tableView.dequeue(FiltersQuestionCell.self, viewModel: cellVM)
@@ -39,8 +40,38 @@ extension FiltersViewController: UITableViewDelegate, UITableViewDataSource {
         let cellType = viewModel.tableCells[indexPath.row]
         switch cellType {
         case .place:
-            break
-        default: break
+            let filtersSelectionVM = FiltersSelectionViewModel(question: viewModel.questions[indexPath.row], index: indexPath.row, places: viewModel.places)
+            filtersSelectionVM.delegate = self
+            let filtersSelectionVC = UIViewController.instantiate(viewController: FiltersSelectionViewController.self, withViewModel: filtersSelectionVM)
+            push(viewController: filtersSelectionVC)
+            
+        case .frequency:
+            let filtersSelectionVM = FiltersSelectionViewModel(question: viewModel.questions[indexPath.row], index: indexPath.row, frequencies: viewModel.frequencies)
+            filtersSelectionVM.delegate = self
+            let filtersSelectionVC = UIViewController.instantiate(viewController: FiltersSelectionViewController.self, withViewModel: filtersSelectionVM)
+            push(viewController: filtersSelectionVC)
+        
+        case .manualOrDevice:
+            let filtersSelectionVM = FiltersSelectionViewModel(question: viewModel.questions[indexPath.row], index: indexPath.row)
+            filtersSelectionVM.delegate = self
+            let filtersSelectionVC = UIViewController.instantiate(viewController: FiltersSelectionViewController.self, withViewModel: filtersSelectionVM)
+            push(viewController: filtersSelectionVC)
+            
+        case .brand:
+            let filtersSelectionVM = FiltersSelectionViewModel(question: viewModel.questions[indexPath.row], index: indexPath.row, brands: viewModel.brands)
+            filtersSelectionVM.delegate = self
+            let filtersSelectionVC = UIViewController.instantiate(viewController: FiltersSelectionViewController.self, withViewModel: filtersSelectionVM)
+            push(viewController: filtersSelectionVC)
+            
+        case .device:
+            guard viewModel.selectedBrand != nil else {
+                showAlert(title: "Selected a brand first")
+                return
+            }
+            let filtersSelectionVM = FiltersSelectionViewModel(question: viewModel.questions[indexPath.row], index: indexPath.row, deviceTypes: viewModel.deviceTypes, selectedBrand: viewModel.selectedBrand)
+            filtersSelectionVM.delegate = self
+            let filtersSelectionVC = UIViewController.instantiate(viewController: FiltersSelectionViewController.self, withViewModel: filtersSelectionVM)
+            push(viewController: filtersSelectionVC)
         }
     }
 }

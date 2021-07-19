@@ -16,12 +16,23 @@ class MainViewController: ViewController {
   // MARK: - Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    if Cache.get(stringFor: .language) == nil {
+      if let langStr = Locale.current.languageCode {
+        if langStr == "es" || langStr == "en" || langStr == "de" {
+          Cache.setLanguage(language: langStr)
+        } else {
+          Cache.setLanguage(language: "en")
+        }
+      } else {
+        Cache.setLanguage(language: "en")
+      }
+    }
   }
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
-    Cache.set(.language, "es")
     let hasSeenOnboarding = Cache.get(boolFor: .onboardDone)
     let isLogged = Cache.get(boolFor: .logged)
     if isLogged {

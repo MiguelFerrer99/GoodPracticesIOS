@@ -40,6 +40,8 @@ class LoginViewController: ViewController, ViewModelController {
     
   func fillUI() {
     if !isViewLoaded { return }
+    emailTextField.textField.text = "miguelferrer@rudo.es"
+    passwordTextField.textField.text = "12345678A"
   }
     
   func configureTextFields() {
